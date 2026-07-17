@@ -21,7 +21,7 @@ export const SITE = {
 
   // ПОЛНЫЙ адрес сайта БЕЗ слэша в конце. Поставишь после деплоя
   // (например https://zeleny-dom.pages.dev или свой домен).
-  url: 'https://zeleny-dom.example.com',
+  url: 'https://zeleny-dom.pages.dev',
 
   // Язык контента.
   lang: 'ru',
