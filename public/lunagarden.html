@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌿 LunaGarden AI</title>
+<style>
+:root{
+  --bg:#f3f7ef;--surface:#e6f0e0;--card:#fff;--cb:rgba(46,125,50,.14);
+  --text:#1c2e1e;--text2:#5a7d5e;--accent:#2e7d32;--acc2:#4caf50;
+  --amber:#c47100;--moon-c:#5d4037;
+  --ideal:#1b5e20;--good:#2e7d32;--neutral:#e65100;--bad:#bf360c;--forb:#b71c1c;
+  --ibg:rgba(27,94,32,.1);--gbg:rgba(46,125,50,.08);--nbg:rgba(230,81,0,.08);
+  --bbg:rgba(191,54,12,.08);--fbg:rgba(183,28,28,.1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;font-size:15px}
+.app{max-width:1100px;margin:0 auto;padding:0 16px 80px}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px;border-bottom:2px solid var(--surface)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{font-size:28px}
+.logo h1{font-size:18px;font-weight:700;color:var(--accent)}
+.logo span{font-size:11px;color:var(--text2)}
+.hdr-date{text-align:right;font-size:13px;color:var(--text2)}
+.hdr-date strong{display:block;font-size:15px;color:var(--text)}
+
+nav{display:flex;gap:5px;padding:10px 0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--surface)}
+nav::-webkit-scrollbar{display:none}
+.nb{padding:7px 14px;border-radius:20px;border:1.5px solid var(--cb);background:transparent;color:var(--text2);cursor:pointer;font-size:13px;white-space:nowrap;font-weight:500;transition:all .18s}
+.nb:hover{border-color:var(--acc2);color:var(--accent);background:var(--gbg)}
+.nb.active{background:var(--ibg);border-color:var(--accent);color:var(--ideal);font-weight:600}
+
+.sec{display:none;padding-top:18px}.sec.active{display:block}
+.sec-title{font-size:20px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--text2);margin-bottom:16px}
+
+.card{background:var(--card);border:1px solid var(--cb);border-radius:14px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.card+.card,.mb{margin-top:10px}
+.card h3{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:580px){.g2,.g3{grid-template-columns:1fr}}
+
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.badge.ideal    {background:var(--ibg);color:var(--ideal);border:1px solid rgba(27,94,32,.2)}
+.badge.good     {background:var(--gbg);color:var(--good);border:1px solid rgba(46,125,50,.2)}
+.badge.neutral  {background:var(--nbg);color:var(--neutral);border:1px solid rgba(230,81,0,.2)}
+.badge.bad      {background:var(--bbg);color:var(--bad);border:1px solid rgba(191,54,12,.2)}
+.badge.forbidden{background:var(--fbg);color:var(--forb);border:1px solid rgba(183,28,28,.2)}
+
+.rdot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+.rdot.ideal{background:var(--ideal)}.rdot.good{background:var(--good)}
+.rdot.neutral{background:var(--neutral)}.rdot.bad{background:var(--bad)}.rdot.forbidden{background:var(--forb)}
+
+.pl{display:inline-flex;align-items:center;gap:3px;font-size:12px;padding:2px 8px;border-radius:10px}
+.pl.root  {background:rgba(121,85,72,.1);color:#5d3c2e}
+.pl.leaf  {background:rgba(76,175,80,.12);color:#1b5e20}
+.pl.fruit {background:rgba(255,152,0,.12);color:#7a3b00}
+.pl.flower{background:rgba(156,39,176,.1);color:#6a1b9a}
+
+.hero{display:flex;align-items:center;gap:18px;margin-bottom:12px}
+.moon-em{font-size:60px;line-height:1;filter:drop-shadow(0 2px 6px rgba(46,125,50,.2))}
+.hero-info{flex:1}
+.hero-info .ph-lbl{color:var(--text2);font-size:13px}
+.hero-info h2{font-size:22px;font-weight:700;color:var(--text);margin:2px 0 6px}
+.hero-info .sr{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.sch{background:var(--surface);padding:3px 9px;border-radius:10px;font-size:13px;color:var(--text)}
+
+.lring{position:relative;width:54px;height:54px;flex-shrink:0}
+.lring svg{transform:rotate(-90deg)}
+.lring .dn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;font-weight:700;color:var(--amber)}
+
+.advice{background:linear-gradient(135deg,rgba(46,125,50,.07),rgba(76,175,80,.04));border:1px solid rgba(46,125,50,.18);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--text);line-height:1.6;margin-bottom:12px}
+
+.titem{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--surface)}
+.titem:last-child{border-bottom:none}
+.ttime{font-size:11px;color:var(--text2);white-space:nowrap;min-width:60px;margin-top:2px;font-weight:500}
+.ttxt{font-size:14px;flex:1}
+.trat{margin-left:auto;flex-shrink:0}
+
+.ftags{display:flex;flex-wrap:wrap;gap:6px}
+.ftag{background:rgba(183,28,28,.06);border:1px solid rgba(183,28,28,.15);border-radius:8px;padding:3px 9px;font-size:12px;color:var(--forb)}
+
+/* Calendar */
+.cal-nav-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-nav-row h2{font-size:18px;font-weight:700;color:var(--accent)}
+.cnb{background:var(--surface);border:1px solid var(--cb);color:var(--text2);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:16px;transition:all .18s}
+.cnb:hover{border-color:var(--accent);color:var(--accent)}
+
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cdh{text-align:center;font-size:11px;color:var(--text2);padding:5px 0;font-weight:600}
+.cday{border-radius:8px;padding:5px 3px;text-align:center;cursor:pointer;transition:all .18s;min-height:52px;border:1px solid transparent}
+.cday:hover{transform:scale(1.05);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.cday.empty{opacity:0;pointer-events:none}
+.cday.today{box-shadow:0 0 0 2px var(--accent)!important}
+.cday .cn{font-size:13px;font-weight:600;display:block}
+.cday .cp{font-size:14px;display:block;line-height:1.1}
+.cday .cs{font-size:10px;display:block;opacity:.8}
+.cday.ideal    {background:rgba(27,94,32,.13);border-color:rgba(27,94,32,.28);color:var(--ideal)}
+.cday.good     {background:rgba(46,125,50,.08);border-color:rgba(46,125,50,.2);color:var(--good)}
+.cday.neutral  {background:rgba(230,81,0,.07);border-color:rgba(230,81,0,.15);color:var(--neutral)}
+.cday.bad      {background:rgba(191,54,12,.07);border-color:rgba(191,54,12,.15);color:var(--bad)}
+.cday.forbidden{background:rgba(183,28,28,.07);border-color:rgba(183,28,28,.18);color:var(--forb)}
+
+.cal-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;font-size:12px;color:var(--text2)}
+.cl-i{display:flex;align-items:center;gap:5px}
+
+/* Best days */
+.bdc{border-radius:12px;padding:12px 15px;border:1px solid var(--cb);margin-bottom:8px;display:flex;align-items:flex-start;gap:12px;background:var(--card)}
+.bdc.ideal{border-color:rgba(27,94,32,.28);background:rgba(27,94,32,.04)}
+.bdc.good {border-color:rgba(46,125,50,.2);background:rgba(46,125,50,.03)}
+.bdd{text-align:center;min-width:40px;flex-shrink:0}
+.bdd .bdy{font-size:19px;font-weight:700;color:var(--text);display:block}
+.bdd .bdm{font-size:11px;color:var(--text2)}
+.bdi{flex:1}
+.bdi .bdw{font-size:14px;font-weight:500;margin-bottom:3px}
+.bdi .bdwh{font-size:12px;color:var(--text2)}
+.nf{background:rgba(196,113,0,.1);border:1px solid rgba(196,113,0,.25);border-radius:6px;padding:2px 7px;font-size:11px;color:var(--amber)}
+
+/* Plants catalog */
+.srch-box{display:flex;gap:8px;margin-bottom:12px}
+.srch-inp{flex:1;background:var(--card);border:1.5px solid var(--cb);border-radius:10px;padding:9px 13px;font-size:14px;color:var(--text)}
+.srch-inp:focus{outline:none;border-color:var(--accent)}
+
+.pg{margin-bottom:6px;border-radius:12px;overflow:hidden;border:1px solid var(--cb)}
+.pg-hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 15px;background:var(--surface);cursor:pointer;user-select:none;transition:background .15s}
+.pg-hdr:hover{background:#d7ecd8}
+.pg-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:7px}
+.pg-right{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--text2)}
+.pg-body{padding:8px;background:var(--card);display:none}
+.pg-body.open{display:block}
+.pi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:2px}
+.pi{display:flex;align-items:center;gap:7px;padding:6px 9px;border-radius:7px;cursor:pointer;transition:background .14s;font-size:13px}
+.pi:hover{background:var(--surface)}
+.pi input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent);cursor:pointer;flex-shrink:0}
+.pi.sel{background:rgba(46,125,50,.1)}
+
+/* Settings / region */
+.srow{display:flex;align-items:flex-start;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--surface)}
+.srow:last-child{border-bottom:none}
+.sl{font-size:14px;font-weight:500}.sd{font-size:12px;color:var(--text2);margin-top:1px}
+
+.fi{background:var(--card);border:1.5px solid var(--cb);border-radius:9px;padding:8px 12px;color:var(--text);font-size:14px;width:100%}
+.fi:focus{outline:none;border-color:var(--accent)}
+
+.rswrap{position:relative}
+.rs-inp{width:100%;padding:9px 13px;background:var(--card);border:1.5px solid var(--cb);border-radius:10px;font-size:14px;color:var(--text)}
+.rs-inp:focus{outline:none;border-color:var(--accent)}
+.rs-dd{display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--card);border:1.5px solid var(--cb);border-radius:10px;max-height:230px;overflow-y:auto;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.rs-dd.open{display:block}
+.ro{padding:8px 13px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--surface)}
+.ro:last-child{border-bottom:none}
+.ro:hover{background:var(--surface)}
+.ro.sel{background:var(--ibg);color:var(--ideal);font-weight:600}
+.ro-dist{font-size:10px;color:var(--text2)}
+
+/* Climate chart */
+.cc-temps{display:flex;gap:2px;align-items:flex-end;height:58px;margin:10px 0 2px}
+.cc-col{display:flex;flex-direction:column;align-items:center;flex:1;gap:1px}
+.cc-bar{width:100%;border-radius:3px 3px 0 0;min-height:2px}
+.cc-bar.pos{background:var(--acc2)}
+.cc-bar.neg{background:#42a5f5;border-radius:0 0 3px 3px}
+.cc-lbl{font-size:8px;color:var(--text2)}
+.cc-val{font-size:8px;color:var(--text);font-weight:600}
+.cc-now{display:inline-flex;align-items:center;gap:6px;background:var(--ibg);border:1px solid rgba(27,94,32,.2);border-radius:10px;padding:5px 11px;font-size:13px;font-weight:600;color:var(--ideal);margin-bottom:8px}
+.cc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:13px}
+.cc-row{padding:5px 0;border-bottom:1px solid var(--surface);display:flex;justify-content:space-between}
+.cc-row:last-child{border-bottom:none}
+
+.btn{padding:8px 16px;border-radius:9px;border:none;cursor:pointer;font-size:14px;font-weight:600;transition:all .18s}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{background:#1b5e20}
+.btn-o{background:transparent;border:1.5px solid var(--accent);color:var(--accent)}
+.btn-o:hover{background:var(--ibg)}
+.btn-am{background:var(--amber);color:#fff}
+.btn-am:hover{background:#a36100}
+
+/* Bottom nav */
+.bnav{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(243,247,239,.97);backdrop-filter:blur(10px);border-top:1px solid var(--cb);padding:6px 0 8px;z-index:50}
+@media(max-width:640px){.bnav{display:flex}nav{display:none}}
+.bnb{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;background:transparent;border:none;color:var(--text2);cursor:pointer;padding:4px 0;font-size:10px;transition:color .18s}
+.bnb.active{color:var(--accent);font-weight:600}
+.bnb .bi{font-size:20px}
+
+/* Popup */
+.popup{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:200;background:rgba(0,0,0,.3);backdrop-filter:blur(3px)}
+.pbox{background:var(--card);border:1px solid var(--cb);border-radius:18px;padding:22px 24px;max-width:420px;width:90%;position:relative;max-height:80vh;overflow-y:auto}
+.pclose{position:absolute;top:12px;right:16px;background:transparent;border:none;cursor:pointer;font-size:20px;color:var(--text2)}
+.pbox h3{font-size:17px;font-weight:700;color:var(--text);margin-bottom:10px}
+
+/* Print */
+@media print{
+  body{background:#fff!important;color:#000!important;font-size:10pt}
+  .no-print{display:none!important}
+  .app{padding:0;max-width:100%}
+  header,nav,.bnav{display:none!important}
+  .sec{display:block!important}
+  .cday.ideal    {background:#c8e6c9!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cday.good     {background:#e8f5e9!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cday.neutral  {background:#fff8e1!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cday.bad      {background:#fbe9e7!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cday.forbidden{background:#ffebee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="no-print">
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <div><h1>LunaGarden AI</h1><span>Биодинамический агроном</span></div>
+    </div>
+    <div class="hdr-date" id="hdrDate"></div>
+  </header>
+
+  <nav class="no-print" id="mainNav">
+    <button class="nb active" onclick="showTab('today')">🌿 Сегодня</button>
+    <button class="nb" onclick="showTab('calendar')">📅 Календарь</button>
+    <button class="nb" onclick="showTab('bestdays')">⭐ Лучшие дни</button>
+    <button class="nb" onclick="showTab('plants')">🌱 Культуры</button>
+    <button class="nb" onclick="showTab('settings')">⚙️ Настройки</button>
+  </nav>
+
+  <div class="sec active" id="tab-today"><div id="todayContent"></div></div>
+
+  <div class="sec" id="tab-calendar">
+    <div class="cal-nav-row no-print">
+      <button class="cnb" onclick="calPrev()">‹</button>
+      <h2 id="calTitle"></h2>
+      <button class="cnb" onclick="calNext()">›</button>
+    </div>
+    <div class="card">
+      <div class="cg" id="calGrid"></div>
+      <div class="cal-legend">
+        <div class="cl-i"><span class="rdot ideal"></span>Идеальный</div>
+        <div class="cl-i"><span class="rdot good"></span>Хороший</div>
+        <div class="cl-i"><span class="rdot neutral"></span>Нейтральный</div>
+        <div class="cl-i"><span class="rdot bad"></span>Неблагоприятный</div>
+        <div class="cl-i"><span class="rdot forbidden"></span>День покоя</div>
+      </div>
+    </div>
+    <div id="calDetail" style="margin-top:10px"></div>
+    <div style="margin-top:14px;display:flex;justify-content:flex-end" class="no-print">
+      <button class="btn btn-am" onclick="exportPDF()">📄 Скачать PDF</button>
+    </div>
+  </div>
+
+  <div class="sec" id="tab-bestdays">
+    <div class="sec-title">⭐ Лучшие дни</div>
+    <div class="sec-sub">Ближайшие 30 дней для ваших культур</div>
+    <div id="bestContent"></div>
+  </div>
+
+  <div class="sec" id="tab-plants">
+    <div class="sec-title">🌱 Мои культуры</div>
+    <div class="sec-sub">Отметьте культуры — рекомендации станут персональными</div>
+    <div class="srch-box">
+      <input class="srch-inp" id="plantSearch" placeholder="🔍 Поиск..." oninput="renderPlants()" />
+      <button class="btn btn-o" onclick="clearPlants()" style="white-space:nowrap">Сбросить всё</button>
+    </div>
+    <div id="plantCatalog"></div>
+  </div>
+
+  <div class="sec" id="tab-settings">
+    <div class="sec-title">⚙️ Настройки</div>
+    <div class="sec-sub">Регион и параметры</div>
+    <div class="card mb">
+      <h3>📍 Регион</h3>
+      <div class="rswrap">
+        <input class="rs-inp" id="regionInput" placeholder="Начните вводить название..." oninput="filterRegions()" onfocus="openDD()" autocomplete="off" />
+        <div class="rs-dd" id="regionDD"></div>
+      </div>
+      <div id="climateCard" style="margin-top:12px"></div>
+    </div>
+    <div class="card mb">
+      <h3>⚙️ Параметры</h3>
+      <div class="srow">
+        <div><div class="sl">Теплица / защищённый грунт</div><div class="sd">Игнорировать климатические ограничения</div></div>
+        <input type="checkbox" id="setGH" style="width:16px;height:16px;accent-color:var(--accent);cursor:pointer;margin-top:2px" />
+      </div>
+      <div class="srow">
+        <div><div class="sl">Напоминания о лучших днях</div></div>
+        <select class="fi" id="setNotif" style="max-width:185px">
+          <option value="daily">Ежедневный чек-лист</option>
+          <option value="1d">За 1 день</option>
+          <option value="2d" selected>За 2 дня</option>
+          <option value="manual">Вручную</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-p" onclick="saveSettings()" style="flex:1">💾 Сохранить</button>
+      <button class="btn btn-am" onclick="exportPDF()">📄 Скачать PDF</button>
+    </div>
+    <div id="savedMsg" style="text-align:center;color:var(--good);font-size:13px;margin-top:8px;display:none">✓ Сохранено</div>
+  </div>
+</div>
+
+<div class="bnav no-print">
+  <button class="bnb active" onclick="showTab('today')"><span class="bi">🌿</span>Сегодня</button>
+  <button class="bnb" onclick="showTab('calendar')"><span class="bi">📅</span>Календарь</button>
+  <button class="bnb" onclick="showTab('bestdays')"><span class="bi">⭐</span>Лучшие</button>
+  <button class="bnb" onclick="showTab('plants')"><span class="bi">🌱</span>Культуры</button>
+  <button class="bnb" onclick="showTab('settings')"><span class="bi">⚙️</span>Настройки</button>
+</div>
+
+<div class="popup" id="popup" style="display:none" onclick="if(event.target===this)closePopup()">
+  <div class="pbox">
+    <button class="pclose" onclick="closePopup()">✕</button>
+    <h3 id="popupTitle"></h3>
+    <div id="popupBody"></div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   DATA: REGIONS (50 регионов России)
+   temps: среднемесячные °C [янв..дек]
+   lastFrost / firstFrost: "ДД.ММ"
+   zone: USDA зона морозостойкости
+═══════════════════════════════════════════════════════ */
+const REGIONS=[
+ // ─── Центральный ФО ───
+ {id:'moscow',name:'Москва и Московская обл.',dist:'Центральный ФО',zone:4,lf:'05.05',ff:'25.09',temps:[-9,-8,-2,6,13,18,20,18,12,5,-2,-7]},
+ {id:'tula',name:'Тульская обл.',dist:'Центральный ФО',zone:5,lf:'05.05',ff:'28.09',temps:[-8,-8,-2,6,13,17,19,18,12,4,-2,-7]},
+ {id:'ryazan',name:'Рязанская обл.',dist:'Центральный ФО',zone:4,lf:'08.05',ff:'28.09',temps:[-9,-9,-2,7,14,18,20,19,12,4,-2,-8]},
+ {id:'kaluga',name:'Калужская обл.',dist:'Центральный ФО',zone:4,lf:'10.05',ff:'28.09',temps:[-8,-8,-2,6,13,17,19,18,11,4,-2,-7]},
+ {id:'tver',name:'Тверская обл.',dist:'Центральный ФО',zone:4,lf:'18.05',ff:'22.09',temps:[-10,-9,-3,5,12,16,19,17,11,4,-3,-8]},
+ {id:'yaroslavl',name:'Ярославская обл.',dist:'Центральный ФО',zone:4,lf:'18.05',ff:'22.09',temps:[-11,-10,-3,5,12,17,19,17,11,4,-3,-9]},
+ {id:'vladimir',name:'Владимирская обл.',dist:'Центральный ФО',zone:4,lf:'12.05',ff:'25.09',temps:[-10,-9,-2,6,13,17,20,18,12,4,-2,-8]},
+ {id:'kostroma',name:'Костромская обл.',dist:'Центральный ФО',zone:4,lf:'22.05',ff:'18.09',temps:[-12,-11,-3,5,12,16,18,16,10,3,-4,-10]},
+ {id:'ivanovo',name:'Ивановская обл.',dist:'Центральный ФО',zone:4,lf:'18.05',ff:'22.09',temps:[-11,-10,-3,5,12,16,19,17,11,4,-3,-9]},
+ {id:'smolensk',name:'Смоленская обл.',dist:'Центральный ФО',zone:5,lf:'12.05',ff:'25.09',temps:[-8,-7,-2,6,12,16,18,17,11,4,-2,-7]},
+ {id:'bryansk',name:'Брянская обл.',dist:'Центральный ФО',zone:5,lf:'08.05',ff:'30.09',temps:[-7,-7,-1,7,14,17,19,18,12,5,-1,-6]},
+ {id:'orel',name:'Орловская обл.',dist:'Центральный ФО',zone:5,lf:'03.05',ff:'02.10',temps:[-7,-7,-1,7,14,18,20,19,12,5,-1,-6]},
+ {id:'kursk',name:'Курская обл.',dist:'Центральный ФО',zone:5,lf:'25.04',ff:'05.10',temps:[-7,-7,-1,8,15,19,21,20,13,6,-1,-6]},
+ {id:'belgorod',name:'Белгородская обл.',dist:'Центральный ФО',zone:5,lf:'20.04',ff:'10.10',temps:[-6,-6,1,9,16,20,22,21,14,7,0,-5]},
+ {id:'voronezh',name:'Воронежская обл.',dist:'Центральный ФО',zone:5,lf:'25.04',ff:'05.10',temps:[-7,-7,-1,8,15,19,22,21,14,6,-1,-6]},
+ {id:'lipetsk',name:'Липецкая обл.',dist:'Центральный ФО',zone:5,lf:'28.04',ff:'02.10',temps:[-8,-8,-1,8,15,19,22,20,13,6,-1,-7]},
+ {id:'tambov',name:'Тамбовская обл.',dist:'Центральный ФО',zone:5,lf:'28.04',ff:'02.10',temps:[-9,-8,-1,8,15,19,22,20,13,6,-1,-7]},
+ // ─── Северо-Западный ФО ───
+ {id:'spb',name:'Санкт-Петербург и Лен. обл.',dist:'Северо-Западный ФО',zone:4,lf:'15.05',ff:'20.09',temps:[-7,-7,-2,4,10,15,18,17,11,5,-1,-5]},
+ {id:'novgorod',name:'Новгородская обл.',dist:'Северо-Западный ФО',zone:4,lf:'18.05',ff:'20.09',temps:[-8,-7,-2,5,11,16,18,17,11,5,-2,-6]},
+ {id:'pskov',name:'Псковская обл.',dist:'Северо-Западный ФО',zone:4,lf:'18.05',ff:'20.09',temps:[-7,-6,-1,6,12,16,18,17,12,5,-1,-5]},
+ {id:'vologda',name:'Вологодская обл.',dist:'Северо-Западный ФО',zone:3,lf:'01.06',ff:'10.09',temps:[-12,-11,-4,4,10,15,18,16,10,3,-4,-10]},
+ {id:'arkhangelsk',name:'Архангельская обл.',dist:'Северо-Западный ФО',zone:3,lf:'05.06',ff:'25.08',temps:[-13,-12,-5,2,8,14,17,15,8,1,-6,-11]},
+ {id:'murmansk',name:'Мурманская обл.',dist:'Северо-Западный ФО',zone:2,lf:'20.06',ff:'12.08',temps:[-10,-10,-6,0,5,10,14,13,8,1,-4,-8]},
+ {id:'kaliningrad',name:'Калининградская обл.',dist:'Северо-Западный ФО',zone:6,lf:'10.04',ff:'25.10',temps:[-2,-1,3,8,13,17,19,19,14,8,3,0]},
+ {id:'karelia',name:'Республика Карелия',dist:'Северо-Западный ФО',zone:3,lf:'01.06',ff:'10.09',temps:[-12,-11,-5,2,9,14,17,15,9,2,-5,-10]},
+ // ─── Южный и СКФО ───
+ {id:'krasnodar',name:'Краснодарский край',dist:'Южный ФО',zone:7,lf:'15.03',ff:'25.10',temps:[2,3,7,13,18,23,26,26,20,13,7,3]},
+ {id:'rostov',name:'Ростовская обл.',dist:'Южный ФО',zone:6,lf:'05.04',ff:'12.10',temps:[-4,-3,3,11,17,22,25,24,17,9,2,-2]},
+ {id:'volgograd',name:'Волгоградская обл.',dist:'Южный ФО',zone:6,lf:'15.04',ff:'10.10',temps:[-6,-5,1,10,18,23,26,25,17,8,1,-4]},
+ {id:'astrakhan',name:'Астраханская обл.',dist:'Южный ФО',zone:6,lf:'05.04',ff:'20.10',temps:[-4,-3,4,12,19,25,28,27,19,10,3,-2]},
+ {id:'crimea',name:'Республика Крым',dist:'Южный ФО',zone:7,lf:'20.03',ff:'05.11',temps:[1,2,6,12,17,22,25,25,19,12,6,2]},
+ {id:'stavropol',name:'Ставропольский край',dist:'СКФО',zone:6,lf:'10.04',ff:'15.10',temps:[-3,-2,4,10,16,20,23,23,17,10,3,-1]},
+ // ─── Поволжье ───
+ {id:'tatarstan',name:'Республика Татарстан',dist:'Приволжский ФО',zone:4,lf:'12.05',ff:'27.09',temps:[-12,-11,-3,6,13,18,21,19,12,4,-4,-10]},
+ {id:'bashkortostan',name:'Республика Башкортостан',dist:'Приволжский ФО',zone:4,lf:'18.05',ff:'22.09',temps:[-14,-13,-4,5,13,18,20,18,11,3,-6,-12]},
+ {id:'samara',name:'Самарская обл.',dist:'Приволжский ФО',zone:5,lf:'08.05',ff:'30.09',temps:[-12,-11,-3,7,15,20,23,21,14,5,-3,-10]},
+ {id:'saratov',name:'Саратовская обл.',dist:'Приволжский ФО',zone:5,lf:'25.04',ff:'05.10',temps:[-10,-9,-2,8,16,21,24,22,14,6,-2,-8]},
+ {id:'nizhniy',name:'Нижегородская обл.',dist:'Приволжский ФО',zone:4,lf:'15.05',ff:'25.09',temps:[-11,-10,-3,6,13,18,20,18,12,4,-3,-9]},
+ {id:'penza',name:'Пензенская обл.',dist:'Приволжский ФО',zone:5,lf:'03.05',ff:'27.09',temps:[-11,-10,-2,7,14,18,21,19,12,5,-2,-9]},
+ {id:'ulyanovsk',name:'Ульяновская обл.',dist:'Приволжский ФО',zone:4,lf:'08.05',ff:'27.09',temps:[-12,-11,-3,6,14,18,21,19,12,4,-4,-10]},
+ {id:'kirov',name:'Кировская обл.',dist:'Приволжский ФО',zone:3,lf:'25.05',ff:'15.09',temps:[-14,-13,-5,3,11,15,18,16,9,2,-6,-12]},
+ {id:'udmurtia',name:'Республика Удмуртия',dist:'Приволжский ФО',zone:4,lf:'22.05',ff:'18.09',temps:[-14,-13,-5,4,12,16,19,17,10,2,-7,-12]},
+ // ─── Урал ───
+ {id:'ekb',name:'Свердловская обл. (Екатеринбург)',dist:'Уральский ФО',zone:3,lf:'25.05',ff:'15.09',temps:[-14,-13,-5,4,11,16,19,17,11,3,-6,-12]},
+ {id:'chelyabinsk',name:'Челябинская обл.',dist:'Уральский ФО',zone:3,lf:'23.05',ff:'17.09',temps:[-15,-14,-5,5,13,18,21,19,11,3,-7,-13]},
+ {id:'perm',name:'Пермский край',dist:'Уральский ФО',zone:3,lf:'28.05',ff:'18.09',temps:[-15,-14,-5,4,11,16,19,17,10,2,-7,-13]},
+ {id:'orenburg',name:'Оренбургская обл.',dist:'Уральский ФО',zone:4,lf:'08.05',ff:'25.09',temps:[-14,-13,-4,7,15,21,23,21,13,4,-6,-12]},
+ {id:'tyumen',name:'Тюменская обл.',dist:'Уральский ФО',zone:3,lf:'25.05',ff:'12.09',temps:[-16,-15,-6,3,11,16,19,16,10,1,-10,-15]},
+ // ─── Сибирь ───
+ {id:'novosibirsk',name:'Новосибирская обл.',dist:'Сибирский ФО',zone:3,lf:'28.05',ff:'08.09',temps:[-17,-15,-7,3,11,17,20,18,12,3,-8,-15]},
+ {id:'omsk',name:'Омская обл.',dist:'Сибирский ФО',zone:3,lf:'22.05',ff:'12.09',temps:[-17,-16,-6,4,12,18,21,19,11,2,-9,-16]},
+ {id:'tomsk',name:'Томская обл.',dist:'Сибирский ФО',zone:3,lf:'01.06',ff:'07.09',temps:[-18,-17,-7,2,10,16,19,16,9,0,-11,-17]},
+ {id:'krasnoyarsk',name:'Красноярский край',dist:'Сибирский ФО',zone:3,lf:'25.05',ff:'12.09',temps:[-17,-15,-5,3,11,17,20,17,10,1,-10,-16]},
+ {id:'irkutsk',name:'Иркутская обл.',dist:'Сибирский ФО',zone:3,lf:'03.06',ff:'07.09',temps:[-20,-17,-7,3,10,16,19,17,10,1,-11,-18]},
+ {id:'buryatia',name:'Республика Бурятия',dist:'Сибирский ФО',zone:3,lf:'05.06',ff:'05.09',temps:[-23,-19,-8,4,11,17,21,18,10,0,-12,-20]},
+ // ─── Дальний Восток ───
+ {id:'vladivostok',name:'Приморский край (Владивосток)',dist:'Дальневосточный ФО',zone:5,lf:'10.05',ff:'18.10',temps:[-12,-9,-2,5,11,15,21,21,16,9,1,-7]},
+ {id:'khabarovsk',name:'Хабаровский край',dist:'Дальневосточный ФО',zone:3,lf:'12.05',ff:'22.09',temps:[-21,-16,-6,4,12,18,22,21,13,3,-9,-18]},
+ {id:'sakhalin',name:'Сахалинская обл.',dist:'Дальневосточный ФО',zone:4,lf:'20.05',ff:'30.09',temps:[-13,-11,-5,2,7,12,17,18,12,5,-3,-10]},
+];
+
+const MONTHS_RU=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+const MONTHS_SH=['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
+const DAYS_RU=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+
+/* ═══════════════════════════════════════════════════════
+   DATA: PLANT CATALOG
+═══════════════════════════════════════════════════════ */
+const CATALOG=[
+ {id:'root1',group:'root',cat:'🥕 Корнеплоды',plants:['Морковь','Свёкла','Редис','Редька','Репа','Пастернак','Сельдерей (корневой)','Петрушка (корневая)','Хрен','Топинамбур','Дайкон','Брюква']},
+ {id:'root2',group:'root',cat:'🧅 Луковичные',plants:['Лук репчатый','Лук-порей','Чеснок','Шалот','Лук-батун','Лук-шнитт']},
+ {id:'root3',group:'root',cat:'🥔 Клубнеплоды',plants:['Картофель','Батат']},
+ {id:'leaf1',group:'leaf',cat:'🥬 Листовые и зелень',plants:['Салат листовой','Шпинат','Щавель','Мангольд','Руккола','Кресс-салат','Горчица листовая','Укроп','Петрушка (зелёная)','Базилик','Кинза','Мята','Мелисса','Эстрагон','Тимьян','Розмарин','Орегано','Сельдерей листовой']},
+ {id:'leaf2',group:'leaf',cat:'🥦 Капустные',plants:['Капуста белокочанная','Капуста краснокочанная','Капуста пекинская','Капуста брокколи','Капуста цветная','Капуста кольраби','Капуста савойская','Капуста брюссельская','Кале']},
+ {id:'leaf3',group:'leaf',cat:'🌿 Газон',plants:['Газонная трава (смесь)','Мятлик луговой','Овсяница красная','Райграс пастбищный']},
+ {id:'fruit1',group:'fruit',cat:'🍅 Плодовые овощи',plants:['Томат','Перец сладкий','Перец острый','Баклажан','Огурец','Кабачок','Тыква','Патиссон','Дыня','Арбуз','Горох','Фасоль стручковая','Фасоль кустовая','Бобы','Кукуруза']},
+ {id:'fruit2',group:'fruit',cat:'🫐 Ягодные кустарники',plants:['Земляника (клубника)','Малина','Ежевика','Смородина чёрная','Смородина красная','Смородина белая','Крыжовник','Жимолость','Голубика','Черника садовая','Облепиха','Шиповник']},
+ {id:'fruit3',group:'fruit',cat:'🍎 Плодовые деревья',plants:['Яблоня','Груша','Слива','Вишня','Черешня','Абрикос','Персик','Алыча','Айва','Рябина','Виноград','Актинидия','Лимонник китайский','Грецкий орех','Фундук']},
+ {id:'flower1',group:'flower',cat:'🌸 Цветы однолетние',plants:['Астра однолетняя','Ноготки (календула)','Бархатцы','Петуния','Настурция','Циния','Космея','Василёк','Лобелия','Агератум','Сальвия','Антирринум (львиный зев)','Мак декоративный','Душистый горошек']},
+ {id:'flower2',group:'flower',cat:'🌹 Цветы многолетние',plants:['Пион','Ирис','Тюльпан','Нарцисс','Георгин','Флокс','Хризантема','Лилия','Лаванда','Ромашка садовая','Люпин','Рудбекия','Эхинацея','Дельфиниум','Астильба','Хоста']},
+ {id:'flower3',group:'flower',cat:'🌳 Декоративные деревья и кустарники',plants:['Роза','Сирень','Жасмин (чубушник)','Гортензия','Спирея','Форзиция','Вейгела','Дерен декоративный','Бузина','Барбарис','Боярышник','Калина декоративная','Бирючина','Кизильник','Можжевельник','Туя','Ель декоративная','Клён декоративный','Черёмуха']},
+];
+
+const GROUP_ICONS={root:'🥕',leaf:'🥬',fruit:'🍅',flower:'🌸'};
+const GROUP_NAMES={root:'корневых',leaf:'листовых',fruit:'плодовых',flower:'цветов и декоративных'};
+const PART_LABELS={root:'🥕 Корень',leaf:'🥬 Лист',fruit:'🍅 Плод',flower:'🌸 Цветок'};
+const RATEL={ideal:'★ Идеально',good:'✓ Хорошо',neutral:'— Нейтрально',bad:'✗ Плохо',forbidden:'⛔ Запрет'};
+
+/* ═══════════════════════════════════════════════════════
+   LUNAR ENGINE
+═══════════════════════════════════════════════════════ */
+function jd(date){
+  const y=date.getFullYear(),m=date.getMonth()+1,d=date.getDate();
+  let Y=y,M=m; if(M<=2){Y--;M+=12;}
+  const A=Math.floor(Y/100),B=2-A+Math.floor(A/4);
+  return Math.floor(365.25*(Y+4716))+Math.floor(30.6001*(M+1))+d+B-1524.5;
+}
+function moonAge(date){
+  const J=jd(date),ref=2451550.09765,c=29.53058867;
+  return((J-ref)%c+c)%c;
+}
+function moonLon(date){
+  const J=jd(date),T=(J-2451545)/36525;
+  const D=(297.85+445267.11*T)*Math.PI/180;
+  const M=(357.53+35999.05*T)*Math.PI/180;
+  const Mp=(134.96+477198.87*T)*Math.PI/180;
+  const F=(93.27+483202.02*T)*Math.PI/180;
+  const L=218.3164+481267.8812*T
+    +6.289*Math.sin(Mp)+1.274*Math.sin(2*D-Mp)
+    +0.658*Math.sin(2*D)+0.214*Math.sin(2*Mp)
+    -0.186*Math.sin(M)-0.114*Math.sin(2*F)
+    +0.059*Math.sin(2*D-2*Mp)+0.053*Math.sin(2*D+Mp);
+  return((L%360)+360)%360;
+}
+
+const SIGNS=[
+  {n:'Овен',     e:'♈',el:'fire', p:'fruit', f:'barren'},
+  {n:'Телец',    e:'♉',el:'earth',p:'root',  f:'fertile'},
+  {n:'Близнецы', e:'♊',el:'air',  p:'flower',f:'barren'},
+  {n:'Рак',      e:'♋',el:'water',p:'leaf',  f:'fertile'},
+  {n:'Лев',      e:'♌',el:'fire', p:'fruit', f:'barren'},
+  {n:'Дева',     e:'♍',el:'earth',p:'root',  f:'fertile'},
+  {n:'Весы',     e:'♎',el:'air',  p:'flower',f:'fertile'},
+  {n:'Скорпион', e:'♏',el:'water',p:'leaf',  f:'fertile'},
+  {n:'Стрелец',  e:'♐',el:'fire', p:'fruit', f:'fertile'},
+  {n:'Козерог',  e:'♑',el:'earth',p:'root',  f:'fertile'},
+  {n:'Водолей',  e:'♒',el:'air',  p:'flower',f:'barren'},
+  {n:'Рыбы',     e:'♓',el:'water',p:'leaf',  f:'fertile'},
+];
+const PHASES=[
+  {max:1.85, n:'new_moon',       e:'🌑',l:'Новолуние',        w:false},
+  {max:7.38, n:'waxing_crescent',e:'🌒',l:'Растущий серп',    w:true},
+  {max:8.07, n:'first_quarter',  e:'🌓',l:'Первая четверть',  w:true},
+  {max:14.77,n:'waxing_gibbous', e:'🌔',l:'Растущая луна',    w:true},
+  {max:15.92,n:'full_moon',      e:'🌕',l:'Полнолуние',       w:false},
+  {max:22.15,n:'waning_gibbous', e:'🌖',l:'Убывающая луна',   w:false},
+  {max:23.07,n:'last_quarter',   e:'🌗',l:'Последняя четверть',w:false},
+  {max:29.53,n:'waning_crescent',e:'🌘',l:'Убывающий серп',   w:false},
+];
+function getPhase(age){return PHASES.find(p=>age<p.max)||PHASES[7];}
+function getSign(lon){return SIGNS[Math.floor(((lon%360)+360)%360/30)];}
+function plantPart(sign,phase){
+  if(sign.el==='earth'&&!phase.w) return 'root';
+  if(sign.el==='water'&& phase.w) return 'leaf';
+  if(sign.el==='fire' && phase.w) return 'fruit';
+  if(sign.el==='air'  && phase.w) return 'flower';
+  return sign.p;
+}
+function isRest(day,phase){
+  return [1,14,15,16,29,30].includes(day)||phase.n==='new_moon'||phase.n==='full_moon';
+}
+function getMoon(date){
+  const age=moonAge(date),lon=moonLon(date);
+  const phase=getPhase(age),sign=getSign(lon);
+  const day=Math.floor(age)+1,part=plantPart(sign,phase);
+  return{age,lon,phase,sign,day,part};
+}
+
+function parseMD(s){
+  if(!s)return null;
+  const[d,m]=s.split('.').map(Number);
+  return isNaN(d)||isNaN(m)?null:m*100+d;
+}
+function frostRisk(date,st){
+  if(st.gh)return false;
+  const r=getRegion();if(!r)return false;
+  const md=( date.getMonth()+1)*100+date.getDate();
+  const lf=parseMD(r.lf),ff=parseMD(r.ff);
+  if(lf&&md<=lf)return true;
+  if(ff&&md>=ff)return true;
+  return false;
+}
+function rating(moon,date){
+  if(frostRisk(date,ST))return 'forbidden';
+  if(isRest(moon.day,moon.phase))return 'forbidden';
+  if(moon.sign.f==='barren')return 'bad';
+  const match=(moon.sign.el==='earth'&&!moon.phase.w)||(moon.sign.el==='water'&&moon.phase.w)
+             ||(moon.sign.el==='fire'&&moon.phase.w)||(moon.sign.el==='air'&&moon.phase.w);
+  return match?'ideal':'good';
+}
+
+/* ═══════════════════════════════════════════════════════
+   RECOMMENDATIONS
+═══════════════════════════════════════════════════════ */
+function recTasks(moon,r,crops){
+  const t=[];
+  if(r==='forbidden'){
+    t.push({task:'Наблюдения, осмотр участка',r:'neutral'});
+    t.push({task:'Подготовка грунта и инструментов',r:'neutral'});
+    t.push({task:'Мульчирование грядок',r:'neutral'});
+    if(moon.sign.f==='barren')t.push({task:'Прополка сорняков',r:'good'});
+    return t;
+  }
+  for(const c of crops){
+    const match=c.group===moon.part;
+    if(match&&(r==='ideal'||r==='good')){
+      let cr=r;
+      if(c.group==='fruit'&&(moon.sign.n==='Овен'||moon.sign.n==='Лев'))cr='bad';
+      if(c.group==='flower'&&moon.sign.n==='Водолей'){
+        t.push({task:`⛔ Посадка ${c.name} запрещена (Водолей)`,r:'forbidden'});continue;
+      }
+      t.push({task:`Посев / посадка: ${c.name}`,r:cr});
+      t.push({task:c.group==='leaf'?`Полив: ${c.name} (максимальная усвояемость)`:`Полив и подкормка: ${c.name}`,r:c.group==='leaf'?'ideal':'good'});
+    } else {
+      t.push({task:`Полив: ${c.name}`,r:moon.part==='leaf'?'good':'neutral'});
+    }
+  }
+  if(moon.sign.f==='barren'){t.push({task:'Прополка, борьба с сорняками и вредителями',r:'good'});}
+  if(!moon.phase.w)t.push({task:'Обрезка и формирование растений (убывающая Луна)',r:'good'});
+  else t.push({task:'Внесение жидких удобрений (растущая Луна)',r:'good'});
+  if(!moon.phase.w&&crops.some(c=>c.group==='root')&&moon.part==='root')
+    t.push({task:'Сбор корнеплодов для длительного хранения',r:'ideal'});
+  t.push({task:'Рыхление почвы',r:'neutral'});
+  return t;
+}
+function checklist(moon,r,crops){
+  const i=[];
+  if(r==='forbidden'){
+    i.push({t:'утро',task:'Осмотр, наблюдения, записи в дневнике'});
+    i.push({t:'весь день',task:'Подготовка инструмента, мульчирование'});
+    if(moon.sign.f==='barren')i.push({t:'день',task:'Прополка сорняков'});
+    return i;
+  }
+  i.push({t:'до 10:00',task:'Полив (утро — оптимально)'});
+  const mc=crops.filter(c=>c.group===moon.part);
+  if(mc.length&&(r==='ideal'||r==='good')){
+    const ok=!(moon.sign.n==='Водолей'&&moon.part==='flower');
+    if(ok)i.push({t:'утро–день',task:`Посев / посадка: ${mc.map(c=>c.name).join(', ')}`});
+  }
+  if(mc.length)i.push({t:'день',task:`Уход за: ${mc.map(c=>c.name).join(', ')}`});
+  if(moon.phase.w)i.push({t:'день',task:'Подкормка азотными удобрениями'});
+  else i.push({t:'день',task:'Обрезка и прищипывание'});
+  i.push({t:'вечер',task:'Рыхление почвы, вечерний осмотр'});
+  return i;
+}
+function advice(moon,r){
+  if(r==='forbidden'){
+    if(moon.phase.n==='new_moon')return`🌑 Новолуние. Земля «отдыхает». Планирование и подготовка.`;
+    if(moon.phase.n==='full_moon')return`🌕 Полнолуние. Максимальное натяжение соков. Воздержитесь от посадок и обрезки.`;
+    return`⚠️ День покоя (лунный день ${moon.day}). Посадки, пересадки и обрезка запрещены.`;
+  }
+  const dir=moon.phase.w?'растущая':'убывающая';
+  let s=`${moon.phase.e} ${moon.phase.l} (${dir}) · ${moon.sign.e} ${moon.sign.n}. `;
+  if(r==='ideal')s+=`Идеальный день для ${GROUP_NAMES[moon.part]}! Посевы дадут максимальный результат.`;
+  else if(r==='good')s+=`Хороший день. День ${PART_LABELS[moon.part]}. Знак ${moon.sign.f==='fertile'?'плодородный':'плодовый'}.`;
+  else s+=`Знак ${moon.sign.n} — бесплодный. Посадки не рекомендованы. Время для прополки.`;
+  return s;
+}
+function forbTasks(moon,r){
+  const f=[];
+  if(r==='forbidden'){f.push('Посадка, пересадка, пикировка');f.push('Обрезка и прищипывание');return f;}
+  if(moon.sign.f==='barren')f.push('Посев и посадка любых культур');
+  if(moon.sign.n==='Водолей')f.push('Посадка цветов (бесплодный знак)');
+  if(['Овен','Лев'].includes(moon.sign.n))f.push('Посадка корнеплодов и листовых');
+  return f;
+}
+
+function upcomingDays(startDate,ahead=30){
+  const res=[];const crops=getSelectedCrops();
+  for(let i=1;i<=ahead;i++){
+    const d=new Date(startDate);d.setDate(d.getDate()+i);
+    const moon=getMoon(d),r=rating(moon,d);
+    if(r!=='ideal'&&r!=='good')continue;
+    for(const c of crops){
+      if(c.group!==moon.part)continue;
+      if(c.group==='flower'&&moon.sign.n==='Водолей')continue;
+      let cr=r;
+      if(c.group==='fruit'&&(moon.sign.n==='Овен'||moon.sign.n==='Лев'))cr='bad';
+      if(cr==='bad')continue;
+      res.push({date:d,work:`Посев / посадка: ${c.name}`,rating:cr,
+        signName:moon.sign.n,signEmoji:moon.sign.e,
+        phaseLabel:moon.phase.l,lunarDay:moon.day,
+        why:`${moon.phase.e} ${moon.phase.l} · ${moon.sign.e} ${moon.sign.n} · ${PART_LABELS[moon.part]}`
+      });
+    }
+    if(!moon.phase.w&&['root','fruit'].includes(moon.part)){
+      const hc=crops.filter(c=>c.group===moon.part);
+      for(const c of hc)res.push({date:d,work:`Сбор для хранения: ${c.name}`,rating:'good',
+        signName:moon.sign.n,signEmoji:moon.sign.e,phaseLabel:moon.phase.l,lunarDay:moon.day,
+        why:`Убывающая Луна · ${moon.sign.e} ${moon.sign.n} · оптимально для лёжкости`});
+    }
+  }
+  const seen=new Set();
+  return res.filter(r=>{const k=r.date.toDateString()+r.work;if(seen.has(k))return false;seen.add(k);return true;})
+    .sort((a,b)=>a.date-b.date);
+}
+
+/* ═══════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════ */
+const DEF={selected:{},regionId:null,gh:false,notif:'2d'};
+let ST=loadState();
+let calDate=new Date();
+let calSelDay=null;
+
+function loadState(){
+  try{const s=localStorage.getItem('lgState');if(s)return{...DEF,...JSON.parse(s)};}catch(e){}
+  return{...DEF};
+}
+function saveState(){
+  localStorage.setItem('lgState',JSON.stringify({selected:ST.selected,regionId:ST.regionId,gh:ST.gh,notif:ST.notif}));
+}
+function getRegion(){return REGIONS.find(r=>r.id===ST.regionId)||null;}
+function getSelectedCrops(){
+  const crops=[];
+  for(const catObj of CATALOG){
+    for(let i=0;i<catObj.plants.length;i++){
+      const key=`${catObj.id}_${i}`;
+      if(ST.selected[key])crops.push({name:catObj.plants[i],group:catObj.group});
+    }
+  }
+  return crops;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RENDER: TODAY
+═══════════════════════════════════════════════════════ */
+function renderToday(){
+  const today=new Date();
+  const moon=getMoon(today);
+  const r=rating(moon,today);
+  const crops=getSelectedCrops();
+  const tasks=recTasks(moon,r,crops);
+  const cl=checklist(moon,r,crops);
+  const adv=advice(moon,r);
+  const forb=forbTasks(moon,r);
+  const upcoming=upcomingDays(today,14).slice(0,3);
+  const reg=getRegion();
+  const circ=2*Math.PI*22;
+  const dash=(moon.age/29.53*circ).toFixed(2);
+  const rlbl={ideal:'Идеальный день',good:'Хороший день',neutral:'Нейтральный',bad:'Неблагоприятный',forbidden:'День покоя'};
+
+  let html=`
+  <div class="card mb">
+    <div class="hero">
+      <div class="moon-em">${moon.phase.e}</div>
+      <div class="hero-info">
+        <div class="ph-lbl">${moon.phase.l}</div>
+        <h2>${rlbl[r]}</h2>
+        <div class="sr">
+          <span class="badge ${r}">${rlbl[r]}</span>
+          <span class="sch">${moon.sign.e} ${moon.sign.n}</span>
+          <span class="pl ${moon.part}">${PART_LABELS[moon.part]}</span>
+        </div>
+      </div>
+      <div class="lring">
+        <svg width="54" height="54" viewBox="0 0 54 54">
+          <circle cx="27" cy="27" r="22" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="4"/>
+          <circle cx="27" cy="27" r="22" fill="none" stroke="#c47100" stroke-width="4"
+            stroke-dasharray="${dash} ${circ}" stroke-linecap="round"/>
+        </svg>
+        <div class="dn">${moon.day}</div>
+      </div>
+    </div>
+    ${reg?`<div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;font-size:13px;color:var(--text2)">
+      📍 ${reg.name} · <span class="cc-now" style="padding:2px 8px;font-size:12px">🌡️ ${getTemp(reg)}°C</span>
+    </div>`:''}
+    <div class="advice">💡 ${adv}</div>
+    <div class="g2">
+      <div style="font-size:13px;color:var(--text2)">🌕 Лунный день<br><strong style="font-size:20px;color:var(--amber)">${moon.day}</strong> <span style="font-size:12px">/ 30</span></div>
+      <div style="font-size:13px;color:var(--text2)">Знак · Элемент<br><strong style="font-size:15px">${moon.sign.e} ${moon.sign.n}</strong> · ${elLabel(moon.sign.el)}</div>
+    </div>
+  </div>
+
+  <div class="card mb">
+    <h3>📋 Чек-лист на сегодня</h3>
+    ${cl.map(i=>`<div class="titem"><div class="ttime">${i.t}</div><div class="ttxt">${i.task}</div></div>`).join('')}
+  </div>
+
+  <div class="card mb">
+    <h3>✅ Рекомендуемые работы</h3>
+    ${crops.length===0?`<div style="color:var(--text2);font-size:14px">Добавьте культуры в разделе «Культуры» для персональных рекомендаций</div>`:
+      tasks.map(t=>`<div class="titem"><div class="ttxt">${t.task}</div><div class="trat"><span class="badge ${t.r}">${RATEL[t.r]||t.r}</span></div></div>`).join('')}
+  </div>
+
+  ${forb.length?`<div class="card mb">
+    <h3>⛔ Запрещено сегодня</h3>
+    <div class="ftags">${forb.map(f=>`<div class="ftag">⛔ ${f}</div>`).join('')}</div>
+  </div>`:''}
+
+  ${upcoming.length?`<div class="card">
+    <h3>⭐ Ближайшие лучшие дни</h3>
+    ${upcoming.map(d=>`<div class="titem" style="cursor:pointer" onclick="showTab('bestdays')">
+      <div class="ttime" style="color:var(--amber);font-weight:600">${fmtShort(d.date)}</div>
+      <div class="ttxt"><div>${d.work}</div><div style="font-size:12px;color:var(--text2)">${d.why}</div></div>
+      <div class="trat"><span class="badge ${d.rating}">${d.rating==='ideal'?'★ Идеально':'✓ Хорошо'}</span></div>
+    </div>`).join('')}
+    <div style="margin-top:8px;text-align:right"><button class="btn btn-o" style="font-size:13px" onclick="showTab('bestdays')">Все лучшие дни →</button></div>
+  </div>`:''}`;
+
+  document.getElementById('todayContent').innerHTML=html;
+}
+
+function elLabel(el){return{fire:'🔥 Огонь',earth:'🌍 Земля',water:'💧 Вода',air:'🌬️ Воздух'}[el]||el;}
+function getTemp(reg){
+  const m=new Date().getMonth();
+  return(reg.temps[m]>0?'+':'')+reg.temps[m];
+}
+
+/* ═══════════════════════════════════════════════════════
+   RENDER: CALENDAR
+═══════════════════════════════════════════════════════ */
+function renderCalendar(){
+  const y=calDate.getFullYear(),m=calDate.getMonth();
+  document.getElementById('calTitle').textContent=`${MONTHS_RU[m]} ${y}`;
+  const today=new Date();
+  let firstDow=new Date(y,m,1).getDay();if(firstDow===0)firstDow=7;firstDow--;
+  const lastDay=new Date(y,m+1,0).getDate();
+  let html=DAYS_RU.map(d=>`<div class="cdh">${d}</div>`).join('');
+  for(let i=0;i<firstDow;i++)html+=`<div class="cday empty"></div>`;
+  for(let day=1;day<=lastDay;day++){
+    const d=new Date(y,m,day);
+    const moon=getMoon(d),r=rating(moon,d);
+    const isT=d.toDateString()===today.toDateString();
+    html+=`<div class="cday ${r}${isT?' today':''}" onclick="showCalDay(${y},${m},${day})"
+      title="${moon.sign.n} · ${moon.phase.l} · Лун.день ${moon.day}">
+      <span class="cn">${day}</span>
+      <span class="cp">${moon.phase.e}</span>
+      <span class="cs">${moon.sign.e}</span>
+    </div>`;
+  }
+  document.getElementById('calGrid').innerHTML=html;
+  if(calSelDay)showCalDay(calSelDay.y,calSelDay.m,calSelDay.d);
+}
+
+function showCalDay(y,m,d){
+  calSelDay={y,m,d};
+  const date=new Date(y,m,d);
+  const moon=getMoon(date),r=rating(moon,date);
+  const crops=getSelectedCrops();
+  const tasks=recTasks(moon,r,crops).slice(0,5);
+  const adv=advice(moon,r);
+  const rl={ideal:'Идеальный',good:'Хороший',neutral:'Нейтральный',bad:'Неблагоприятный',forbidden:'День покоя'};
+  document.getElementById('calDetail').innerHTML=`
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <div style="font-size:40px">${moon.phase.e}</div>
+      <div>
+        <div style="font-size:16px;font-weight:700;color:var(--text)">${d2(d)} ${MONTHS_RU[m]} ${y}</div>
+        <div style="font-size:13px;color:var(--text2)">${moon.phase.l} · ${moon.sign.e} ${moon.sign.n} · День ${moon.day}</div>
+        <span class="badge ${r}" style="margin-top:4px">${rl[r]}</span>
+      </div>
+    </div>
+    <div class="advice" style="margin-bottom:12px">💡 ${adv}</div>
+    <h3>Рекомендации</h3>
+    ${tasks.map(t=>`<div class="titem"><div class="ttxt">${t.task}</div><div class="trat"><span class="badge ${t.r}" style="font-size:11px">${RATEL[t.r]||t.r}</span></div></div>`).join('')}
+  </div>`;
+}
+function calPrev(){calDate=new Date(calDate.getFullYear(),calDate.getMonth()-1,1);calSelDay=null;renderCalendar();}
+function calNext(){calDate=new Date(calDate.getFullYear(),calDate.getMonth()+1,1);calSelDay=null;renderCalendar();}
+
+/* ═══════════════════════════════════════════════════════
+   RENDER: BEST DAYS
+═══════════════════════════════════════════════════════ */
+function renderBest(){
+  const today=new Date();
+  const days=upcomingDays(today,30);
+  const notifD=ST.notif==='1d'?1:ST.notif==='2d'?2:0;
+  if(days.length===0){
+    document.getElementById('bestContent').innerHTML=`<div class="card" style="text-align:center;padding:36px;color:var(--text2)">
+      <div style="font-size:40px;margin-bottom:10px">🌱</div>
+      <div>Добавьте культуры в разделе «Культуры» — здесь появятся лучшие дни</div>
+    </div>`;return;
+  }
+  let html='',lastM='';
+  for(const d of days){
+    const ml=`${MONTHS_RU[d.date.getMonth()]} ${d.date.getFullYear()}`;
+    if(ml!==lastM){html+=`<div style="font-size:12px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin:14px 0 6px">${ml}</div>`;lastM=ml;}
+    const du=Math.round((d.date-today)/86400000);
+    const nf=notifD>0&&du<=notifD;
+    html+=`<div class="bdc ${d.rating}">
+      <div class="bdd"><span class="bdy">${d2(d.date.getDate())}</span><span class="bdm">${MONTHS_SH[d.date.getMonth()]}</span></div>
+      <div class="bdi"><div class="bdw">${d.work}</div><div class="bdwh">${d.why}</div></div>
+      <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end">
+        <span class="badge ${d.rating}">${d.rating==='ideal'?'★ Идеально':'✓ Хорошо'}</span>
+        ${nf?`<span class="nf">🔔 Скоро</span>`:''}
+        <span style="font-size:11px;color:var(--text2)">через ${du} дн.</span>
+      </div>
+    </div>`;
+  }
+  document.getElementById('bestContent').innerHTML=html;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RENDER: PLANTS CATALOG
+═══════════════════════════════════════════════════════ */
+function renderPlants(){
+  const q=(document.getElementById('plantSearch').value||'').toLowerCase();
+  let html='';
+  for(const cat of CATALOG){
+    const filtered=cat.plants.filter(p=>p.toLowerCase().includes(q));
+    if(!filtered.length)continue;
+    const selCount=cat.plants.filter((_,i)=>ST.selected[`${cat.id}_${i}`]).length;
+    html+=`<div class="pg">
+      <div class="pg-hdr" onclick="toggleGroup('${cat.id}')">
+        <div class="pg-title">${cat.cat} <span class="pl ${cat.group}" style="font-size:11px">${GROUP_NAMES[cat.group]}</span></div>
+        <div class="pg-right">
+          ${selCount?`<span style="color:var(--accent);font-weight:600">${selCount} выбрано</span>`:''}
+          <span id="arr_${cat.id}">▼</span>
+        </div>
+      </div>
+      <div class="pg-body${q?' open':''}" id="body_${cat.id}">
+        <div style="padding:4px 8px 6px">
+          <span style="font-size:12px;color:var(--accent);cursor:pointer" onclick="selAll('${cat.id}',true)">Выбрать все</span>
+          <span style="font-size:12px;color:var(--text2);margin:0 6px">·</span>
+          <span style="font-size:12px;color:var(--text2);cursor:pointer" onclick="selAll('${cat.id}',false)">Снять</span>
+        </div>
+        <div class="pi-grid">
+          ${cat.plants.map((p,i)=>{
+            if(!p.toLowerCase().includes(q))return'';
+            const key=`${cat.id}_${i}`;
+            const sel=!!ST.selected[key];
+            return`<label class="pi${sel?' sel':''}" for="pi_${key}">
+              <input type="checkbox" id="pi_${key}" ${sel?'checked':''} onchange="togglePlant('${key}')" />
+              <span class="pi-name">${p}</span>
+            </label>`;
+          }).join('')}
+        </div>
+      </div>
+    </div>`;
+  }
+  document.getElementById('plantCatalog').innerHTML=html||`<div style="padding:20px;text-align:center;color:var(--text2)">Ничего не найдено</div>`;
+}
+
+function toggleGroup(id){
+  const b=document.getElementById(`body_${id}`);
+  const a=document.getElementById(`arr_${id}`);
+  const open=b.classList.toggle('open');
+  if(a)a.textContent=open?'▲':'▼';
+}
+function togglePlant(key){
+  if(ST.selected[key])delete ST.selected[key];else ST.selected[key]=true;
+  saveState();renderPlants();renderBest();renderToday();
+}
+function selAll(catId,val){
+  const cat=CATALOG.find(c=>c.id===catId);if(!cat)return;
+  cat.plants.forEach((_,i)=>{const k=`${catId}_${i}`;if(val)ST.selected[k]=true;else delete ST.selected[k];});
+  saveState();renderPlants();renderBest();renderToday();
+}
+function clearPlants(){ST.selected={};saveState();renderPlants();renderBest();renderToday();}
+
+/* ═══════════════════════════════════════════════════════
+   RENDER: SETTINGS + REGION
+═══════════════════════════════════════════════════════ */
+let regionSearch='';
+function filterRegions(){
+  regionSearch=(document.getElementById('regionInput').value||'').toLowerCase();
+  renderRegionDD();
+}
+function openDD(){document.getElementById('regionDD').classList.add('open');renderRegionDD();}
+function renderRegionDD(){
+  const dd=document.getElementById('regionDD');
+  const q=regionSearch;
+  const filtered=REGIONS.filter(r=>r.name.toLowerCase().includes(q)||r.dist.toLowerCase().includes(q));
+  let html='';
+  let ld='';
+  for(const r of filtered){
+    if(r.dist!==ld){html+=`<div style="padding:5px 13px;font-size:10px;font-weight:700;color:var(--text2);background:var(--surface);text-transform:uppercase;letter-spacing:.5px">${r.dist}</div>`;ld=r.dist;}
+    html+=`<div class="ro${ST.regionId===r.id?' sel':''}" onclick="selectRegion('${r.id}')">
+      ${r.name}<div class="ro-dist">Zone ${r.zone} · заморозки до ${r.lf}</div>
+    </div>`;
+  }
+  dd.innerHTML=html||`<div style="padding:12px;color:var(--text2);font-size:13px">Не найдено</div>`;
+}
+function selectRegion(id){
+  ST.regionId=id;saveState();
+  const r=REGIONS.find(x=>x.id===id);
+  document.getElementById('regionInput').value=r?r.name:'';
+  document.getElementById('regionDD').classList.remove('open');
+  renderClimate();renderToday();
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.rswrap'))document.getElementById('regionDD').classList.remove('open');
+});
+
+function renderClimate(){
+  const r=getRegion();
+  if(!r){document.getElementById('climateCard').innerHTML='';return;}
+  const cm=new Date().getMonth();
+  const maxT=Math.max(...r.temps.map(Math.abs),1);
+  const bars=MONTHS_SH.map((m,i)=>{
+    const t=r.temps[i];
+    const h=Math.max(Math.abs(t)/maxT*50,2);
+    const cur=i===cm?'style="outline:2px solid var(--accent)"':'';
+    return`<div class="cc-col">
+      <div class="cc-val">${t>0?'+':''}${t}</div>
+      <div class="cc-bar${t>=0?' pos':' neg'}" style="height:${h}px" ${cur}></div>
+      <div class="cc-lbl">${m}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('climateCard').innerHTML=`
+  <div class="cc-now">🌡️ Сейчас в регионе: ${getTemp(r)}°C</div>
+  <div class="cc-temps">${bars}</div>
+  <div class="cc-grid" style="font-size:13px;margin-top:8px">
+    <div class="cc-row"><span>Посл. весенний заморозок</span><strong>${r.lf}</strong></div>
+    <div class="cc-row"><span>Первый осенний заморозок</span><strong>${r.ff}</strong></div>
+    <div class="cc-row"><span>Зона морозостойкости (USDA)</span><strong>Zone ${r.zone}</strong></div>
+    <div class="cc-row"><span>Климатический округ</span><strong>${r.dist}</strong></div>
+  </div>`;
+}
+
+function renderSettings(){
+  const r=getRegion();
+  if(r)document.getElementById('regionInput').value=r.name;
+  document.getElementById('setGH').checked=!!ST.gh;
+  document.getElementById('setNotif').value=ST.notif||'2d';
+  renderClimate();
+}
+function saveSettings(){
+  ST.gh=document.getElementById('setGH').checked;
+  ST.notif=document.getElementById('setNotif').value;
+  saveState();
+  const msg=document.getElementById('savedMsg');
+  msg.style.display='block';setTimeout(()=>msg.style.display='none',2000);
+  renderToday();renderBest();
+}
+
+/* ═══════════════════════════════════════════════════════
+   PDF EXPORT
+═══════════════════════════════════════════════════════ */
+function exportPDF(){
+  const today=new Date();
+  const r=getRegion();
+  const crops=getSelectedCrops();
+  const best=upcomingDays(today,30);
+  const y=calDate.getFullYear(),m=calDate.getMonth();
+  const firstDow=((new Date(y,m,1).getDay()||7)-1);
+  const lastDay=new Date(y,m+1,0).getDate();
+
+  function calRow(){
+    let h='<table style="width:100%;border-collapse:collapse;margin:6pt 0"><tr>';
+    for(const d of DAYS_RU)h+=`<th style="text-align:center;font-size:8pt;padding:3pt;border:0.5pt solid #ccc">${d}</th>`;
+    h+='</tr><tr>';
+    for(let i=0;i<firstDow;i++)h+=`<td style="border:0.5pt solid #eee"></td>`;
+    let col=firstDow;
+    for(let day=1;day<=lastDay;day++){
+      const d=new Date(y,m,day);
+      const moon=getMoon(d),rr=rating(moon,d);
+      const bg={ideal:'#c8e6c9',good:'#e8f5e9',neutral:'#fff8e1',bad:'#fbe9e7',forbidden:'#ffebee'}[rr]||'#fff';
+      h+=`<td style="text-align:center;padding:4pt 2pt;border:0.5pt solid #ccc;background:${bg};-webkit-print-color-adjust:exact;print-color-adjust:exact;min-width:30pt">
+        <div style="font-size:10pt;font-weight:bold">${day}</div>
+        <div style="font-size:12pt">${moon.phase.e}</div>
+        <div style="font-size:7pt;color:#555">${moon.sign.e}</div>
+      </td>`;
+      col++;if(col>=7&&day<lastDay){h+='</tr><tr>';col=0;}
+    }
+    while(col>0&&col<7){h+=`<td style="border:0.5pt solid #eee"></td>`;col++;}
+    return h+'</tr></table>';
+  }
+
+  const html=`<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8">
+  <title>LunaGarden AI — ${MONTHS_RU[m]} ${y}</title>
+  <style>
+    @page{margin:1.5cm}body{font-family:Arial,sans-serif;font-size:10pt;color:#1a2e1a}
+    h1{font-size:16pt;color:#2e7d32}h2{font-size:12pt;color:#2e7d32;margin:12pt 0 5pt;border-bottom:1pt solid #c8e6c9;padding-bottom:2pt}
+    .legend{display:flex;gap:8pt;font-size:8pt;margin:4pt 0;flex-wrap:wrap}
+    .li{display:flex;align-items:center;gap:3pt}
+    .dot{width:8pt;height:8pt;border-radius:50%;display:inline-block;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    table.bt{width:100%;border-collapse:collapse;font-size:9pt;margin:6pt 0}
+    table.bt th{background:#e8f5e9;padding:4pt 6pt;text-align:left;border:0.5pt solid #c8e6c9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    table.bt td{padding:4pt 6pt;border:0.5pt solid #e0e0e0}
+    table.bt tr:nth-child(even) td{background:#f9fbe7;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .pb{page-break-before:always}
+    .cr{display:flex;justify-content:space-between;padding:3pt 0;border-bottom:0.5pt solid #e0e0e0;font-size:9pt}
+  </style></head><body>
+  <h1>🌿 LunaGarden AI — Лунный Садовый Календарь</h1>
+  <p style="color:#5a7d5e;font-size:9pt">${r?`Регион: ${r.name} · `:''}Сформировано: ${fmtDate(today)}</p>
+
+  <h2>📅 Календарь ${MONTHS_RU[m]} ${y}</h2>
+  <div class="legend">
+    <div class="li"><div class="dot" style="background:#388e3c"></div>Идеальный</div>
+    <div class="li"><div class="dot" style="background:#81c784"></div>Хороший</div>
+    <div class="li"><div class="dot" style="background:#ffa726"></div>Нейтральный</div>
+    <div class="li"><div class="dot" style="background:#ef6c00"></div>Неблагоприятный</div>
+    <div class="li"><div class="dot" style="background:#c62828"></div>День покоя</div>
+  </div>
+  ${calRow()}
+
+  ${best.length?`<div class="pb"></div>
+  <h2>⭐ Лучшие дни для посева и посадки</h2>
+  <table class="bt">
+    <tr><th>Дата</th><th>Культура / Работа</th><th>Фаза Луны</th><th>Знак</th><th>Рейтинг</th></tr>
+    ${best.slice(0,25).map(d=>`<tr>
+      <td><strong>${d2(d.date.getDate())} ${MONTHS_RU[d.date.getMonth()].slice(0,3)}</strong></td>
+      <td>${d.work}</td>
+      <td>${d.phaseLabel} · д.${d.lunarDay}</td>
+      <td>${d.signEmoji} ${d.signName}</td>
+      <td><strong>${d.rating==='ideal'?'★ Идеально':'✓ Хорошо'}</strong></td>
+    </tr>`).join('')}
+  </table>`:''}
+
+  ${r?`<div class="pb"></div>
+  <h2>🌡️ Климатическая справка: ${r.name}</h2>
+  <div class="cr"><span>Последний весенний заморозок (среднее)</span><strong>${r.lf}</strong></div>
+  <div class="cr"><span>Первый осенний заморозок (среднее)</span><strong>${r.ff}</strong></div>
+  <div class="cr"><span>Зона морозостойкости (USDA)</span><strong>Zone ${r.zone}</strong></div>
+  <div class="cr"><span>Климатический округ</span><strong>${r.dist}</strong></div>
+  <h2 style="font-size:10pt;margin-top:10pt">Среднемесячные температуры (°C)</h2>
+  <table class="bt">
+    <tr>${MONTHS_SH.map(mm=>`<th style="text-align:center">${mm}</th>`).join('')}</tr>
+    <tr>${r.temps.map(t=>`<td style="text-align:center">${t>0?'+':''}${t}</td>`).join('')}</tr>
+  </table>`:''}
+
+  ${crops.length?`<div class="pb"></div>
+  <h2>📋 Мои культуры</h2>
+  <table class="bt">
+    <tr><th>Культура</th><th>Группа</th><th>Лучшие дни посадки</th></tr>
+    ${crops.map(c=>`<tr>
+      <td>${c.name}</td>
+      <td>${GROUP_ICONS[c.group]} ${GROUP_NAMES[c.group]}</td>
+      <td>${plantingAdvice(c.group)}</td>
+    </tr>`).join('')}
+  </table>`:''}
+  </body></html>`;
+
+  const w=window.open('','_blank');
+  w.document.write(html);w.document.close();w.focus();
+  setTimeout(()=>{w.print();},600);
+}
+
+function plantingAdvice(g){
+  return{
+    root:'Убывающая Луна · Телец, Дева, Козерог',
+    leaf:'Растущая Луна · Рак, Скорпион, Рыбы',
+    fruit:'Растущая Луна · Стрелец (идеально), Лев, Овен',
+    flower:'Растущая Луна · Весы (идеально), Близнецы',
+  }[g]||'—';
+}
+
+/* ═══════════════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════════════ */
+let curTab='today';
+const TABS=['today','calendar','bestdays','plants','settings'];
+function showTab(tab){
+  curTab=tab;
+  TABS.forEach(t=>{
+    document.getElementById('tab-'+t).classList.toggle('active',t===tab);
+  });
+  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('active',TABS[i]===tab));
+  document.querySelectorAll('.bnb').forEach((b,i)=>b.classList.toggle('active',TABS[i]===tab));
+  if(tab==='calendar')renderCalendar();
+  if(tab==='bestdays')renderBest();
+  if(tab==='plants')renderPlants();
+  if(tab==='settings')renderSettings();
+}
+function closePopup(){document.getElementById('popup').style.display='none';}
+
+/* ═══════════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════════ */
+function d2(n){return String(n).padStart(2,'0');}
+function fmtShort(d){return`${d2(d.getDate())} ${MONTHS_RU[d.getMonth()].slice(0,3)}`;}
+function fmtDate(d){return`${d2(d.getDate())} ${MONTHS_RU[d.getMonth()]} ${d.getFullYear()}`;}
+function updateHeader(){
+  const n=new Date();
+  const opts={weekday:'long',day:'numeric',month:'long'};
+  document.getElementById('hdrDate').innerHTML=`<strong>${n.toLocaleDateString('ru-RU',opts)}</strong><span>${n.getFullYear()}</span>`;
+}
+
+/* ═══════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════ */
+updateHeader();
+renderToday();
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+[
+  { "title": "Уход за орхидеей после покупки: первые шаги", "category": "komnatnye", "keywords": ["орхидея", "после покупки"] },
+  { "title": "Замиокулькас: уход за долларовым деревом", "category": "komnatnye", "keywords": ["замиокулькас", "долларовое дерево"] },
+  { "title": "Спатифиллум: уход и почему не цветёт", "category": "komnatnye", "keywords": ["спатифиллум", "женское счастье"] },
+  { "title": "Как пересадить комнатное растение: пошагово", "category": "komnatnye", "keywords": ["пересадка"] },
+  { "title": "Драцена: уход, полив и обрезка", "category": "komnatnye", "keywords": ["драцена"] },
+  { "title": "Хлорофитум: уход и размножение", "category": "komnatnye", "keywords": ["хлорофитум"] },
+  { "title": "Алоэ вера: уход в домашних условиях", "category": "komnatnye", "keywords": ["алоэ", "суккулент"] },
+  { "title": "Как выбрать грунт для комнатных растений", "category": "komnatnye", "keywords": ["грунт", "почва"] },
+
+  { "title": "Когда сажать перец на рассаду", "category": "sad-ogorod", "keywords": ["перец", "рассада"] },
+  { "title": "Как подготовить теплицу к весне", "category": "sad-ogorod", "keywords": ["теплица", "весна"] },
+  { "title": "Посадка чеснока под зиму: сроки и глубина", "category": "sad-ogorod", "keywords": ["чеснок", "под зиму"] },
+  { "title": "Как поливать огород в жару правильно", "category": "sad-ogorod", "keywords": ["полив", "огород"] },
+  { "title": "Сидераты осенью: что и когда сеять", "category": "sad-ogorod", "keywords": ["сидераты"] },
+  { "title": "Обрезка яблони весной для начинающих", "category": "sad-ogorod", "keywords": ["обрезка", "яблоня"] },
+  { "title": "Как хранить урожай моркови до весны", "category": "sad-ogorod", "keywords": ["хранение", "морковь"] },
+  { "title": "Мульчирование грядок: зачем и чем", "category": "sad-ogorod", "keywords": ["мульча"] },
+
+  { "title": "Как избавиться от мошек в комнатных цветах", "category": "bolezni-vrediteli", "keywords": ["мошки", "сциариды"] },
+  { "title": "Паутинный клещ на растениях: признаки и лечение", "category": "bolezni-vrediteli", "keywords": ["паутинный клещ"] },
+  { "title": "Тля на растениях: как вывести", "category": "bolezni-vrediteli", "keywords": ["тля"] },
+  { "title": "Почему сохнут кончики листьев", "category": "bolezni-vrediteli", "keywords": ["сохнут кончики"] },
+  { "title": "Корневая гниль: как спасти растение", "category": "bolezni-vrediteli", "keywords": ["корневая гниль"] },
+  { "title": "Белый налёт на земле в горшке: причины", "category": "bolezni-vrediteli", "keywords": ["плесень", "налёт"] },
+  { "title": "Мучнистый червец: как избавиться", "category": "bolezni-vrediteli", "keywords": ["мучнистый червец"] },
+  { "title": "Почему скручиваются листья у растений", "category": "bolezni-vrediteli", "keywords": ["скручиваются листья"] },
+
+  { "title": "Свет для растений: прямой и рассеянный", "category": "sovety", "keywords": ["свет", "рассеянный"] },
+  { "title": "Чем подкормить комнатные растения весной", "category": "sovety", "keywords": ["подкормка", "удобрение"] },
+  { "title": "10 самых неприхотливых комнатных растений", "category": "sovety", "keywords": ["неприхотливые", "новичок"] },
+  { "title": "Растения, безопасные для кошек и собак", "category": "sovety", "keywords": ["безопасные", "питомцы"] },
+  { "title": "Как размножить комнатное растение черенками", "category": "sovety", "keywords": ["размножение", "черенки"] },
+  { "title": "Нужно ли опрыскивать комнатные растения", "category": "sovety", "keywords": ["опрыскивание", "влажность"] },
+  { "title": "Как ухаживать за растениями зимой", "category": "sovety", "keywords": ["зима", "уход"] }
+]
