@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import AdSlot from '../components/AdSlot.astro';
 import AffiliateCard from '../components/AffiliateCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 import { SITE } from '../site.config.mjs';
 import { CATEGORIES } from '../site.config.mjs';
 import { absoluteUrl, categoryUrl } from '../lib/urls.mjs';
@@ -10,8 +11,9 @@ import { absoluteUrl, categoryUrl } from '../lib/urls.mjs';
  * @typedef {Object} Props
  * @property {any} entry запись коллекции articles
  * @property {Array<{depth:number, slug:string, text:string}>} headings
+ * @property {any[]} [related] похожие статьи для блока «Читайте также»
  */
-const { entry, headings } = Astro.props;
+const { entry, headings, related = [] } = Astro.props;
 const { data } = entry;
 const cat = CATEGORIES.find((c) => c.slug === data.category);
 const author = data.author ?? SITE.author;
@@ -88,6 +90,19 @@ const jsonLd = {
           {data.products.map((p) => (
             <AffiliateCard name={p.name} marketplaceSearch={p.marketplaceSearch} blurb={p.blurb} />
           ))}
+        </section>
+      )
+    }
+
+    {
+      related.length > 0 && (
+        <section aria-label="Похожие статьи">
+          <h2>Читайте также</h2>
+          <div class="grid">
+            {related.map((r) => (
+              <ArticleCard entry={r} />
+            ))}
+          </div>
         </section>
       )
     }
