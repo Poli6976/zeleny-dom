@@ -1,0 +1,10 @@
+<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+
+    <rect width="400" height="225" fill="#efe4d8"/>
+    <circle cx="330" cy="40" r="90" fill="#cdb8a0" opacity="0.18"/>
+    <circle cx="40" cy="190" r="70" fill="#cdb8a0" opacity="0.14"/>
+
+    <path d="M170,152 L230,152 L216,196 L184,196 Z" fill="#a47764"/>
+    <rect x="166" y="146" width="68" height="10" rx="4" fill="#a47764"/>
+<path d="M200,150 C216,106.2 219.2,55.099999999999994 200,77 C180.8,55.099999999999994 184,106.2 200,150Z" fill="#94a67f" transform="rotate(-55 200 150)"/><path d="M200,150 C216,114 219.2,72 200,90 C180.8,72 184,114 200,150Z" fill="#6b8a6f" transform="rotate(-25 200 150)"/><path d="M200,150 C216,109.80000000000001 219.2,62.89999999999999 200,83 C180.8,62.89999999999999 184,109.80000000000001 200,150Z" fill="#7a8f6b" transform="rotate(0 200 150)"/><path d="M200,150 C216,105.6 219.2,53.8 200,76 C180.8,53.8 184,105.6 200,150Z" fill="#5f7a52" transform="rotate(25 200 150)"/><path d="M200,150 C216,113.4 219.2,70.7 200,89 C180.8,70.7 184,113.4 200,150Z" fill="#94a67f" transform="rotate(55 200 150)"/>
+</svg>

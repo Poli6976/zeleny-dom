@@ -1,0 +1,8 @@
+<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+
+    <rect width="400" height="225" fill="#ebe0d3"/>
+    <circle cx="330" cy="40" r="90" fill="#8a5c46" opacity="0.18"/>
+    <circle cx="40" cy="190" r="70" fill="#8a5c46" opacity="0.14"/>
+
+<path d="M90,175 Q200,140 310,175 L310,196 L90,196 Z" fill="#8a5c46"/><path d="M130,165 C140,149.4 142,131.2 130,139 C118,131.2 120,149.4 130,165Z" fill="#6b8a6f" transform="rotate(-20 130 165)"/><path d="M130,165 C140,149.4 142,131.2 130,139 C118,131.2 120,149.4 130,165Z" fill="#6b8a6f" transform="rotate(20 130 165)"/><path d="M200,165 C210,149.4 212,131.2 200,139 C188,131.2 190,149.4 200,165Z" fill="#7a8f6b" transform="rotate(-20 200 165)"/><path d="M200,165 C210,149.4 212,131.2 200,139 C188,131.2 190,149.4 200,165Z" fill="#7a8f6b" transform="rotate(20 200 165)"/><path d="M270,165 C280,149.4 282,131.2 270,139 C258,131.2 260,149.4 270,165Z" fill="#5f7a52" transform="rotate(-20 270 165)"/><path d="M270,165 C280,149.4 282,131.2 270,139 C258,131.2 260,149.4 270,165Z" fill="#5f7a52" transform="rotate(20 270 165)"/>
+</svg>

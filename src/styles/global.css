@@ -258,6 +258,12 @@ img {
   justify-content: center;
   font-size: 2.4rem;
 }
+.card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* Article body */
 .article-body {
