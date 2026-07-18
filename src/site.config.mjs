@@ -52,7 +52,7 @@ export const MONETIZATION = {
 export const ANALYTICS = {
   // Номер счётчика Яндекс.Метрики (только цифры, вид '12345678').
   // Пусто = аналитика не подключается.
-  yaMetrikaId: '',
+  yaMetrikaId: '110844315',
 };
 
 // Категории сайта. slug — часть URL, title — как показывается.
