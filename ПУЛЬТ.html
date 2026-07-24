@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пульт проекта — Расти Дома</title>
+<style>
+  :root{
+    --bg:#f3ece2; --surface:#fffdfa; --border:#e2d4c6; --text:#3c2f2a;
+    --soft:#9b8a7e; --brand:#a47764; --brand-dark:#8a5c46; --brand-soft:#efe4d8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#211a16; --surface:#262019; --border:#3a2f28; --text:#ede3d8;
+           --soft:#b6a596; --brand:#c99f86; --brand-dark:#d8b49e; --brand-soft:#2f251f; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,Roboto,sans-serif;
+       line-height:1.5;padding:32px 20px 60px}
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-family:Georgia,serif;font-weight:400;font-size:2rem;margin:0 0 4px}
+  .sub{color:var(--soft);margin:0 0 28px;font-size:.95rem}
+  .hero{display:block;background:var(--brand);color:#fff;text-decoration:none;
+        padding:18px 24px;border-radius:14px;font-size:1.15rem;font-weight:600;
+        margin-bottom:28px;text-align:center;transition:transform .12s}
+  .hero:hover{transform:translateY(-2px)}
+  h2{font-family:Georgia,serif;font-weight:400;font-size:1.15rem;
+     margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--brand)}
+  section{margin-bottom:26px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+  a.card{display:block;background:var(--surface);border:1px solid var(--border);
+         border-radius:10px;padding:13px 15px;text-decoration:none;color:var(--text);
+         transition:transform .12s, box-shadow .12s}
+  a.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(164,119,100,.18)}
+  a.card b{display:block;font-size:.98rem}
+  a.card span{color:var(--soft);font-size:.83rem}
+  .note{background:var(--brand-soft);border:1px solid var(--border);border-radius:10px;
+        padding:14px 16px;font-size:.9rem;margin-top:10px}
+  .note b{color:var(--brand-dark)}
+  footer{color:var(--soft);font-size:.85rem;margin-top:34px;
+         border-top:1px solid var(--border);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Пульт проекта «Расти Дома»</h1>
+  <p class="sub">Все панели проекта в один клик. Файл локальный — можно закрепить на панели задач.</p>
+
+  <a class="hero" href="https://rasti-doma.ru/" target="_blank">🌿 Открыть сайт rasti-doma.ru</a>
+
+  <section>
+    <h2>📊 Посетители — Яндекс.Метрика</h2>
+    <div class="grid">
+      <a class="card" href="https://metrika.yandex.ru/dashboard?id=110844315" target="_blank">
+        <b>Сводка</b><span>общая картина за период</span></a>
+      <a class="card" href="https://metrika.yandex.ru/stat/traffic?id=110844315" target="_blank">
+        <b>Посещаемость</b><span>график визитов по дням</span></a>
+      <a class="card" href="https://metrika.yandex.ru/stat/sources/summary?id=110844315" target="_blank">
+        <b>Источники</b><span>откуда пришли люди</span></a>
+      <a class="card" href="https://metrika.yandex.ru/stat/popular?id=110844315" target="_blank">
+        <b>Популярные страницы</b><span>какие статьи читают</span></a>
+    </div>
+    <div class="note">
+      <b>Почему цифры не показаны прямо здесь:</b> статистика Метрики закрыта паролем
+      Яндекса — её нельзя вывести на локальную страницу без входа в аккаунт.
+      Ссылки выше ведут сразу в нужный отчёт, минуя поиск по меню.<br><br>
+      <b>Можно упростить:</b> в Метрике → «Настройка» → вкладка «Доступ» есть
+      «Публичный доступ к статистике». Включишь — появится ссылка, по которой
+      статистика открывается <i>без пароля</i>. Пришли мне эту ссылку, и я вставлю
+      её сюда кнопкой (или прямо встрою окно с графиком).
+    </div>
+  </section>
+
+  <section>
+    <h2>🔍 Поиск — Яндекс.Вебмастер</h2>
+    <div class="grid">
+      <a class="card" href="https://webmaster.yandex.ru/site/https:rasti-doma.ru:443/indexing/indexed/" target="_blank">
+        <b>Страницы в поиске</b><span>главное сейчас: сколько статей проиндексировано</span></a>
+      <a class="card" href="https://webmaster.yandex.ru/site/https:rasti-doma.ru:443/dashboard/" target="_blank">
+        <b>Сводка</b><span>общий статус сайта</span></a>
+      <a class="card" href="https://webmaster.yandex.ru/site/https:rasti-doma.ru:443/diagnostics/" target="_blank">
+        <b>Диагностика</b><span>ошибки и предупреждения</span></a>
+      <a class="card" href="https://webmaster.yandex.ru/site/https:rasti-doma.ru:443/indexing/sitemap/" target="_blank">
+        <b>Карта сайта</b><span>статус обработки sitemap</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>💰 Деньги — реклама и партнёрки</h2>
+    <div class="grid">
+      <a class="card" href="https://partner.yandex.ru/" target="_blank">
+        <b>Яндекс РСЯ</b><span>блок R-A-19611638-1 · ждёт модерации</span></a>
+      <a class="card" href="https://analytics.pinterest.com/overview/" target="_blank">
+        <b>Аналитика Pinterest</b><span>показы и переходы с пинов</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>⚙️ Техника</h2>
+    <div class="grid">
+      <a class="card" href="https://github.com/Poli6976/zeleny-dom" target="_blank">
+        <b>Репозиторий</b><span>код сайта на GitHub</span></a>
+      <a class="card" href="https://github.com/Poli6976/zeleny-dom/actions" target="_blank">
+        <b>Публикация</b><span>идёт ли сборка сайта</span></a>
+      <a class="card" href="https://dash.cloudflare.com/" target="_blank">
+        <b>Cloudflare</b><span>только DNS домена</span></a>
+      <a class="card" href="https://www.reg.ru/user/domain_list" target="_blank">
+        <b>reg.ru</b><span>домен, продление раз в год</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>📱 Соцсети</h2>
+    <div class="grid">
+      <a class="card" href="https://t.me/rasti_doma" target="_blank">
+        <b>Telegram</b><span>@rasti_doma</span></a>
+      <a class="card" href="https://vk.ru/id270320681" target="_blank">
+        <b>ВКонтакте</b><span>личная стена</span></a>
+      <a class="card" href="https://ru.pinterest.com/andr3y2065y/" target="_blank">
+        <b>Pinterest</b><span>доска «Расти Дома»</span></a>
+    </div>
+  </section>
+
+  <footer>
+    Состояние проекта и следующие шаги — в файле <b>PROJECT.md</b> рядом с этим файлом.<br>
+    Журнал публикаций в соцсетях — в <b>promo/progress.md</b>.
+  </footer>
+
+</div>
+</body>
+</html>
