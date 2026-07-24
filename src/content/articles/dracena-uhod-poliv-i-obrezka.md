@@ -12,8 +12,12 @@ products:
   - name: Грунт для драцен и пальм
     marketplaceSearch: грунт для драцены
     blurb: Рыхлый субстрат с хорошим дренажом подходит драцене лучше универсального грунта.
-cover: /images/covers/dracena-uhod-poliv-i-obrezka.svg
-coverAlt: 'Иллюстрация: Драцена: уход, полив и обрезка'
+cover: /images/photos/dracena-uhod-poliv-i-obrezka.jpg
+coverAlt: 'Драцена: уход, полив и обрезка'
+coverCredit:
+  author: 'Wikimedia Commons'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dracaena_marginata_IndoorPlant_0605k.jpg'
 ---
 
 Драцена — одно из самых терпеливых комнатных растений: она годами живёт в офисах с искусственным светом и нерегулярным поливом. Но и у неё есть слабое место — чувствительность к качеству воды, из-за которой чаще всего и появляются жалобы на подсыхающие кончики листьев.

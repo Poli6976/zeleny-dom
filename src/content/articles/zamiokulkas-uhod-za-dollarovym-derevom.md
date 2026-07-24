@@ -12,8 +12,12 @@ products:
   - name: Горшок с дренажными отверстиями
     marketplaceSearch: горшок для растений с дренажом
     blurb: Замиокулькас запасает воду в клубнях, поэтому дренаж для него критичен.
-cover: /images/covers/zamiokulkas-uhod-za-dollarovym-derevom.svg
-coverAlt: 'Иллюстрация: Замиокулькас: уход за долларовым деревом'
+cover: /images/photos/zamiokulkas-uhod-za-dollarovym-derevom.jpg
+coverAlt: 'Замиокулькас: уход за долларовым деревом'
+coverCredit:
+  author: 'User:WeFt'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_1.jpg'
 ---
 
 Замиокулькас (или «долларовое дерево») — растение для тех, кто уверен, что убивает всё живое. Глянцевые плотные листья, запас воды в подземных клубнях и способность неделями обходиться без внимания. Погубить его можно практически единственным способом — и о нём мы поговорим отдельно.

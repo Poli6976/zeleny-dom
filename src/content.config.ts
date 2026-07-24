@@ -29,6 +29,17 @@ const articles = defineCollection({
     cover: z.string().optional(),
     coverAlt: z.string().optional(),
 
+    // Авторство фото — обязательно для лицензий CC BY / CC BY-SA.
+    // Заполняется автоматически скриптом fetch-photos.mjs при загрузке
+    // фотографии с Wikimedia Commons. Показывается подписью под обложкой.
+    coverCredit: z
+      .object({
+        author: z.string(),
+        license: z.string(),
+        sourceUrl: z.string(),
+      })
+      .optional(),
+
     // Черновик: true = не публикуется в проде (нужна твоя вычитка).
     // Автогенератор всегда ставит draft: true — ты проверяешь и ставишь false.
     draft: z.boolean().default(false),

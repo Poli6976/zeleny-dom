@@ -12,8 +12,12 @@ products:
   - name: Горшок с автополивом
     marketplaceSearch: горшок с автополивом
     blurb: Спатифиллум любит стабильную влажность — автополив сглаживает перепады.
-cover: /images/covers/spatifillum-uhod-i-pochemu-ne-cvetet.svg
-coverAlt: 'Иллюстрация: Спатифиллум: уход и почему не цветёт'
+cover: /images/photos/spatifillum-uhod-i-pochemu-ne-cvetet.jpg
+coverAlt: 'Спатифиллум: уход и почему не цветёт'
+coverCredit:
+  author: 'Dick Culbert from Gibsons, B.C., Canada'
+  license: 'CC BY 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Spathiphyllum_cannifolium_(14117377033).jpg'
 ---
 
 Спатифиллум, он же «женское счастье», — одно из немногих комнатных растений, которые цветут в квартире и при этом прощают полутень. А ещё он честно сообщает, когда хочет пить: поникает всей кроной и оживает через пару часов после полива.

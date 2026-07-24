@@ -12,8 +12,12 @@ products:
   - name: Садовый вар для обработки срезов
     marketplaceSearch: садовый вар для деревьев
     blurb: Защищает крупные срезы от инфекций и подсыхания — обязателен при спилах толще 1 см.
-cover: /images/covers/obrezka-yabloni-vesnoy-dlya-nachinayushchih.svg
-coverAlt: 'Иллюстрация: Обрезка яблони весной для начинающих'
+cover: /images/photos/obrezka-yabloni-vesnoy-dlya-nachinayushchih.jpg
+coverAlt: 'Обрезка яблони весной для начинающих'
+coverCredit:
+  author: 'Wolfgang Bergmann sen.'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Apple_Blossom1.JPG'
 ---
 
 Необрезанная яблоня со временем превращается в загущённые заросли: плоды мельчают, урожай смещается на периферию кроны, а внутри веток становится темно и сыро — идеальные условия для болезней. Весенняя обрезка исправляет это и закладывает основу для качественного урожая.

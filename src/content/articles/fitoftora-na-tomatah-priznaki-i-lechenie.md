@@ -9,8 +9,12 @@ products:
   - name: Фунгицид от фитофторы для томатов
     marketplaceSearch: фунгицид от фитофторы томатов
     blurb: Фитофтора распространяется быстрее, чем кажется, — профилактическая обработка до появления первых пятен работает надёжнее лечения уже заражённого куста.
-cover: /images/covers/fitoftora-na-tomatah-priznaki-i-lechenie.svg
-coverAlt: 'Иллюстрация: Фитофтора на томатах: признаки и лечение'
+cover: /images/photos/fitoftora-na-tomatah-priznaki-i-lechenie.jpg
+coverAlt: 'Фитофтора на томатах: признаки и лечение'
+coverCredit:
+  author: 'Mary Ann Hansen, Virginia Polytechnic Institute and State University, United States'
+  license: 'CC BY 3.0 us'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Phytophthora_infestans_(late_blight)_on_tomato.jpg'
 ---
 
 Фитофтора — самая известная и обидная болезнь томатов: она может за считаные дни превратить здоровый куст с наливающимися плодами в почерневшую массу. Особенно активна она в тёплую влажную погоду — как раз в разгар лета, когда идут дожди и держится жара.

@@ -9,8 +9,12 @@ products:
   - name: Торфяные горшочки для рассады
     marketplaceSearch: торфяные горшочки для рассады
     blurb: Огурцы плохо переносят повреждение корней при пересадке — торфяной горшочек высаживают в грунт целиком, без пикировки.
-cover: /images/covers/kogda-sazhat-ogurcy-na-rassadu-sroki-i-uhod.svg
-coverAlt: 'Иллюстрация: Когда сажать огурцы на рассаду: сроки и уход'
+cover: /images/photos/kogda-sazhat-ogurcy-na-rassadu-sroki-i-uhod.jpg
+coverAlt: 'Когда сажать огурцы на рассаду: сроки и уход'
+coverCredit:
+  author: 'Philafrenzy'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dar_cucumber_seedling.jpg'
 ---
 
 Огурец растёт быстро и не любит долго сидеть в тесном стаканчике, поэтому со сроками посева на рассаду легко промахнуться в обе стороны: слишком рано — рассада перерастёт и будет хуже приживаться, слишком поздно — урожай сдвинется.

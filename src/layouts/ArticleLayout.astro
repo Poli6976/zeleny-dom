@@ -77,6 +77,23 @@ const jsonLd = {
       )
     }
 
+    {
+      data.cover && (
+        <figure class="article-cover">
+          <img src={data.cover} alt={data.coverAlt ?? data.title} loading="eager" />
+          {data.coverCredit && (
+            <figcaption>
+              Фото:{' '}
+              <a href={data.coverCredit.sourceUrl} target="_blank" rel="noopener nofollow">
+                {data.coverCredit.author}
+              </a>{' '}
+              · {data.coverCredit.license}
+            </figcaption>
+          )}
+        </figure>
+      )
+    }
+
     <AdSlot place="top" label="Реклама" />
 
     <div class="article-body">

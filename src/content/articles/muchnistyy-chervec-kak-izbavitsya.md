@@ -12,8 +12,12 @@ products:
   - name: Изопропиловый спирт для обработки растений
     marketplaceSearch: изопропиловый спирт технический
     blurb: Классическое средство для точечного уничтожения мучнистого червеца ватным тампоном.
-cover: /images/covers/muchnistyy-chervec-kak-izbavitsya.svg
-coverAlt: 'Иллюстрация: Мучнистый червец: как избавиться'
+cover: /images/photos/muchnistyy-chervec-kak-izbavitsya.jpg
+coverAlt: 'Мучнистый червец: как избавиться'
+coverCredit:
+  author: 'Wolfgang H. Wögerer, Wien'
+  license: 'CC BY 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Mealybugs_on_Phalaenopsis_20080203.jpg'
 ---
 
 Мучнистый червец легко узнать по характерному белому ватному налёту в пазухах листьев — и так же легко недооценить его опасность. Этот вредитель защищён восковым налётом от многих обработок и без системного подхода может годами «жить» на комнатных растениях, ослабляя их.

@@ -12,8 +12,12 @@ products:
   - name: Горшок с дренажными отверстиями
     marketplaceSearch: горшок для растений с дренажом
     blurb: Новый горшок на 2-4 см больше прежнего — стандартный ориентир при пересадке.
-cover: /images/covers/kak-repotit-komnatnoe-rastenie-poshagovo.svg
-coverAlt: 'Иллюстрация: Как пересадить комнатное растение: пошагово'
+cover: /images/photos/kak-repotit-komnatnoe-rastenie-poshagovo.jpg
+coverAlt: 'Как пересадить комнатное растение: пошагово'
+coverCredit:
+  author: 'Dinesh Valke from Thane, India'
+  license: 'CC BY-SA 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Scindapsus_aureus_%3F_(312634307).jpg'
 ---
 
 Пересадка — одна из тех процедур, где легко и помочь растению, и случайно ему навредить. Слишком часто, не вовремя или в горшок «на вырост» — и вместо пользы получаете стресс и остановку роста. Разберём, как сделать всё правильно.

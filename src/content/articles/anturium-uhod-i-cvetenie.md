@@ -9,8 +9,12 @@ products:
   - name: Грунт для антуриумов
     marketplaceSearch: грунт для антуриума
     blurb: Антуриуму, как и орхидее, нужен рыхлый воздухопроницаемый субстрат — плотная земля душит его корни.
-cover: /images/covers/anturium-uhod-i-cvetenie.svg
-coverAlt: 'Иллюстрация: Антуриум: уход и цветение'
+cover: /images/photos/anturium-uhod-i-cvetenie.jpg
+coverAlt: 'Антуриум: уход и цветение'
+coverCredit:
+  author: 'Forest and Kim Starr'
+  license: 'CC BY 3.0 us'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Starr-090506-7489-Anthurium_andraeanum-flower_arrangement-YMCA_Keanae-Maui_(24836638832).jpg'
 ---
 
 Антуриум в народе называют «мужским счастьем» — так же, как спатифиллум зовут «женским», и оба растения нередко держат в доме парой. Яркие восковые «сердечки» соцветий антуриума при этом требуют чуть более внимательного ухода, чем у неприхотливого соседа.

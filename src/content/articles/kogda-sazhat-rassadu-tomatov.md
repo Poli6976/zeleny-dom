@@ -12,8 +12,12 @@ products:
   - name: Торфяные таблетки
     marketplaceSearch: торфяные таблетки для рассады
     blurb: Удобны для посева — сеянцы пикируют прямо в таблетке, не тревожа корни.
-cover: /images/covers/kogda-sazhat-rassadu-tomatov.svg
-coverAlt: 'Иллюстрация: Когда сажать рассаду томатов: сроки и уход'
+cover: /images/photos/kogda-sazhat-rassadu-tomatov.jpg
+coverAlt: 'Когда сажать рассаду томатов: сроки и уход'
+coverCredit:
+  author: 'Dwight Sipler from Stow, MA, USA'
+  license: 'CC BY 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tomato_seedlings_(464347374).jpg'
 ---
 
 Сроки посева томатов — вопрос, где половина неудач начинается ещё до всходов. Посеешь слишком рано — рассада перерастёт и вытянется на подоконнике; слишком поздно — не успеет набрать силу к высадке. Разберёмся, как рассчитать свой срок.

@@ -9,8 +9,12 @@ products:
   - name: Дренаж (керамзит) для суккулентов
     marketplaceSearch: керамзит дренаж для суккулентов
     blurb: Толстянка не переносит застой воды в горшке — слой дренажа на дне обязателен.
-cover: /images/covers/tolstyanka-uhod-za-denezhnym-derevom.svg
-coverAlt: 'Иллюстрация: Толстянка: уход за денежным деревом'
+cover: /images/photos/tolstyanka-uhod-za-denezhnym-derevom.jpg
+coverAlt: 'Толстянка: уход за денежным деревом'
+coverCredit:
+  author: 'Abu Shawka'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Crassula_ovata_-_Jade_Plant_-_South_Africa_6.JPG'
 ---
 
 Толстянку (крассулу) в народе называют денежным деревом за круглые листья, похожие на монеты. Слухи о богатстве оставим суевериям, а вот уход у неё действительно простой — это суккулент, который прощает забывчивость лучше многих комнатных растений.

@@ -12,8 +12,12 @@ products:
   - name: Увлажнитель воздуха
     marketplaceSearch: увлажнитель воздуха для дома
     blurb: Клещ обожает сухой воздух. Влажность — лучшая профилактика.
-cover: /images/covers/pautinnyy-klesch-priznaki-i-lechenie.svg
-coverAlt: 'Иллюстрация: Паутинный клещ на растениях: признаки и лечение'
+cover: /images/photos/pautinnyy-klesch-priznaki-i-lechenie.jpg
+coverAlt: 'Паутинный клещ на растениях: признаки и лечение'
+coverCredit:
+  author: 'Aleksey Gnilenkov from Moscow, Russia'
+  license: 'CC BY 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Red_spider_mite_(Tetranychus_urticae).jpg'
 ---
 
 Паутинный клещ — один из самых вредных и незаметных врагов комнатных растений. Пока вы разглядите паутинку, колония уже разрослась. Но если поймать его рано и действовать системно, справиться реально.

@@ -9,8 +9,12 @@ products:
   - name: Грунт для суккулентов и сансевиерии
     marketplaceSearch: грунт для суккулентов сансевиерии
     blurb: Плотным жёстким листьям сансевиерии нужен рыхлый субстрат — обычная земля держит слишком много влаги у корней.
-cover: /images/covers/sansevieriya-schuchiy-hvost-uhod-v-domashnih-usloviyah.svg
-coverAlt: 'Иллюстрация: Сансевиерия (щучий хвост): уход в домашних условиях'
+cover: /images/photos/sansevieriya-schuchiy-hvost-uhod-v-domashnih-usloviyah.jpg
+coverAlt: 'Сансевиерия (щучий хвост): уход в домашних условиях'
+coverCredit:
+  author: 'Martin Olsson (mnemo on wikipedia and commons, martin@minimum.se)'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Snake_plant.jpg'
 ---
 
 Сансевиерию (её ещё называют щучьим хвостом или тёщиным языком) не зря советуют тем, кто «убивает всё, что растёт»: она обходится минимальным вниманием и при этом остаётся одним из самых декоративных растений с плотными вертикальными листьями.

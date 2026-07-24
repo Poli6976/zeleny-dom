@@ -12,8 +12,12 @@ products:
   - name: Подвесное кашпо
     marketplaceSearch: кашпо подвесное для цветов
     blurb: Хлорофитум эффектно смотрится в подвесном кашпо, откуда свисают его длинные усы с детками.
-cover: /images/covers/hlorofitum-uhod-i-razmnozhenie.svg
-coverAlt: 'Иллюстрация: Хлорофитум: уход и размножение'
+cover: /images/photos/hlorofitum-uhod-i-razmnozhenie.jpg
+coverAlt: 'Хлорофитум: уход и размножение'
+coverCredit:
+  author: 'Daniel VILLAFRUELA.'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Chlorophytum_comosum-Chlorophytum_commun-Stolon-20160423.jpg'
 ---
 
 Хлорофитум — растение, с которого часто начинается «зелёная» коллекция: оно прощает почти любые ошибки, легко размножается и при этом выглядит эффектно благодаря длинным изогнутым листьям и свисающим усам с молодыми розетками.

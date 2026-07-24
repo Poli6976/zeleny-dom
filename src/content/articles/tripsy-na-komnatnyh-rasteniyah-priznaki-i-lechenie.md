@@ -9,8 +9,12 @@ products:
   - name: Жёлтые клеевые ловушки от трипсов
     marketplaceSearch: жёлтые клеевые ловушки от вредителей
     blurb: Трипсы летают и легко перебираются на соседние растения — клеевые ловушки помогают и выявить вредителя, и снизить его число.
-cover: /images/covers/tripsy-na-komnatnyh-rasteniyah-priznaki-i-lechenie.svg
-coverAlt: 'Иллюстрация: Трипсы на комнатных растениях: признаки и лечение'
+cover: /images/photos/tripsy-na-komnatnyh-rasteniyah-priznaki-i-lechenie.jpg
+coverAlt: 'Трипсы на комнатных растениях: признаки и лечение'
+coverCredit:
+  author: 'Forest and Kim Starr'
+  license: 'CC BY 3.0 us'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Starr-151029-0374-Ficus_benjamina-stem_galls_leaf_galls_and_Cuban_laurel_thrips-Maui_Nui_Botanical_Garden_Kahului-Maui_(26282457695).jpg'
 ---
 
 Трипсы — мелкие летающие насекомые длиной 1–2 мм, которых из-за размера почти невозможно разглядеть невооружённым глазом. Обычно их присутствие выдают не сами вредители, а характерные следы на листьях.

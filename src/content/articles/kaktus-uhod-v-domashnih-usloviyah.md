@@ -9,8 +9,12 @@ products:
   - name: Грунт для кактусов и суккулентов
     marketplaceSearch: грунт для кактусов и суккулентов
     blurb: Обычная земля для кактуса слишком плотная и держит влагу — нужен рыхлый субстрат с песком или мелким камнем.
-cover: /images/covers/kaktus-uhod-v-domashnih-usloviyah.svg
-coverAlt: 'Иллюстрация: Кактус: уход в домашних условиях'
+cover: /images/photos/kaktus-uhod-v-domashnih-usloviyah.jpg
+coverAlt: 'Кактус: уход в домашних условиях'
+coverCredit:
+  author: 'Oktaeder'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kakteen.jpg'
 ---
 
 Кактус — растение пустынь, и большинство проблем с ним возникает именно потому, что его пытаются растить как обычный комнатный цветок. Уход у кактуса свой: меньше воды, больше солнца и обязательный отдых зимой.

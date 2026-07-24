@@ -12,8 +12,12 @@ products:
   - name: Стаканчики для рассады
     marketplaceSearch: стаканчики для рассады торфяные
     blurb: Перец плохо переносит повреждение корней при пересадке — торфяные стаканчики решают эту проблему.
-cover: /images/covers/kogda-sazhat-perec-na-rassadu.svg
-coverAlt: 'Иллюстрация: Когда сажать перец на рассаду'
+cover: /images/photos/kogda-sazhat-perec-na-rassadu.jpg
+coverAlt: 'Когда сажать перец на рассаду'
+coverCredit:
+  author: 'Brocken Inaglory'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Baby_Bell_pepper_%27%27Capsicum_annuum%27%27_.jpg'
 ---
 
 Перец — один из самых медленных в развитии овощей, и именно поэтому со сроками посева ошибаются чаще всего. Посеешь поздно — не успеет набрать силу и дать урожай за короткое лето. Разберёмся, как посчитать точную дату для своего региона.

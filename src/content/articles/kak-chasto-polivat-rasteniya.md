@@ -12,8 +12,12 @@ products:
   - name: Лейка с длинным носиком
     marketplaceSearch: лейка для комнатных растений
     blurb: Узкий носик позволяет лить под корень, не заливая листья и розетку.
-cover: /images/covers/kak-chasto-polivat-rasteniya.svg
-coverAlt: 'Иллюстрация: Как часто поливать комнатные растения'
+cover: /images/photos/kak-chasto-polivat-rasteniya.jpg
+coverAlt: 'Как часто поливать комнатные растения'
+coverCredit:
+  author: 'Lucas Alexander lucasalexander'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Bright_windowsill_(Unsplash).jpg'
 ---
 
 «Как часто поливать?» — самый частый вопрос новичка. И честный ответ: **единого расписания не существует.** Полив по календарю губит больше комнатных растений, чем любая другая ошибка, потому что потребность в воде зависит от растения, сезона, света и вашего дома. Хорошая новость — «читать» растение легко, если знать, на что смотреть.

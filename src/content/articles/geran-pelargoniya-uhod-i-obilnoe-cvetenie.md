@@ -9,8 +9,12 @@ products:
   - name: Удобрение для цветущих гераней
     marketplaceSearch: удобрение для герани пеларгонии
     blurb: Герань — обильноцветущее растение, без регулярных подкормок в сезон роста цветение быстро скудеет.
-cover: /images/covers/geran-pelargoniya-uhod-i-obilnoe-cvetenie.svg
-coverAlt: 'Иллюстрация: Герань (пеларгония): уход и обильное цветение'
+cover: /images/photos/geran-pelargoniya-uhod-i-obilnoe-cvetenie.jpg
+coverAlt: 'Герань (пеларгония): уход и обильное цветение'
+coverCredit:
+  author: 'Kjetil Lenes'
+  license: 'CC BY 2.5'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Flower_pot_cement.jpg'
 ---
 
 Герань (правильнее — пеларгония) десятилетиями держится в топе комнатных растений не зря: она неприхотлива, редко болеет и при этом цветёт охотнее многих капризных красавиц. Секрет в нескольких простых привычках ухода.

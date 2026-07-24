@@ -12,8 +12,12 @@ products:
   - name: Инсектицид от тли
     marketplaceSearch: инсектицид от тли для растений
     blurb: Для сильных заражений — системный препарат добивает тлю за одну-две обработки.
-cover: /images/covers/tlya-na-rasteniyah-kak-vyvesti.svg
-coverAlt: 'Иллюстрация: Тля на растениях: как вывести'
+cover: /images/photos/tlya-na-rasteniyah-kak-vyvesti.jpg
+coverAlt: 'Тля на растениях: как вывести'
+coverCredit:
+  author: 'Plant pests and diseases'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Banana_aphids_on_banana_leaf_sheath.jpg'
 ---
 
 Тля — один из самых быстро размножающихся вредителей: одна самка за месяц может дать начало колонии в тысячи особей. Заметили несколько насекомых на верхушке — действовать нужно сразу, пока колония не разрослась и не ослабила растение.

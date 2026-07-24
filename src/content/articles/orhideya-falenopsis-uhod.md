@@ -12,8 +12,12 @@ products:
   - name: Кора для орхидей (субстрат)
     marketplaceSearch: кора для орхидей субстрат
     blurb: Фаленопсис растёт не в земле, а в коре — она обеспечивает воздух корням.
-cover: /images/covers/orhideya-falenopsis-uhod.svg
-coverAlt: 'Иллюстрация: Орхидея фаленопсис: уход для новичка и повторное цветение'
+cover: /images/photos/orhideya-falenopsis-uhod.png
+coverAlt: 'Орхидея фаленопсис: уход для новичка и повторное цветение'
+coverCredit:
+  author: 'Cy21'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Phalaenopsis_orchid-Stipe.png'
 ---
 
 Фаленопсис — самая неприхотливая орхидея и отличный выбор для новичка. Она цветёт месяцами, прощает забывчивость и не требует земли. Главное — понять, что ухаживают за ней иначе, чем за обычными комнатными цветами.

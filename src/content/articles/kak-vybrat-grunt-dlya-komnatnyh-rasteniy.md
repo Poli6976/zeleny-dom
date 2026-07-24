@@ -12,8 +12,12 @@ products:
   - name: Перлит для растений
     marketplaceSearch: перлит для растений
     blurb: Универсальная добавка для улучшения дренажа практически в любой грунт.
-cover: /images/covers/kak-vybrat-grunt-dlya-komnatnyh-rasteniy.svg
-coverAlt: 'Иллюстрация: Как выбрать грунт для комнатных растений'
+cover: /images/photos/kak-vybrat-grunt-dlya-komnatnyh-rasteniy.jpg
+coverAlt: 'Как выбрать грунт для комнатных растений'
+coverCredit:
+  author: 'peganum from Henfield, England'
+  license: 'CC BY-SA 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Why_I_hate_peat-based_composts_(9491832797).jpg'
 ---
 
 Полки магазинов пестрят десятками видов грунта: универсальный, для орхидей, для суккулентов, для фикусов — и новичку немудрено растеряться. На деле разобраться в базовых принципах несложно, и это позволяет не переплачивать за специализированные смеси там, где вообще-то хватило бы простого выбора.

@@ -12,8 +12,12 @@ products:
   - name: Керамический горшок с дренажом
     marketplaceSearch: керамический горшок с дренажными отверстиями
     blurb: Пористая керамика помогает почве быстрее просыхать — снижает риск переувлажнения суккулента.
-cover: /images/covers/aloe-vera-uhod-v-domashnih-usloviyah.svg
-coverAlt: 'Иллюстрация: Алоэ вера: уход в домашних условиях'
+cover: /images/photos/aloe-vera-uhod-v-domashnih-usloviyah.jpg
+coverAlt: 'Алоэ вера: уход в домашних условиях'
+coverCredit:
+  author: 'User:Arjun01'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Potted_Aloe_vera_plant.jpg'
 ---
 
 Алоэ вера — растение, которое выживает там, где другие сохнут: жаркий подоконник, редкий полив, забытая на неделю поливка. При этом оно ещё и полезное — сок из листьев традиционно используют для ухода за кожей. Разберём, как создать ему комфортные условия.

@@ -9,8 +9,12 @@ products:
   - name: Инсектицид от щитовки для комнатных растений
     marketplaceSearch: инсектицид от щитовки для комнатных растений
     blurb: Панцирь щитовки защищает её от контактных препаратов — нужен системный инсектицид, который растение впитывает через корни или листья.
-cover: /images/covers/schitovka-na-komnatnyh-rasteniyah-kak-raspoznat-i-vyvesti.svg
-coverAlt: 'Иллюстрация: Щитовка на комнатных растениях: как распознать и вывести'
+cover: /images/photos/schitovka-na-komnatnyh-rasteniyah-kak-raspoznat-i-vyvesti.png
+coverAlt: 'Щитовка на комнатных растениях: как распознать и вывести'
+coverCredit:
+  author: 'M. Piepenbring'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:03_04_08_life_cycle_of_Septobasidium_sp._on_scale_insects_on_bark_of_a_living_tree,_Septobasidiales_Basidiomycota_(M._Piepenbring).png'
 ---
 
 Щитовку легко принять за болезнь растения, а не за вредителя — она маскируется под неровности коры или наросты на стебле. Из-за этого её часто замечают только тогда, когда колония уже разрослась.

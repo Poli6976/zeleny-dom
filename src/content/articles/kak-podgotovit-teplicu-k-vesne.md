@@ -12,8 +12,12 @@ products:
   - name: Серная шашка для теплицы
     marketplaceSearch: серная шашка для теплицы
     blurb: Проверенный способ обеззаразить конструкцию теплицы от грибков и вредителей перед сезоном.
-cover: /images/covers/kak-podgotovit-teplicu-k-vesne.svg
-coverAlt: 'Иллюстрация: Как подготовить теплицу к весне'
+cover: /images/photos/kak-podgotovit-teplicu-k-vesne.jpg
+coverAlt: 'Как подготовить теплицу к весне'
+coverCredit:
+  author: 'Karen Simon'
+  license: 'CC BY 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Greenhouse-garden.JPG'
 ---
 
 Теплица, в которой год за годом растут одни и те же культуры, накапливает болезни, вредителей и истощённую почву. Весенняя подготовка — не формальность, а то, что определяет здоровье урожая на весь сезон. Разберём по шагам, что сделать до высадки.

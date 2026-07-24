@@ -9,8 +9,12 @@ products:
   - name: Грунт для фиалок и сенполий
     marketplaceSearch: грунт для фиалок сенполий
     blurb: Фиалке нужен рыхлый, лёгкий субстрат — обычная земля для неё слишком плотная и держит лишнюю влагу у корней.
-cover: /images/covers/fialka-senpoliya-uhod-i-obilnoe-cvetenie.svg
-coverAlt: 'Иллюстрация: Фиалка (сенполия): уход и обильное цветение'
+cover: /images/photos/fialka-senpoliya-uhod-i-obilnoe-cvetenie.jpg
+coverAlt: 'Фиалка (сенполия): уход и обильное цветение'
+coverCredit:
+  author: 'Sanja565658'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Saintpaulia_ionantha_01.JPG'
 ---
 
 Фиалка (сенполия) — одно из самых цветущих комнатных растений: при правильном уходе она почти круглый год покрыта шапкой бутонов. Но у неё своя логика — то, что хорошо для большинства комнатных цветов, фиалке часто вредит.

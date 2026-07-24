@@ -12,8 +12,12 @@ products:
   - name: Горшок с дренажными отверстиями
     marketplaceSearch: горшок для растений с дренажом
     blurb: Дренаж спасает от застоя воды — главной причины гнили корней.
-cover: /images/covers/fikus-benjamina-uhod.svg
-coverAlt: 'Иллюстрация: Фикус Бенджамина: уход, полив и почему опадают листья'
+cover: /images/photos/fikus-benjamina-uhod.jpg
+coverAlt: 'Фикус Бенджамина: уход, полив и почему опадают листья'
+coverCredit:
+  author: 'Krzysztof Ziarnek, Kenraiz'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Ficus_benjamina_%27Variegata%27_kz01.jpg'
 ---
 
 Фикус Бенджамина — красивое деревце, но с характером: он не любит перемен и в ответ на стресс демонстративно сбрасывает листья. Хорошая новость в том, что «капризы» легко предугадать, если понять его привычки.

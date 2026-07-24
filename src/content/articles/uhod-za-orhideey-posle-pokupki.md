@@ -12,8 +12,12 @@ products:
   - name: Кора для орхидей
     marketplaceSearch: кора для орхидей субстрат
     blurb: Магазинный субстрат нередко переуплотнён — свежая кора пригодится при пересадке после адаптации.
-cover: /images/covers/uhod-za-orhideey-posle-pokupki.svg
-coverAlt: 'Иллюстрация: Уход за орхидеей после покупки: первые шаги'
+cover: /images/photos/uhod-za-orhideey-posle-pokupki.jpg
+coverAlt: 'Уход за орхидеей после покупки: первые шаги'
+coverCredit:
+  author: 'Sanx'
+  license: 'CC BY 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Phalaenopsis_Orchid.jpg'
 ---
 
 Орхидея из магазина выглядит идеально — с цветами и бутонами. Но за этим часто стоит тепличный режим с интенсивным поливом и подкормкой, к которому дома придётся адаптироваться заново. Разберём, что сделать в первую неделю, а что — подождать.
