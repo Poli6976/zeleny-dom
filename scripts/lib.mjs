@@ -35,12 +35,17 @@ export function slugify(text) {
 /** Список slug-ов уже существующих статей (чтобы не создавать дубли). */
 export function existingSlugs() {
   if (!fs.existsSync(ARTICLES_DIR)) return new Set();
-  return new Set(
-    fs
-      .readdirSync(ARTICLES_DIR)
-      .filter((f) => f.endsWith('.md'))
-      .map((f) => f.replace(/\.md$/, '')),
-  );
+  const slugs = new Set();
+  for (const file of fs.readdirSync(ARTICLES_DIR)) {
+    if (!file.endsWith('.md')) continue;
+    slugs.add(file.replace(/\.md$/, ''));
+    // Имя файла может отличаться от slugify(title) — сверяем и по заголовку,
+    // иначе генератор считает статью отсутствующей и создаёт дубль.
+    const raw = fs.readFileSync(path.join(ARTICLES_DIR, file), 'utf8');
+    const title = raw.match(/^title:\s*(.+)$/m);
+    if (title) slugs.add(slugify(title[1].trim().replace(/^['"]|['"]$/g, '')));
+  }
+  return slugs;
 }
 
 /** YYYY-MM-DD на сегодня. */
