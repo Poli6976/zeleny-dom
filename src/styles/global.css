@@ -265,6 +265,30 @@ img {
   display: block;
 }
 
+/* Блок автора под статьёй — живой человек вместо безликой «редакции» */
+.author-box {
+  background: var(--brand-soft);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 36px 0 8px;
+}
+.author-box .author-name {
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+.author-box .author-bio {
+  margin: 0 0 10px;
+  color: var(--text);
+}
+.author-box .author-contact {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
 /* Article body */
 .article-body {
   font-size: 1.08rem;
