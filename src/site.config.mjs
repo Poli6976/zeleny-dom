@@ -27,12 +27,13 @@ export const SITE = {
   locale: 'ru_RU',
 
   // Автор/владелец (в мета-данных).
-  author: 'Редакция «Зелёный Дом»',
+  author: 'Редакция «Расти Дома»',
 
   // Соцсети (пусто = ссылка не показывается).
   social: {
-    vk: '', // например 'https://vk.com/zelenydom'
-    telegram: '', // например 'https://t.me/zelenydom'
+    vk: 'https://vk.ru/id270320681',
+    telegram: 'https://t.me/rasti_doma',
+    pinterest: 'https://ru.pinterest.com/andr3y2065y/',
     dzen: '', // Яндекс.Дзен отлично гонит трафик на садовые темы
   },
 };

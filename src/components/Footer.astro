@@ -3,6 +3,13 @@ import { SITE, CATEGORIES } from '../site.config.mjs';
 import { categoryUrl } from '../lib/urls.mjs';
 
 const year = new Date().getFullYear();
+
+const socialLinks = [
+  { url: SITE.social.telegram, label: 'Telegram' },
+  { url: SITE.social.vk, label: 'ВКонтакте' },
+  { url: SITE.social.pinterest, label: 'Pinterest' },
+  { url: SITE.social.dzen, label: 'Дзен' },
+].filter((s) => s.url);
 ---
 
 <footer class="site-footer">
@@ -25,6 +32,20 @@ const year = new Date().getFullYear();
       <div><a href="/politika-konfidencialnosti">Политика конфиденциальности</a></div>
       <div><a href="/rss.xml">RSS-лента</a></div>
     </div>
+    {
+      socialLinks.length > 0 && (
+        <div>
+          <h4>Мы в соцсетях</h4>
+          {socialLinks.map((s) => (
+            <div>
+              <a href={s.url} target="_blank" rel="noopener">
+                {s.label}
+              </a>
+            </div>
+          ))}
+        </div>
+      )
+    }
   </div>
   <div class="container container-wide" style="margin-top: 28px; opacity: 0.8;">
     <p>
