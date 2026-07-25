@@ -13,11 +13,7 @@ products:
     marketplaceSearch: агроволокно для мульчирования грядок
     blurb: Пропускает воду и воздух, при этом надёжно защищает почву от пересыхания и сорняков.
 cover: /images/photos/mulchirovanie-gryadok-zachem-i-chem.jpg
-coverAlt: 'Мульчирование грядок: зачем и чем'
-coverCredit:
-  author: 'USDAgov'
-  license: 'Public domain'
-  sourceUrl: 'https://commons.wikimedia.org/wiki/File:2016_People%27s_Garden_Planting_(20160405-AMS-LSC-0808).jpg'
+coverAlt: 'Огурцы на грядке, замульчированной соломой'
 ---
 
 Голая земля между растениями — это испарение влаги, рост сорняков и перепады температуры почвы. Слой мульчи решает все три проблемы разом, и именно поэтому опытные огородники редко оставляют грядки открытыми. Разберёмся, зачем нужна мульча и что выбрать.
