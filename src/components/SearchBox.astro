@@ -151,6 +151,11 @@ import { SITE, ANALYTICS } from '../site.config.mjs';
     let index = null;
     let loading = null;
     let reported = '';
+    // Отчёт о ненайденном запросе шлём с задержкой: иначе на «бегония» уходят
+    // четыре цели — «бего», «бегон», «бегони», «бегония», и статистика мусорная.
+    let reportTimer = null;
+    const REPORT_DELAY = 1500;
+    const REPORT_MIN_LENGTH = 3;
 
     /** Приводит текст к виду, по которому сравниваем: без ё и лишних символов. */
     function normalize(s) {
@@ -234,15 +239,22 @@ import { SITE, ANALYTICS } from '../site.config.mjs';
       box.append(p);
       box.hidden = false;
 
-      if (metrikaId && query !== reported) {
-        reported = query;
-        if (typeof window.ym === 'function') {
-          window.ym(metrikaId, 'reachGoal', 'search_no_results', { query });
-        }
+      // Отправляем, только когда человек перестал печатать: промежуточные
+      // обрывки слова до Метрики не доходят.
+      if (metrikaId && query.length >= REPORT_MIN_LENGTH && query !== reported) {
+        reportTimer = setTimeout(() => {
+          reported = query;
+          if (typeof window.ym === 'function') {
+            window.ym(metrikaId, 'reachGoal', 'search_no_results', { query });
+          }
+        }, REPORT_DELAY);
       }
     }
 
     async function run() {
+      // Любой новый символ отменяет отложенную отправку — уходит только то,
+      // на чём человек остановился.
+      clearTimeout(reportTimer);
       const query = input.value.trim();
       if (query.length < 2) {
         box.hidden = true;
