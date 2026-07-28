@@ -59,6 +59,7 @@ const PHOTO_QUERIES = {
   'schitovka-na-komnatnyh-rasteniyah-kak-raspoznat-i-vyvesti': 'Scale insect Coccoidea plant',
   'tripsy-na-komnatnyh-rasteniyah-priznaki-i-lechenie': 'Thrips insect plant leaf',
   'fitoftora-na-tomatah-priznaki-i-lechenie': 'Phytophthora infestans tomato blight',
+  'vershinnaya-gnil-tomatov-priznaki-i-lechenie': 'Blossom end rot tomato',
 
   // Сад и огород
   'kogda-sazhat-rassadu-tomatov': 'Tomato seedlings',
@@ -68,6 +69,9 @@ const PHOTO_QUERIES = {
   'posadka-chesnoka-pod-zimu': 'Garlic planting field',
   'mulchirovanie-gryadok-zachem-i-chem': 'Straw mulch garden bed',
   'kak-podgotovit-teplicu-k-vesne': 'Greenhouse garden vegetables',
+  'kogda-ubirat-chesnok-i-kak-ego-hranit': 'Garlic Bulbs Unsplash',
+  'pochemu-ogurcy-cvetut-no-ne-plodonosyat':
+    'Cucumis sativus flowers and young fruit Hydroponics greenhouse',
 
   // Уход
   'kak-repotit-komnatnoe-rastenie-poshagovo': 'Repotting houseplant',
