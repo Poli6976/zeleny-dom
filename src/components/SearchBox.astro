@@ -89,40 +89,46 @@ import { SITE, ANALYTICS } from '../site.config.mjs';
   .search-results[hidden] {
     display: none;
   }
-  .search-results a {
+  /*
+   * Выдачу строит скрипт, а Astro вешает свои scope-атрибуты только на элементы
+   * из разметки. Поэтому правила для созданных на лету узлов — через :global(),
+   * иначе стили к ним просто не применяются (ловили в проде: строки слипались).
+   */
+  .search-results :global(a) {
     display: block;
     padding: 10px 14px;
     border-radius: 8px;
     color: var(--text);
     text-decoration: none;
   }
-  .search-results a:hover,
-  .search-results a:focus-visible {
+  .search-results :global(a:hover),
+  .search-results :global(a:focus-visible) {
     background: var(--brand-soft);
     text-decoration: none;
   }
-  .search-results .r-title {
+  .search-results :global(.r-title) {
     display: block;
     font-weight: 600;
     line-height: 1.35;
   }
-  .search-results .r-cat {
+  .search-results :global(.r-cat) {
     display: block;
     font-size: 0.82rem;
     color: var(--text-soft);
     margin-top: 2px;
   }
-  .search-empty {
+  .search-results :global(.search-empty) {
+    margin: 0;
     padding: 14px;
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--text);
   }
-  .search-empty span {
+  .search-results :global(.search-empty span) {
     display: block;
     color: var(--text-soft);
     font-size: 0.88rem;
-    margin-top: 6px;
+    margin-top: 8px;
   }
 
   @media (max-width: 560px) {
