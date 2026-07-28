@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rasti-doma-dev",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "D:\\Рабочий стол\\МОИ ПРОЕКТЫ\\Расти Дома\\node_modules\\astro\\astro.js",
+        "dev",
+        "--root",
+        "D:\\Рабочий стол\\МОИ ПРОЕКТЫ\\Расти Дома"
+      ],
+      "port": 4321
+    }
+  ]
+}

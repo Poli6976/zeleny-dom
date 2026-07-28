@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import SearchBox from '../components/SearchBox.astro';
 import { SITE, CATEGORIES } from '../site.config.mjs';
 import { categoryUrl } from '../lib/urls.mjs';
 
@@ -17,6 +18,7 @@ const latest = articles.slice(0, 9);
     <div class="container">
       <h1>{SITE.tagline}</h1>
       <p class="lead">{SITE.description}</p>
+      <SearchBox />
       <div class="chips">
         {CATEGORIES.map((c) => <a class="chip" href={categoryUrl(c.slug)}>{c.title}</a>)}
       </div>
