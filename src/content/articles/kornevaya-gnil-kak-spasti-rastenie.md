@@ -12,8 +12,12 @@ products:
   - name: Активированный уголь
     marketplaceSearch: активированный уголь для растений
     blurb: Присыпка срезов углём подсушивает ранки и защищает от повторной инфекции при пересадке.
-cover: /images/covers/kornevaya-gnil-kak-spasti-rastenie.svg
-coverAlt: 'Иллюстрация: Корневая гниль: как спасти растение'
+cover: /images/photos/kornevaya-gnil-kak-spasti-rastenie.jpg
+coverAlt: 'Корневая гниль: как спасти растение'
+coverCredit:
+  author: 'Jerzy Opioła'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Rhododendron-Phytophthora_Root_Rot_(2).jpg'
 ---
 
 Корневая гниль — самая частая причина внезапной гибели комнатных растений, и почти всегда она развивается незаметно: пока листья выглядят нормально, беда уже происходит под землёй. Чем раньше заметите проблему, тем больше шансов спасти растение.

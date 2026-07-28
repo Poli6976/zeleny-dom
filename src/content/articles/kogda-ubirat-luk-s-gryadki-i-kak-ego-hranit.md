@@ -12,8 +12,12 @@ products:
   - name: Капроновые сетки для хранения лука
     marketplaceSearch: сетка для хранения лука и чеснока
     blurb: Хранение в сетках или косах обеспечивает лучший приток воздуха, чем в закрытых пакетах или ящиках без вентиляции.
-cover: /images/covers/kogda-ubirat-luk-s-gryadki-i-kak-ego-hranit.svg
-coverAlt: 'Иллюстрация: Когда убирать лук с грядки и как его хранить'
+cover: /images/photos/kogda-ubirat-luk-s-gryadki-i-kak-ego-hranit.jpg
+coverAlt: 'Когда убирать лук с грядки и как его хранить'
+coverCredit:
+  author: 'Bob Jones'
+  license: 'CC BY-SA 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Onion_field_at_Lodge_Heath_-_geograph.org.uk_-_545874.jpg'
 ---
 
 Собранный слишком рано лук плохо хранится, а передержанный на грядке — начинает снова наращивать корни и портится ещё быстрее. Точное время уборки и правильная просушка — то, что решает, долежит ли урожай до весны.

@@ -12,8 +12,12 @@ products:
   - name: Настенная полка для растений
     marketplaceSearch: полка настенная для цветов
     blurb: Держит зелень вне досягаемости питомцев и экономит место.
-cover: /images/covers/rasteniya-bezopasnye-dlya-koshek-i-sobak.svg
-coverAlt: 'Иллюстрация: Растения, безопасные для кошек и собак'
+cover: /images/photos/rasteniya-bezopasnye-dlya-koshek-i-sobak.jpg
+coverAlt: 'Растения, безопасные для кошек и собак'
+coverCredit:
+  author: 'User:Mattes'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Katze_Emmy_im_Blumentopf_sitzend.jpg'
 ---
 
 Если дома есть кошка или собака, выбор растений — это не только про красоту. Многие популярные комнатные виды токсичны при поедании: от раздражения рта до серьёзного отравления. Разберёмся, что безопасно, а что лучше убрать повыше.

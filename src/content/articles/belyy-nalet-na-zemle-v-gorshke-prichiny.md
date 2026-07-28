@@ -12,8 +12,12 @@ products:
   - name: Верхний слой грунта (замена)
     marketplaceSearch: грунт для комнатных растений универсальный
     blurb: При сильном солевом или грибковом налёте проще всего снять и заменить верхний слой земли.
-cover: /images/covers/belyy-nalet-na-zemle-v-gorshke-prichiny.svg
-coverAlt: 'Иллюстрация: Белый налёт на земле в горшке: причины'
+cover: /images/photos/belyy-nalet-na-zemle-v-gorshke-prichiny.jpg
+coverAlt: 'Белый налёт на земле в горшке: причины'
+coverCredit:
+  author: 'Greg Weaver greglweaver'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Overgrown_Houseplant_(Unsplash).jpg'
 ---
 
 Белый налёт на поверхности грунта в горшке — довольно частое явление, но причины у него могут быть совершенно разные: от безобидного минерального осадка до признака переувлажнения. Разберёмся, как отличить одно от другого.

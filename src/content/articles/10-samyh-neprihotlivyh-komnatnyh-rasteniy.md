@@ -12,8 +12,12 @@ products:
   - name: Набор горшков с дренажом
     marketplaceSearch: горшки для цветов с дренажом набор
     blurb: Дренаж — общее требование для всех неприхотливых видов.
-cover: /images/covers/10-samyh-neprihotlivyh-komnatnyh-rasteniy.svg
-coverAlt: 'Иллюстрация: 10 самых неприхотливых комнатных растений'
+cover: /images/photos/10-samyh-neprihotlivyh-komnatnyh-rasteniy.jpg
+coverAlt: '10 самых неприхотливых комнатных растений'
+coverCredit:
+  author: 'Joydeep'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Epipremnum_aureum_31082012.jpg'
 ---
 
 «У меня всё погибает» — обычно означает не отсутствие таланта, а неудачный выбор растения. Начните с живучих видов, и всё изменится. Вот десять, которые прощают забывчивость, полутень и сухой воздух.

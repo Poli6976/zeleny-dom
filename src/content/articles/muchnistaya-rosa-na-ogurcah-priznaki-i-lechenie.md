@@ -12,8 +12,12 @@ products:
   - name: Коллоидная сера для опрыскивания
     marketplaceSearch: коллоидная сера от мучнистой росы
     blurb: Проверенное средство против грибковых болезней огурцов, подходит и для профилактики в течение сезона.
-cover: /images/covers/muchnistaya-rosa-na-ogurcah-priznaki-i-lechenie.svg
-coverAlt: 'Иллюстрация: Мучнистая роса на огурцах: признаки и лечение'
+cover: /images/photos/muchnistaya-rosa-na-ogurcah-priznaki-i-lechenie.jpg
+coverAlt: 'Мучнистая роса на огурцах: признаки и лечение'
+coverCredit:
+  author: 'Schlaghecken Josef'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:K%C3%BCrbis-Cucurbita-Echter_Mehltau-Golovinomyces-3-JS.jpg'
 ---
 
 Белый мучнистый налёт на листьях огурцов чаще всего появляется в конце лета — когда днём ещё жарко, а ночи становятся прохладнее и влажнее. Без лечения болезнь быстро распространяется по всей плети и заметно сокращает урожай.

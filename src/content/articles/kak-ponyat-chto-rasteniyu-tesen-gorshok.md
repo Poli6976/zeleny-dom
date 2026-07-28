@@ -9,8 +9,12 @@ products:
   - name: Горшок на 2–4 см больше предыдущего
     marketplaceSearch: горшок для пересадки комнатных растений
     blurb: При пересадке из-за тесноты новый горшок берут лишь немного больше — «на вырост» вредит не меньше, чем сама теснота.
-cover: /images/covers/kak-ponyat-chto-rasteniyu-tesen-gorshok.svg
-coverAlt: 'Иллюстрация: Как понять, что растению тесен горшок'
+cover: /images/photos/kak-ponyat-chto-rasteniyu-tesen-gorshok.jpg
+coverAlt: 'Как понять, что растению тесен горшок'
+coverCredit:
+  author: 'Keith Williamson'
+  license: 'CC BY 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Root-bound_Chlorophytum_comosum.jpg'
 ---
 
 Растение не скажет прямо, что ему тесно, но подаёт вполне читаемые сигналы. Заметить их вовремя проще, чем потом восстанавливать ослабевший от нехватки места куст.

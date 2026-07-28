@@ -9,8 +9,12 @@ products:
   - name: Кашпо с дренажным отверстием и поддоном
     marketplaceSearch: горшок с дренажным отверстием и поддоном
     blurb: Отверстие в дне даёт лишней воде выход, а поддон защищает подоконник — простое решение большинства проблем с переливом.
-cover: /images/covers/kakoy-gorshok-vybrat-dlya-komnatnogo-rasteniya.svg
-coverAlt: 'Иллюстрация: Какой горшок выбрать для комнатного растения'
+cover: /images/photos/kakoy-gorshok-vybrat-dlya-komnatnogo-rasteniya.jpg
+coverAlt: 'Какой горшок выбрать для комнатного растения'
+coverCredit:
+  author: 'Lewis Clarke'
+  license: 'CC BY-SA 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Broomhall_,_St_Peter%27s_Garden_Centre_-_Flower_Pots_-_geograph.org.uk_-_2170154.jpg'
 ---
 
 Горшок влияет на здоровье растения не меньше, чем полив и свет: неподходящий размер, материал без дренажа или ёмкость «на вырост» могут годами мешать растению нормально расти, даже если остальной уход правильный.

@@ -12,8 +12,12 @@ products:
   - name: Дренаж (керамзит)
     marketplaceSearch: керамзит дренаж для растений
     blurb: Слой дренажа на дне горшка не даёт воде застаиваться у клубня — главная защита от перелива.
-cover: /images/covers/pochemu-u-zamiokulkasa-zhelteyut-listya.svg
-coverAlt: 'Иллюстрация: Почему у замиокулькаса желтеют листья'
+cover: /images/photos/pochemu-u-zamiokulkasa-zhelteyut-listya.jpg
+coverAlt: 'Почему у замиокулькаса желтеют листья'
+coverCredit:
+  author: 'Forest &amp; Kim Starr'
+  license: 'CC BY 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Starr_070906-8549_Zamioculcas_zamiifolia.jpg'
 ---
 
 Замиокулькас славится живучестью, и именно поэтому пожелтевший лист у него особенно настораживает — кажется, будто с неубиваемым растением что-то пошло не так. На деле причин немного, и почти все легко устранимы.

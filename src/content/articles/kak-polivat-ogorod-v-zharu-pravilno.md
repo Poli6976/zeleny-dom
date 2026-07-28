@@ -12,8 +12,12 @@ products:
   - name: Капельный полив
     marketplaceSearch: капельный полив для огорода комплект
     blurb: Подаёт воду прямо к корням медленно и равномерно — самый экономный и безопасный способ полива в жару.
-cover: /images/covers/kak-polivat-ogorod-v-zharu-pravilno.svg
-coverAlt: 'Иллюстрация: Как поливать огород в жару правильно'
+cover: /images/photos/kak-polivat-ogorod-v-zharu-pravilno.jpg
+coverAlt: 'Как поливать огород в жару правильно'
+coverCredit:
+  author: 'USCapitol from Washington, D.C., United States of America'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Watering_Corn_in_the_2017_War_Garden_(35341013014).jpg'
 ---
 
 В сильную жару неправильный полив вредит растениям почти так же, как его отсутствие: обожжённые листья, растрескавшиеся плоды, поверхностные корни. Разберёмся, как поливать грядки в жару так, чтобы помогать растениям, а не создавать им лишний стресс.

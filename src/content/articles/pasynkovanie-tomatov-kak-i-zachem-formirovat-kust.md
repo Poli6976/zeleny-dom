@@ -9,8 +9,12 @@ products:
   - name: Секатор для пасынкования и обрезки
     marketplaceSearch: секатор для пасынкования томатов
     blurb: На крупных пасынках и старых стеблях ноготь уже не справится — острый секатор режет чисто, без заминов ткани.
-cover: /images/covers/pasynkovanie-tomatov-kak-i-zachem-formirovat-kust.svg
-coverAlt: 'Иллюстрация: Пасынкование томатов: как и зачем формировать куст'
+cover: /images/photos/pasynkovanie-tomatov-kak-i-zachem-formirovat-kust.jpg
+coverAlt: 'Пасынкование томатов: как и зачем формировать куст'
+coverCredit:
+  author: 'Stussll'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tomato_plants_being_grown_in_a_greenhouse.jpg'
 ---
 
 Без пасынкования томат превращается в разросшийся куст с десятками мелких кистей вместо крупных плодов на немногих сильных. Растение просто не успевает докормить все побеги одновременно, и приходится выбирать: либо много зелени, либо хороший урожай.

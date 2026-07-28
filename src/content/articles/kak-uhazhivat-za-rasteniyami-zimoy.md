@@ -12,8 +12,12 @@ products:
   - name: Термометр-гигрометр для комнаты
     marketplaceSearch: термометр гигрометр комнатный
     blurb: Помогает контролировать температуру у окон и влажность воздуха при включённом отоплении.
-cover: /images/covers/kak-uhazhivat-za-rasteniyami-zimoy.svg
-coverAlt: 'Иллюстрация: Как ухаживать за растениями зимой'
+cover: /images/photos/kak-uhazhivat-za-rasteniyami-zimoy.jpg
+coverAlt: 'Как ухаживать за растениями зимой'
+coverCredit:
+  author: 'Lucas Alexander lucasalexander'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Bright_windowsill_(Unsplash).jpg'
 ---
 
 Зимой большинство комнатных растений входят в состояние покоя или замедленного роста — и уход, который отлично работал летом, зимой может им навредить. Разберёмся, что стоит изменить с приходом холодов.

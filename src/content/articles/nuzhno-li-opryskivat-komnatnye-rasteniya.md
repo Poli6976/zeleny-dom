@@ -12,8 +12,12 @@ products:
   - name: Увлажнитель воздуха
     marketplaceSearch: увлажнитель воздуха для дома
     blurb: Для растений, которым действительно нужна высокая влажность, увлажнитель эффективнее регулярного опрыскивания.
-cover: /images/covers/nuzhno-li-opryskivat-komnatnye-rasteniya.svg
-coverAlt: 'Иллюстрация: Нужно ли опрыскивать комнатные растения'
+cover: /images/photos/nuzhno-li-opryskivat-komnatnye-rasteniya.jpg
+coverAlt: 'Нужно ли опрыскивать комнатные растения'
+coverCredit:
+  author: 'Willem Karssenberg trendmatcher'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Dew_on_green_foliage_in_macro_(Unsplash).jpg'
 ---
 
 Опрыскивание — одна из самых спорных тем в уходе за растениями: одни считают его обязательным ритуалом, другие — бесполезной привычкой. Истина, как обычно, зависит от конкретного растения и условий в доме.

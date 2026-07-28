@@ -12,8 +12,12 @@ products:
   - name: Семена фацелии
     marketplaceSearch: фацелия сидерат семена
     blurb: Универсальный сидерат, подходящий практически под любые культуры в севообороте.
-cover: /images/covers/sideraty-osenyu-chto-i-kogda-seyat.svg
-coverAlt: 'Иллюстрация: Сидераты осенью: что и когда сеять'
+cover: /images/photos/sideraty-osenyu-chto-i-kogda-seyat.jpg
+coverAlt: 'Сидераты осенью: что и когда сеять'
+coverCredit:
+  author: 'Jonathan Billinger'
+  license: 'CC BY-SA 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Cover_crop_or_green_manure_-_geograph.org.uk_-_4826386.jpg'
 ---
 
 Пустая грядка после уборки урожая — это упущенная возможность. Пока земля отдыхает до весны, на ней может расти сидерат — растение, которое восстанавливает структуру почвы, обогащает её питанием и подавляет сорняки. Разберёмся, что и когда сеять осенью.

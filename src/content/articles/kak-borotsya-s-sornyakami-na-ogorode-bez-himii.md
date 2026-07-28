@@ -9,8 +9,12 @@ products:
   - name: Плоскорез для прополки
     marketplaceSearch: плоскорез для прополки сорняков
     blurb: Подрезает сорняки под корень у самой поверхности почвы — быстрее ручной прополки и не переворачивает землю, где снова прорастут семена сорняков.
-cover: /images/covers/kak-borotsya-s-sornyakami-na-ogorode-bez-himii.svg
-coverAlt: 'Иллюстрация: Как бороться с сорняками на огороде без химии'
+cover: /images/photos/kak-borotsya-s-sornyakami-na-ogorode-bez-himii.jpg
+coverAlt: 'Как бороться с сорняками на огороде без химии'
+coverCredit:
+  author: 'Harry Rose from South West Rocks, Australia'
+  license: 'CC BY 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Chenopodium_album_branch1_(14356606213).jpg'
 ---
 
 Сорняки не просто портят вид грядок — они конкурируют с овощами за воду, свет и питание, а некоторые виды ещё и служат укрытием для вредителей. Полностью избавиться от них за один сезон не получится, но взять под контроль без химии — вполне реально.

@@ -60,6 +60,18 @@ const PHOTO_QUERIES = {
   'tripsy-na-komnatnyh-rasteniyah-priznaki-i-lechenie': 'Thrips insect plant leaf',
   'fitoftora-na-tomatah-priznaki-i-lechenie': 'Phytophthora infestans tomato blight',
   'vershinnaya-gnil-tomatov-priznaki-i-lechenie': 'Blossom end rot tomato',
+  'muchnistaya-rosa-na-ogurcah-priznaki-i-lechenie':
+    'Kürbis Cucurbita Echter Mehltau Golovinomyces',
+  'belyy-nalet-na-zemle-v-gorshke-prichiny': 'Overgrown Houseplant Unsplash',
+  'kak-izbavitsya-ot-moshek-v-komnatnyh-cvetah': 'Sciaridae fungus gnat',
+  'kornevaya-gnil-kak-spasti-rastenie': 'Rhododendron Phytophthora Root Rot Jerzy Opioła',
+  'orhideya-sbrosila-butony-posle-pokupki-prichiny-i-chto-delat': 'Phalaenopsis buds',
+  'pochemu-skruchivayutsya-listya-u-rasteniy': 'Leaf curl of raspberry kędzierzawka maliny',
+  'pochemu-sohnut-konchiki-listev': 'Nephrolepis exaltata',
+  'pochemu-u-tolstyanki-denezhnogo-dereva-opadayut-listya': 'Crassula ovata jade plant leaves',
+  'pochemu-u-zamiokulkasa-zhelteyut-listya': 'Zamioculcas zamiifolia leaves',
+  'pochemu-zhelteyut-listya': 'Bed Snake Plant Unsplash',
+  'vyanut-i-smorschivayutsya-listya-u-orhidei-prichiny': 'Potteplante-orkideer stuevindu',
 
   // Сад и огород
   'kogda-sazhat-rassadu-tomatov': 'Tomato seedlings',
@@ -72,13 +84,47 @@ const PHOTO_QUERIES = {
   'kogda-ubirat-chesnok-i-kak-ego-hranit': 'Garlic Bulbs Unsplash',
   'pochemu-ogurcy-cvetut-no-ne-plodonosyat':
     'Cucumis sativus flowers and young fruit Hydroponics greenhouse',
+  'kak-borotsya-s-sornyakami-na-ogorode-bez-himii': 'Chenopodium album weed plant',
+  'kak-hranit-urozhay-morkovi-do-vesny': 'Carrot harvest roots',
+  'kak-polivat-ogorod-v-zharu-pravilno': 'Watering Corn in the War Garden',
+  'klubnika-posle-plodonosheniya-chto-delat-letom':
+    'Strawberry plant with fruit Fragaria Trimingham',
+  'kogda-sazhat-baklazhany-na-rassadu': 'Solanum melongena eggplant seedlings',
+  'kogda-ubirat-luk-s-gryadki-i-kak-ego-hranit': 'Onion harvest drying field',
+  'pasynkovanie-tomatov-kak-i-zachem-formirovat-kust': 'Tomato plants being grown in a greenhouse',
+  // pochemu-ogurcy-gorchat-i-kak-etogo-izbezhat — стоит своё фото владельца
+  'pochemu-opadayut-zavyazi-u-perca-prichiny-i-chto-delat': 'Capsicum annuum pepper plant flowers',
+  'sideraty-osenyu-chto-i-kogda-seyat': 'Green manure cover crop field',
 
   // Уход
   'kak-repotit-komnatnoe-rastenie-poshagovo': 'Repotting houseplant',
   'kak-vybrat-grunt-dlya-komnatnyh-rasteniy': 'Potting soil compost',
   'kak-chasto-polivat-rasteniya': 'Houseplants windowsill pots',
-  'kak-razmnozhit-komnatnoe-rastenie-cherenkami': 'Chlorophytum plantlet propagation',
+  'kak-razmnozhit-komnatnoe-rastenie-cherenkami': 'Basilikum Ocimum basilicum Stecklinge',
+  '10-samyh-neprihotlivyh-komnatnyh-rasteniy': 'Epipremnum aureum pothos houseplant',
+  'chem-podkormit-komnatnye-rasteniya-vesnoy': 'Decorative Greenery Unsplash',
+  'kakoy-gorshok-vybrat-dlya-komnatnogo-rasteniya':
+    "Broomhall St Peter's Garden Centre Flower Pots",
+  'kak-polivat-komnatnye-rasteniya-vo-vremya-otpuska': 'Green living room corner Unsplash',
+  'kak-ponyat-chto-rasteniyu-tesen-gorshok': 'Root bound plant root ball',
+  'kak-uhazhivat-za-rasteniyami-zimoy': 'Bright windowsill Unsplash',
+  'nuzhno-li-opryskivat-komnatnye-rasteniya': 'Dew-covered plant in macro Unsplash',
+  'rasteniya-bezopasnye-dlya-koshek-i-sobak': 'Katze Emmy im Blumentopf sitzend',
+  'svet-dlya-rasteniy-pryamoy-i-rasseyannyy': 'Houseplant sunlight window',
 };
+
+/**
+ * Обрезает поле автора до имени: в Artist иногда лежит целая простыня с текстом
+ * лицензии и просьбами написать на почту, а под фото нужна короткая подпись.
+ */
+function shortenAuthor(s) {
+  let out = String(s || '')
+    // Отрезаем всё начиная с типичных зачинов лицензионного текста.
+    .split(/\s+(?:I'd appreciate|This file is licensed|You are free|Permission is)/i)[0]
+    .trim();
+  if (out.length > 60) out = out.slice(0, 60).replace(/\s+\S*$/, '') + '…';
+  return out;
+}
 
 /** Убирает html-теги из поля автора — Commons отдаёт его со ссылками. */
 function stripHtml(s) {
@@ -94,6 +140,16 @@ function stripHtml(s) {
 const BAD_AUTHORS = /internet archive book images|biodiversity heritage/i;
 const BAD_TITLE =
   /\(page|bookplate|illustration|drawing|painting|sketch|engraving|lithograph|botanical art|herbarium|\bplate\b|title page/i;
+// Ботанические атласы и старые определители проходили прошлый фильтр: у них
+// нет даты съёмки, а в названии стоит только латинское имя растения
+// («114 Cucumis sativus L.jpg» из атласа Masclef 1891). Ловим их по описанию,
+// источнику и подписи — там книга почти всегда упомянута.
+// Осторожно с общими словами: «book» ловит Facebook, «flora» — названия садов.
+const BOOKISH =
+  /atlas des plantes|flora von|flore de|köhler|kohler's|medizinal|pflanzenfamilien|nouvelle flore|\bfl\. de\b|planches?\b|scanned from|book images/i;
+// Слишком маленькие картинки на обложке выглядят мылом: Commons отдаёт
+// оригинал, если он уже нашего размера, и так прилетала миниатюра 120 px.
+const MIN_WIDTH = 800;
 
 /** Отсеивает исторические материалы: сканы, рисунки, дореволюционные фото. */
 function looksHistorical(title, author, meta) {
@@ -103,6 +159,15 @@ function looksHistorical(title, author, meta) {
   const date = stripHtml(meta.DateTimeOriginal?.value || meta.DateTime?.value || '');
   const year = Number((date.match(/\b(1[6-9]\d{2}|20\d{2})\b/) || [])[1]);
   if (year && year < 1990) return true;
+  // Книжные сканы и атласы: смотрим описание, источник и подпись целиком.
+  const context = [
+    title,
+    author,
+    stripHtml(meta.ImageDescription?.value),
+    stripHtml(meta.Credit?.value),
+    stripHtml(meta.ObjectName?.value),
+  ].join(' ');
+  if (BOOKISH.test(context)) return true;
   return false;
 }
 
@@ -131,12 +196,16 @@ async function findPhoto(query) {
     if (!info) continue;
     // Только растровые фото: svg и рисунки нам не нужны.
     if (!/^image\/(jpeg|png)$/.test(info.mime || '')) continue;
+    // Мелкие файлы на обложке выглядят мылом — отсекаем до скачивания.
+    if ((info.thumbwidth || info.width || 0) < MIN_WIDTH) continue;
     const meta = info.extmetadata ?? {};
     const license = meta.LicenseShortName?.value ?? '';
     // Отсекаем несвободные лицензии (fair use и подобное).
     if (/fair use|non-free/i.test(license)) continue;
 
-    const author = stripHtml(meta.Artist?.value) || 'Wikimedia Commons';
+    // Некоторые авторы вписывают в поле Artist весь текст лицензии — в подписи
+    // под фото это выглядит как мусор, поэтому берём только начало.
+    const author = shortenAuthor(stripHtml(meta.Artist?.value)) || 'Wikimedia Commons';
     if (looksHistorical(page.title, author, meta)) continue;
 
     return {

@@ -12,8 +12,12 @@ products:
   - name: Секатор для обрезки листьев и усов
     marketplaceSearch: секатор садовый для ягодных кустов
     blurb: Аккуратный срез усов и старых листьев без повреждения точки роста заметно проще делать острым секатором, а не руками.
-cover: /images/covers/klubnika-posle-plodonosheniya-chto-delat-letom.svg
-coverAlt: 'Иллюстрация: Клубника после плодоношения: что делать летом'
+cover: /images/photos/klubnika-posle-plodonosheniya-chto-delat-letom.jpg
+coverAlt: 'Клубника после плодоношения: что делать летом'
+coverCredit:
+  author: 'Kolforn'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:-2020-06-06_Strawberry_plant_with_unripe_fruit,_(Fragaria_%C3%97_ananassa),_Trimingham.JPG'
 ---
 
 Сразу после сбора последних ягод многие просто забывают о клубничной грядке до весны — и зря: именно в июле-августе закладывается будущий урожай следующего года. Несколько простых процедур сейчас определяют, сколько ягод вы соберёте через год.

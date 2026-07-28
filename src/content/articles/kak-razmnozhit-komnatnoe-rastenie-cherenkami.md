@@ -12,8 +12,12 @@ products:
   - name: Прозрачные стаканчики для укоренения
     marketplaceSearch: стаканчики для укоренения черенков
     blurb: Прозрачные стенки позволяют следить за появлением корней, не тревожа черенок лишний раз.
-cover: /images/covers/kak-razmnozhit-komnatnoe-rastenie-cherenkami.svg
-coverAlt: 'Иллюстрация: Как размножить комнатное растение черенками'
+cover: /images/photos/kak-razmnozhit-komnatnoe-rastenie-cherenkami.jpg
+coverAlt: 'Как размножить комнатное растение черенками'
+coverCredit:
+  author: 'Schlaghecken Josef'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Basilikum_(Ocimum_basilicum)_Stecklinge_--_Josef_Schlaghecken.jpg'
 ---
 
 Черенкование — самый простой и почти бесплатный способ получить новое растение: от лишнего побега, который всё равно обрезали бы, до полноценного зелёного питомца через несколько недель. Разберём проверенные способы под разные типы растений.

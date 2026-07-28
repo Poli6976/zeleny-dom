@@ -12,8 +12,12 @@ products:
   - name: Перекись водорода 3%
     marketplaceSearch: перекись водорода 3
     blurb: Раствор для пролива грунта — убивает личинок и безвреден для растения.
-cover: /images/covers/kak-izbavitsya-ot-moshek-v-komnatnyh-cvetah.svg
-coverAlt: 'Иллюстрация: Как избавиться от мошек в комнатных цветах'
+cover: /images/photos/kak-izbavitsya-ot-moshek-v-komnatnyh-cvetah.jpg
+coverAlt: 'Как избавиться от мошек в комнатных цветах'
+coverCredit:
+  author: 'James K. Lindsey'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Fungus_gnat_from_Commanster,_Belgium_01.jpg'
 ---
 
 Мелкие чёрные мошки, взлетающие из горшка при поливе, — это **грибные комарики** (сциариды). Для человека они безобидны, растение обычно не убивают, но раздражают и размножаются стремительно, а их личинки подгрызают молодые корешки. Хорошая новость: победить их несложно, если понять причину.

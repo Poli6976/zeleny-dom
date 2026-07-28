@@ -9,8 +9,12 @@ products:
   - name: Комплексное удобрение для перца и томатов
     marketplaceSearch: удобрение для перца плодоношение
     blurb: Недостаток калия и фосфора в период цветения — частая причина осыпающихся завязей, регулярная подкормка снижает риск.
-cover: /images/covers/pochemu-opadayut-zavyazi-u-perca-prichiny-i-chto-delat.svg
-coverAlt: 'Иллюстрация: Почему опадают завязи у перца: причины и что делать'
+cover: /images/photos/pochemu-opadayut-zavyazi-u-perca-prichiny-i-chto-delat.jpg
+coverAlt: 'Почему опадают завязи у перца: причины и что делать'
+coverCredit:
+  author: 'Forest and Kim Starr'
+  license: 'CC BY 3.0 us'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Starr-080607-7267-Capsicum_annuum-flower_and_leaves-Greenhouse_behind_galley_Sand_Island-Midway_Atoll_(24821364321).jpg'
 ---
 
 Перец зацвёл, завязались первые плоды — и вдруг часть завязей желтеет и опадает, так и не превратившись в перчик. Это довольно частая проблема, и почти всегда она связана с условиями выращивания, а не с болезнью растения.

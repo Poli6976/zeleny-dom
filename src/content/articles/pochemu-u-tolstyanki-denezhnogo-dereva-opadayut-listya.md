@@ -9,8 +9,12 @@ products:
   - name: Дренаж (керамзит) для суккулентов
     marketplaceSearch: керамзит дренаж для суккулентов
     blurb: Толстянка не переносит застой воды в горшке — слой дренажа на дне почти всегда решает проблему опадающих от перелива листьев.
-cover: /images/covers/pochemu-u-tolstyanki-denezhnogo-dereva-opadayut-listya.svg
-coverAlt: 'Иллюстрация: Почему у толстянки (денежного дерева) опадают листья'
+cover: /images/photos/pochemu-u-tolstyanki-denezhnogo-dereva-opadayut-listya.jpg
+coverAlt: 'Почему у толстянки (денежного дерева) опадают листья'
+coverCredit:
+  author: 'Emőke Dénes'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Saxifragales_-_Crassula_ovata_1.jpg'
 ---
 
 Толстянка считается одним из самых живучих комнатных растений, поэтому опадающие листья у неё особенно тревожат владельцев. Разберёмся, когда это повод беспокоиться, а когда — нормальный процесс.

@@ -9,8 +9,12 @@ products:
   - name: Измеритель влажности почвы
     marketplaceSearch: измеритель влажности почвы для растений
     blurb: Убирает догадки при поливе — самой частой причины жёлтых листьев.
-cover: /images/covers/pochemu-zhelteyut-listya.svg
-coverAlt: 'Иллюстрация: Почему желтеют листья у комнатных растений: 7 причин'
+cover: /images/photos/pochemu-zhelteyut-listya.jpg
+coverAlt: 'Почему желтеют листья у комнатных растений: 7 причин'
+coverCredit:
+  author: 'Mark Solarski marksolarski'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Bed_%2B_Snake_Plant_(Unsplash).jpg'
 ---
 
 Жёлтые листья — это сигнал, но не диагноз. Сам по себе цвет ничего не говорит: важен **рисунок пожелтения и обстоятельства**. Разберёмся, как определить, какая из семи причин ваша.

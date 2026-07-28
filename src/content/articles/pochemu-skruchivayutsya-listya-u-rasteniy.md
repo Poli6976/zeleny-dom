@@ -12,8 +12,12 @@ products:
   - name: Увлажнитель воздуха
     marketplaceSearch: увлажнитель воздуха для дома
     blurb: Сухой воздух — одна из самых частых причин скручивания листьев у тропических растений.
-cover: /images/covers/pochemu-skruchivayutsya-listya-u-rasteniy.svg
-coverAlt: 'Иллюстрация: Почему скручиваются листья у растений'
+cover: /images/photos/pochemu-skruchivayutsya-listya-u-rasteniy.jpg
+coverAlt: 'Почему скручиваются листья у растений'
+coverCredit:
+  author: 'Jerzy Opioła'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Leaf_curl_of_raspberry_k%C4%99dzierzawka_maliny_(4).jpg'
 ---
 
 Скручивание листьев — сигнал, за которым может стоять сразу несколько разных причин, от банальной сухости воздуха до серьёзного заражения вредителями. Разберём основные варианты, чтобы точно определить свой случай.

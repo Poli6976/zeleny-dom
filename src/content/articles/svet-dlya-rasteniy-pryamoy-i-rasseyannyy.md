@@ -12,8 +12,12 @@ products:
   - name: Тюлевая занавеска для окна
     marketplaceSearch: тюль для окна лёгкий
     blurb: Лёгкая занавеска превращает жёсткое прямое солнце в мягкий рассеянный свет, который любит большинство растений.
-cover: /images/covers/svet-dlya-rasteniy-pryamoy-i-rasseyannyy.svg
-coverAlt: 'Иллюстрация: Свет для растений: прямой и рассеянный'
+cover: /images/photos/svet-dlya-rasteniy-pryamoy-i-rasseyannyy.jpg
+coverAlt: 'Свет для растений: прямой и рассеянный'
+coverCredit:
+  author: 'Stephsdog'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Sunlight_Coming_Through_the_window.jpg'
 ---
 
 В любом описании ухода за растением встречается фраза «яркий рассеянный свет» — но что это значит на практике, объясняют редко. Разберёмся простыми словами, как отличить прямой свет от рассеянного и подобрать растению подходящее место в квартире.

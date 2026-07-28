@@ -12,8 +12,12 @@ products:
   - name: Керамзит для поддона
     marketplaceSearch: керамзит дренажный для растений
     blurb: Влажный керамзит в поддоне поднимает влажность вокруг растения и не даёт горшку стоять прямо в воде.
-cover: /images/covers/kak-polivat-komnatnye-rasteniya-vo-vremya-otpuska.svg
-coverAlt: 'Иллюстрация: Как полить комнатные растения на время отпуска'
+cover: /images/photos/kak-polivat-komnatnye-rasteniya-vo-vremya-otpuska.jpg
+coverAlt: 'Как полить комнатные растения на время отпуска'
+coverCredit:
+  author: 'Brina Blum brina_blum'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Green_living_room_corner_(Unsplash).jpg'
 ---
 
 Главная ошибка перед отъездом — вылить в горшки побольше воды «про запас». Растение всё равно возьмёт столько, сколько сможет, а лишняя вода останется в грунте и за две недели спокойно погубит корни. Работают другие приёмы — и почти все они про то, чтобы растение **тратило меньше воды**, а не получало больше.

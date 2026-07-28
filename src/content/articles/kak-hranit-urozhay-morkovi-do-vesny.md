@@ -12,8 +12,12 @@ products:
   - name: Песок для пересыпки корнеплодов
     marketplaceSearch: песок для хранения овощей
     blurb: Классический способ хранения моркови — пересыпка влажным песком заметно продлевает срок лёжкости.
-cover: /images/covers/kak-hranit-urozhay-morkovi-do-vesny.svg
-coverAlt: 'Иллюстрация: Как хранить урожай моркови до весны'
+cover: /images/photos/kak-hranit-urozhay-morkovi-do-vesny.jpg
+coverAlt: 'Как хранить урожай моркови до весны'
+coverCredit:
+  author: 'Jonathunder'
+  license: 'GFDL 1.2'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:BunchCarrots.jpg'
 ---
 
 Морковь — один из немногих корнеплодов, способных пролежать до весны без потери вкуса и упругости, но только при правильной подготовке и хранении. Ошибки на этом этапе сводят на нет весь труд по выращиванию урожая.

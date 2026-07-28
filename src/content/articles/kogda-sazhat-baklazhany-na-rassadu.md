@@ -9,8 +9,12 @@ products:
   - name: Фитолампа для досветки рассады
     marketplaceSearch: фитолампа для рассады
     blurb: Баклажан растёт на рассаде дольше томата и перца — при коротком световом дне без досветки сеянцы вытягиваются и слабеют.
-cover: /images/covers/kogda-sazhat-baklazhany-na-rassadu.svg
-coverAlt: 'Иллюстрация: Когда сажать баклажаны на рассаду'
+cover: /images/photos/kogda-sazhat-baklazhany-na-rassadu.jpg
+coverAlt: 'Когда сажать баклажаны на рассаду'
+coverCredit:
+  author: 'sakura from between places'
+  license: 'CC BY 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Eggplant_plant.jpg'
 ---
 
 Баклажан — самый медлительный из паслёновых на рассаде: от посева до высадки проходит больше времени, чем у томата или перца, и растение куда болезненнее переносит пересадку. Поэтому со сроками и уходом здесь стоит быть особенно внимательным.

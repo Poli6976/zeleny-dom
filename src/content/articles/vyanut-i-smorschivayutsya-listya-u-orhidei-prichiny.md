@@ -12,8 +12,12 @@ products:
   - name: Субстрат для орхидей
     marketplaceSearch: кора для орхидей субстрат
     blurb: Слежавшийся или прогнивший субстрат мешает корням дышать — свежая кора нужного размера решает проблему при пересадке.
-cover: /images/covers/vyanut-i-smorschivayutsya-listya-u-orhidei-prichiny.svg
-coverAlt: 'Иллюстрация: Вянут и сморщиваются листья у орхидеи: причины'
+cover: /images/photos/vyanut-i-smorschivayutsya-listya-u-orhidei-prichiny.jpg
+coverAlt: 'Вянут и сморщиваются листья у орхидеи: причины'
+coverCredit:
+  author: 'Øyvind Holmstad'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Potteplante-orkideer_stuevindu_mot_elva.jpg'
 ---
 
 Плотные упругие листья — главный признак здоровья орхидеи фаленопсис, поэтому их внезапная вялость или сморщивание всегда тревожит. Разберём, что стоит за этим симптомом чаще всего.

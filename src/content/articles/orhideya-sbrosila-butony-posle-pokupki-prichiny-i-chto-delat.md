@@ -9,8 +9,12 @@ products:
   - name: Удобрение для орхидей
     marketplaceSearch: удобрение для орхидей фаленопсис
     blurb: Поддерживает растение в стрессовый период адаптации — но подкармливать нужно строго по инструкции, избыток удобрения только усилит стресс.
-cover: /images/covers/orhideya-sbrosila-butony-posle-pokupki-prichiny-i-chto-delat.svg
-coverAlt: 'Иллюстрация: Орхидея сбросила бутоны после покупки: причины и что делать'
+cover: /images/photos/orhideya-sbrosila-butony-posle-pokupki-prichiny-i-chto-delat.jpg
+coverAlt: 'Орхидея сбросила бутоны после покупки: причины и что делать'
+coverCredit:
+  author: 'Downtowngal'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Phalaenopsis_buds.jpg'
 ---
 
 Принесли домой орхидею с полной шапкой бутонов — а через несколько дней часть из них пожелтела и опала, так и не раскрывшись. Это одна из самых частых жалоб новых владельцев орхидей, и в большинстве случаев дело не в уходе, а в самой смене обстановки.

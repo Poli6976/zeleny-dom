@@ -12,8 +12,12 @@ products:
   - name: Удобрение для цветущих растений
     marketplaceSearch: удобрение для цветущих комнатных растений
     blurb: Повышенное содержание фосфора и калия стимулирует закладку бутонов у цветущих видов.
-cover: /images/covers/chem-podkormit-komnatnye-rasteniya-vesnoy.svg
-coverAlt: 'Иллюстрация: Чем подкормить комнатные растения весной'
+cover: /images/photos/chem-podkormit-komnatnye-rasteniya-vesnoy.jpg
+coverAlt: 'Чем подкормить комнатные растения весной'
+coverCredit:
+  author: 'Daniel Wallace ashify'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Decorative_Greenery_(Unsplash).jpg'
 ---
 
 После зимнего покоя, когда рост большинства комнатных растений замедляется, весна становится сигналом для возобновления подкормок. Но начинать нужно постепенно и с понимания того, что растение получает не только из удобрения.

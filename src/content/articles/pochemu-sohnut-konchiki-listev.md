@@ -12,8 +12,12 @@ products:
   - name: Увлажнитель воздуха
     marketplaceSearch: увлажнитель воздуха для дома
     blurb: Сухой воздух зимой при отоплении подсушивает кончики листьев даже при правильном поливе.
-cover: /images/covers/pochemu-sohnut-konchiki-listev.svg
-coverAlt: 'Иллюстрация: Почему сохнут кончики листьев'
+cover: /images/photos/pochemu-sohnut-konchiki-listev.jpg
+coverAlt: 'Почему сохнут кончики листьев'
+coverCredit:
+  author: 'Photo by David J. Stang'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Nephrolepis_exaltata_6zz.jpg'
 ---
 
 Коричневые сухие кончики листьев — жалоба, с которой сталкивается почти каждый, кто держит комнатные растения. В отличие от массового пожелтения, это чаще накопительная проблема, связанная с несколькими факторами сразу, а не с одной явной ошибкой.
