@@ -1,5 +1,5 @@
 ---
-import { SITE, ANALYTICS } from '../site.config.mjs';
+import { ANALYTICS } from '../site.config.mjs';
 
 /**
  * Поиск по статьям на главной странице.
@@ -13,7 +13,7 @@ import { SITE, ANALYTICS } from '../site.config.mjs';
  */
 ---
 
-<div class="search" data-metrika={ANALYTICS.yaMetrikaId} data-email={SITE.contacts.email}>
+<div class="search" data-metrika={ANALYTICS.yaMetrikaId}>
   <label class="search-label" for="site-search">Что ищете?</label>
   <div class="search-field">
     <input
@@ -124,12 +124,6 @@ import { SITE, ANALYTICS } from '../site.config.mjs';
     line-height: 1.5;
     color: var(--text);
   }
-  .search-results :global(.search-empty span) {
-    display: block;
-    color: var(--text-soft);
-    font-size: 0.88rem;
-    margin-top: 8px;
-  }
 
   @media (max-width: 560px) {
     .search-field input {
@@ -145,7 +139,6 @@ import { SITE, ANALYTICS } from '../site.config.mjs';
     const input = root.querySelector('input');
     const box = root.querySelector('.search-results');
     const metrikaId = root.dataset.metrika;
-    const email = root.dataset.email;
 
     /** @type {Array<{t:string,d:string,k:string[],u:string,c:string}>|null} */
     let index = null;
@@ -233,9 +226,6 @@ import { SITE, ANALYTICS } from '../site.config.mjs';
       const p = document.createElement('p');
       p.className = 'search-empty';
       p.textContent = 'Такой статьи пока нет — мы записали ваш запрос и напишем материал по этой теме.';
-      const sub = document.createElement('span');
-      sub.textContent = `Нужен ответ быстрее? Напишите нам: ${email}`;
-      p.append(sub);
       box.append(p);
       box.hidden = false;
 
