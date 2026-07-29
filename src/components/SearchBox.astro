@@ -23,6 +23,20 @@ import { ANALYTICS } from '../site.config.mjs';
       placeholder="Например: орхидея, тля, когда убирать чеснок"
       aria-describedby="search-hint"
     />
+    <!-- Стрелка нарисована в SVG, а не символом шрифта: так она выглядит
+         одинаково на любой системе и не рискует стать «квадратиком». -->
+    <button type="button" class="search-submit" aria-label="Найти">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path
+          d="M4 12h14M12 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
   </div>
   <p class="search-hint" id="search-hint">
     Ищем по названиям растений, вредителям и работам в саду
@@ -45,6 +59,9 @@ import { ANALYTICS } from '../site.config.mjs';
     margin-bottom: 8px;
     text-align: center;
   }
+  .search-field {
+    position: relative;
+  }
   .search-field input {
     width: 100%;
     box-sizing: border-box;
@@ -54,9 +71,45 @@ import { ANALYTICS } from '../site.config.mjs';
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 999px;
-    padding: 14px 22px;
+    /* Справа оставляем место под кнопку со стрелкой. */
+    padding: 14px 60px 14px 22px;
     outline: none;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  /* Крестик очистки в Chrome налезает на кнопку — убираем его. */
+  .search-field input::-webkit-search-cancel-button {
+    display: none;
+  }
+  .search-submit {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--brand);
+    /* surface — белый в светлой теме и тёмный в тёмной, поэтому стрелка
+       остаётся контрастной на фоне --brand в обеих. */
+    color: var(--surface);
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .search-submit svg {
+    width: 20px;
+    height: 20px;
+  }
+  .search-submit:hover {
+    background: var(--brand-dark);
+  }
+  .search-submit:focus-visible {
+    outline: 2px solid var(--brand-dark);
+    outline-offset: 2px;
   }
   .search-field input::placeholder {
     color: var(--text-soft);
@@ -128,7 +181,8 @@ import { ANALYTICS } from '../site.config.mjs';
   @media (max-width: 560px) {
     .search-field input {
       font-size: 1rem;
-      padding: 12px 18px;
+      /* Справа отступ сохраняем — под кнопкой со стрелкой. */
+      padding: 12px 56px 12px 18px;
     }
   }
 </style>
@@ -138,6 +192,7 @@ import { ANALYTICS } from '../site.config.mjs';
   if (root) {
     const input = root.querySelector('input');
     const box = root.querySelector('.search-results');
+    const submit = root.querySelector('.search-submit');
     const metrikaId = root.dataset.metrika;
 
     /** @type {Array<{t:string,d:string,k:string[],u:string,c:string}>|null} */
@@ -146,8 +201,10 @@ import { ANALYTICS } from '../site.config.mjs';
     let reported = '';
     // Отчёт о ненайденном запросе шлём с задержкой: иначе на «бегония» уходят
     // четыре цели — «бего», «бегон», «бегони», «бегония», и статистика мусорная.
+    // Три секунды — чтобы обрубки не появлялись даже при медленном наборе;
+    // по кнопке со стрелкой запрос уходит сразу, без ожидания.
     let reportTimer = null;
-    const REPORT_DELAY = 1500;
+    const REPORT_DELAY = 3000;
     const REPORT_MIN_LENGTH = 3;
 
     /** Приводит текст к виду, по которому сравниваем: без ё и лишних символов. */
@@ -220,8 +277,21 @@ import { ANALYTICS } from '../site.config.mjs';
       box.hidden = false;
     }
 
-    /** Ничего не нашли — говорим об этом читателю и записываем запрос в Метрику. */
-    function renderEmpty(query) {
+    /** Отправляет ненайденный запрос в Метрику — один раз на запрос. */
+    function report(query) {
+      if (!metrikaId || query.length < REPORT_MIN_LENGTH || query === reported) return;
+      reported = query;
+      if (typeof window.ym === 'function') {
+        window.ym(metrikaId, 'reachGoal', 'search_no_results', { query });
+      }
+    }
+
+    /**
+     * Ничего не нашли — говорим об этом читателю и записываем запрос.
+     * При наборе отправку откладываем, чтобы не слать обрывки слова;
+     * если человек нажал стрелку, запрос уходит немедленно.
+     */
+    function renderEmpty(query, immediate) {
       clear();
       const p = document.createElement('p');
       p.className = 'search-empty';
@@ -229,19 +299,11 @@ import { ANALYTICS } from '../site.config.mjs';
       box.append(p);
       box.hidden = false;
 
-      // Отправляем, только когда человек перестал печатать: промежуточные
-      // обрывки слова до Метрики не доходят.
-      if (metrikaId && query.length >= REPORT_MIN_LENGTH && query !== reported) {
-        reportTimer = setTimeout(() => {
-          reported = query;
-          if (typeof window.ym === 'function') {
-            window.ym(metrikaId, 'reachGoal', 'search_no_results', { query });
-          }
-        }, REPORT_DELAY);
-      }
+      if (immediate) report(query);
+      else reportTimer = setTimeout(() => report(query), REPORT_DELAY);
     }
 
-    async function run() {
+    async function run(immediate = false) {
       // Любой новый символ отменяет отложенную отправку — уходит только то,
       // на чём человек остановился.
       clearTimeout(reportTimer);
@@ -264,11 +326,18 @@ import { ANALYTICS } from '../site.config.mjs';
         .map((x) => x.item);
 
       if (found.length) renderResults(found);
-      else renderEmpty(normalize(query));
+      else renderEmpty(normalize(query), immediate);
     }
 
     input.addEventListener('focus', loadIndex, { once: true });
-    input.addEventListener('input', run);
+    input.addEventListener('input', () => run());
+
+    // Кнопка со стрелкой — явная отправка: результат показываем сразу
+    // и, если ничего не нашлось, сразу записываем запрос.
+    submit.addEventListener('click', () => {
+      run(true);
+      input.focus();
+    });
 
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -276,11 +345,12 @@ import { ANALYTICS } from '../site.config.mjs';
         input.blur();
       }
       if (e.key === 'Enter') {
+        e.preventDefault();
         const first = box.querySelector('a');
-        if (first && !box.hidden) {
-          e.preventDefault();
-          window.location.href = first.href;
-        }
+        // Есть выдача — переходим к первой статье, нет — это тоже явная
+        // отправка, и запрос уходит сразу, как по кнопке.
+        if (first && !box.hidden) window.location.href = first.href;
+        else run(true);
       }
       if (e.key === 'ArrowDown' && !box.hidden) {
         const first = box.querySelector('a');
