@@ -51,6 +51,8 @@ const PHOTO_QUERIES = {
   'spatifillum-uhod-i-pochemu-ne-cvetet': 'Spathiphyllum flower plant',
   'tolstyanka-uhod-za-denezhnym-derevom': 'Crassula ovata plant',
   'zamiokulkas-uhod-za-dollarovym-derevom': 'Zamioculcas zamiifolia plant',
+  'begoniya-uhod-v-domashnih-usloviyah': 'Begonia semperflorens',
+  'apelsin-doma-uhod-i-plodonoshenie': 'Citrus sinensis Meise',
 
   // Вредители и болезни
   'tlya-na-rasteniyah-kak-vyvesti': 'Aphid on plant leaf',
@@ -60,6 +62,7 @@ const PHOTO_QUERIES = {
   'tripsy-na-komnatnyh-rasteniyah-priznaki-i-lechenie': 'Thrips insect plant leaf',
   'fitoftora-na-tomatah-priznaki-i-lechenie': 'Phytophthora infestans tomato blight',
   'vershinnaya-gnil-tomatov-priznaki-i-lechenie': 'Blossom end rot tomato',
+  'slizni-na-gryadkah-kak-izbavitsya': 'Deroceras reticulatum',
   'muchnistaya-rosa-na-ogurcah-priznaki-i-lechenie':
     'Kürbis Cucurbita Echter Mehltau Golovinomyces',
   'belyy-nalet-na-zemle-v-gorshke-prichiny': 'Overgrown Houseplant Unsplash',
@@ -95,6 +98,7 @@ const PHOTO_QUERIES = {
   // pochemu-ogurcy-gorchat-i-kak-etogo-izbezhat — стоит своё фото владельца
   'pochemu-opadayut-zavyazi-u-perca-prichiny-i-chto-delat': 'Capsicum annuum pepper plant flowers',
   'sideraty-osenyu-chto-i-kogda-seyat': 'Green manure cover crop field',
+  'smorodina-posle-sbora-urozhaya-chto-delat': 'Unripe Blackcurrant berries Trimingham Norfolk',
 
   // Уход
   'kak-repotit-komnatnoe-rastenie-poshagovo': 'Repotting houseplant',
@@ -111,6 +115,7 @@ const PHOTO_QUERIES = {
   'nuzhno-li-opryskivat-komnatnye-rasteniya': 'Dew-covered plant in macro Unsplash',
   'rasteniya-bezopasnye-dlya-koshek-i-sobak': 'Katze Emmy im Blumentopf sitzend',
   'svet-dlya-rasteniy-pryamoy-i-rasseyannyy': 'Houseplant sunlight window',
+  'kakoy-vodoy-polivat-komnatnye-rasteniya': 'Watering can',
 };
 
 /**
