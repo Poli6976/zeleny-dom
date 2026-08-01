@@ -53,6 +53,7 @@ const PHOTO_QUERIES = {
   'zamiokulkas-uhod-za-dollarovym-derevom': 'Zamioculcas zamiifolia plant',
   'begoniya-uhod-v-domashnih-usloviyah': 'Begonia semperflorens',
   'apelsin-doma-uhod-i-plodonoshenie': 'Citrus sinensis Meise',
+  'gibiskus-uhod-i-obilnoe-cvetenie': 'Hibiscus rosa-sinensis blossom',
 
   // Вредители и болезни
   'tlya-na-rasteniyah-kak-vyvesti': 'Aphid on plant leaf',
@@ -63,6 +64,7 @@ const PHOTO_QUERIES = {
   'fitoftora-na-tomatah-priznaki-i-lechenie': 'Phytophthora infestans tomato blight',
   'vershinnaya-gnil-tomatov-priznaki-i-lechenie': 'Blossom end rot tomato',
   'slizni-na-gryadkah-kak-izbavitsya': 'Deroceras reticulatum',
+  'belokrylka-na-rasteniyah-kak-vyvesti': 'Bemisia tabaci under leaf of eggplant',
   'muchnistaya-rosa-na-ogurcah-priznaki-i-lechenie':
     'Kürbis Cucurbita Echter Mehltau Golovinomyces',
   'belyy-nalet-na-zemle-v-gorshke-prichiny': 'Overgrown Houseplant Unsplash',
@@ -99,6 +101,8 @@ const PHOTO_QUERIES = {
   'pochemu-opadayut-zavyazi-u-perca-prichiny-i-chto-delat': 'Capsicum annuum pepper plant flowers',
   'sideraty-osenyu-chto-i-kogda-seyat': 'Green manure cover crop field',
   'smorodina-posle-sbora-urozhaya-chto-delat': 'Unripe Blackcurrant berries Trimingham Norfolk',
+  'kak-sobrat-semena-tomatov': 'Half of a sliced tomato on a blue background',
+  'chto-poseyat-v-avguste-na-gryadke': 'Germinating radish',
 
   // Уход
   'kak-repotit-komnatnoe-rastenie-poshagovo': 'Repotting houseplant',
@@ -116,6 +120,7 @@ const PHOTO_QUERIES = {
   'rasteniya-bezopasnye-dlya-koshek-i-sobak': 'Katze Emmy im Blumentopf sitzend',
   'svet-dlya-rasteniy-pryamoy-i-rasseyannyy': 'Houseplant sunlight window',
   'kakoy-vodoy-polivat-komnatnye-rasteniya': 'Watering can',
+  'kompost-svoimi-rukami-chto-mozhno-klast': 'Garden compost bin',
 };
 
 /**
