@@ -25,7 +25,7 @@ const dateFmt = (d) =>
 const toc = headings.filter((h) => h.depth === 2);
 
 // JSON-LD: Article + BreadcrumbList для богатых результатов в поиске.
-const jsonLd = {
+const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: data.title,
@@ -37,6 +37,28 @@ const jsonLd = {
   mainEntityOfPage: absoluteUrl(Astro.url.pathname, SITE.url),
   ...(data.cover ? { image: absoluteUrl(data.cover, SITE.url) } : {}),
 };
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: absoluteUrl('/', SITE.url) },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: cat?.title ?? data.category,
+      item: absoluteUrl(categoryUrl(data.category), SITE.url),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: data.title,
+      item: absoluteUrl(Astro.url.pathname, SITE.url),
+    },
+  ],
+};
+
+const jsonLd = [articleJsonLd, breadcrumbJsonLd];
 ---
 
 <BaseLayout
