@@ -54,6 +54,7 @@ const PHOTO_QUERIES = {
   'begoniya-uhod-v-domashnih-usloviyah': 'Begonia semperflorens',
   'apelsin-doma-uhod-i-plodonoshenie': 'Citrus sinensis Meise',
   'gibiskus-uhod-i-obilnoe-cvetenie': 'Hibiscus rosa-sinensis blossom',
+  'monstera-uhod-v-domashnih-usloviyah': 'Monstera deliciosa plant',
 
   // Вредители и болезни
   'tlya-na-rasteniyah-kak-vyvesti': 'Aphid on plant leaf',
@@ -62,6 +63,7 @@ const PHOTO_QUERIES = {
   'schitovka-na-komnatnyh-rasteniyah-kak-raspoznat-i-vyvesti': 'Scale insect Coccoidea plant',
   'tripsy-na-komnatnyh-rasteniyah-priznaki-i-lechenie': 'Thrips insect plant leaf',
   'fitoftora-na-tomatah-priznaki-i-lechenie': 'Phytophthora infestans tomato blight',
+  'fitoftora-na-kartofele-priznaki-i-lechenie': 'Phytophthora infestans potato late blight leaf',
   'vershinnaya-gnil-tomatov-priznaki-i-lechenie': 'Blossom end rot tomato',
   'slizni-na-gryadkah-kak-izbavitsya': 'Deroceras reticulatum',
   'belokrylka-na-rasteniyah-kak-vyvesti': 'Bemisia tabaci under leaf of eggplant',
@@ -103,6 +105,7 @@ const PHOTO_QUERIES = {
   'smorodina-posle-sbora-urozhaya-chto-delat': 'Unripe Blackcurrant berries Trimingham Norfolk',
   'kak-sobrat-semena-tomatov': 'Half of a sliced tomato on a blue background',
   'chto-poseyat-v-avguste-na-gryadke': 'Germinating radish',
+  'kogda-vykapyvat-kartofel-sroki-i-priznaki-gotovnosti': 'Potatoes harvest basket',
 
   // Уход
   'kak-repotit-komnatnoe-rastenie-poshagovo': 'Repotting houseplant',
@@ -121,6 +124,8 @@ const PHOTO_QUERIES = {
   'svet-dlya-rasteniy-pryamoy-i-rasseyannyy': 'Houseplant sunlight window',
   'kakoy-vodoy-polivat-komnatnye-rasteniya': 'Watering can',
   'kompost-svoimi-rukami-chto-mozhno-klast': 'Garden compost bin',
+  'chem-podkormit-komnatnye-rasteniya-letom': 'Fertilizing houseplant',
+  'nuzhno-li-ryhlit-zemlyu-v-gorshke-u-komnatnogo-rasteniya': 'Soil in flower pot',
 };
 
 /**
