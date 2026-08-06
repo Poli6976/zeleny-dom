@@ -53,6 +53,7 @@ const PHOTO_QUERIES = {
   'zamiokulkas-uhod-za-dollarovym-derevom': 'Zamioculcas zamiifolia plant',
   'begoniya-uhod-v-domashnih-usloviyah': 'Begonia semperflorens',
   'apelsin-doma-uhod-i-plodonoshenie': 'Citrus sinensis Meise',
+  'plyusch-komnatnyy-uhod': 'Common ivy in Tuntorp',
   'gibiskus-uhod-i-obilnoe-cvetenie': 'Hibiscus rosa-sinensis blossom',
   'monstera-uhod-v-domashnih-usloviyah': 'Monstera deliciosa plant',
 
@@ -67,10 +68,12 @@ const PHOTO_QUERIES = {
   'vershinnaya-gnil-tomatov-priznaki-i-lechenie': 'Blossom end rot tomato',
   'slizni-na-gryadkah-kak-izbavitsya': 'Deroceras reticulatum',
   'belokrylka-na-rasteniyah-kak-vyvesti': 'Bemisia tabaci under leaf of eggplant',
+  'koloradskiy-zhuk-kak-borotsya': 'Colorado potato beetle',
   'muchnistaya-rosa-na-ogurcah-priznaki-i-lechenie':
     'Kürbis Cucurbita Echter Mehltau Golovinomyces',
   'belyy-nalet-na-zemle-v-gorshke-prichiny': 'Overgrown Houseplant Unsplash',
   'kak-izbavitsya-ot-moshek-v-komnatnyh-cvetah': 'Sciaridae fungus gnat',
+  'karantin-dlya-novyh-rasteniy': 'Scale on red-stemmed dogwood',
   'kornevaya-gnil-kak-spasti-rastenie': 'Rhododendron Phytophthora Root Rot Jerzy Opioła',
   'orhideya-sbrosila-butony-posle-pokupki-prichiny-i-chto-delat': 'Phalaenopsis buds',
   'pochemu-skruchivayutsya-listya-u-rasteniy': 'Leaf curl of raspberry kędzierzawka maliny',
@@ -102,6 +105,7 @@ const PHOTO_QUERIES = {
   // pochemu-ogurcy-gorchat-i-kak-etogo-izbezhat — стоит своё фото владельца
   'pochemu-opadayut-zavyazi-u-perca-prichiny-i-chto-delat': 'Capsicum annuum pepper plant flowers',
   'sideraty-osenyu-chto-i-kogda-seyat': 'Green manure cover crop field',
+  'kak-hranit-yabloki-zimoy': 'Bohemia apples in basket',
   'smorodina-posle-sbora-urozhaya-chto-delat': 'Unripe Blackcurrant berries Trimingham Norfolk',
   'kak-sobrat-semena-tomatov': 'Half of a sliced tomato on a blue background',
   'chto-poseyat-v-avguste-na-gryadke': 'Germinating radish',
@@ -120,6 +124,7 @@ const PHOTO_QUERIES = {
   'kak-ponyat-chto-rasteniyu-tesen-gorshok': 'Root bound plant root ball',
   'kak-uhazhivat-za-rasteniyami-zimoy': 'Bright windowsill Unsplash',
   'nuzhno-li-opryskivat-komnatnye-rasteniya': 'Dew-covered plant in macro Unsplash',
+  'narodnye-sredstva-dlya-komnatnyh-rasteniy': 'Wood ash.jpg Laurentius',
   'rasteniya-bezopasnye-dlya-koshek-i-sobak': 'Katze Emmy im Blumentopf sitzend',
   'svet-dlya-rasteniy-pryamoy-i-rasseyannyy': 'Houseplant sunlight window',
   'kakoy-vodoy-polivat-komnatnye-rasteniya': 'Watering can',
