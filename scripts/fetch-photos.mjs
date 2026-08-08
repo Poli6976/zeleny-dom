@@ -131,6 +131,12 @@ const PHOTO_QUERIES = {
   'kompost-svoimi-rukami-chto-mozhno-klast': 'Garden compost bin',
   'chem-podkormit-komnatnye-rasteniya-letom': 'Fertilizing houseplant',
   'nuzhno-li-ryhlit-zemlyu-v-gorshke-u-komnatnogo-rasteniya': 'Soil in flower pot',
+  'u-apelsina-zhelteyut-i-opadayut-listya': 'Chlorose ferrique sur Citrus aurantium.jpg',
+  'kak-razmnozhit-begoniyu-cherenkami-i-listom': 'Begonia rex 1zz.jpg',
+  'zanos-komnatnyh-rasteniy-v-dom-s-balkona-osenyu': 'Plants in an apartment.jpg',
+  'kogda-prekraschat-podkormku-komnatnyh-rasteniy-na-zimu':
+    "Peperomia albovittata 'Napoli Night' kz01.jpg",
+  'nuzhno-li-myt-listya-komnatnyh-rasteniy': 'Aglaonema dalam pot.jpg',
 };
 
 /**
