@@ -137,6 +137,11 @@ const PHOTO_QUERIES = {
   'kogda-prekraschat-podkormku-komnatnyh-rasteniy-na-zimu':
     "Peperomia albovittata 'Napoli Night' kz01.jpg",
   'nuzhno-li-myt-listya-komnatnyh-rasteniy': 'Aglaonema dalam pot.jpg',
+  'svekla-kogda-ubirat-s-gryadki-i-kak-hranit-zimoy': 'Beetroots in a basket.jpg',
+  'kapusta-kogda-ubirat-s-gryadki-i-kak-hranit-zimoy': 'Filoma-Kohl vor der Ernte.jpg',
+  'yablonnaya-plodozhorka-kak-borotsya-i-zaschitit-urozhay': 'Cydia pomonella codling moth apple damage',
+  'plodovye-mushki-v-kvartire-prichiny-i-kak-izbavitsya': 'Drosophila melanogaster 53362116.jpg',
+  'kak-zagotovit-zelen-na-zimu-zamorozka-i-sushka': 'Liat Portal for Foodie Disorder - Fresh Dill.jpg',
 };
 
 /**

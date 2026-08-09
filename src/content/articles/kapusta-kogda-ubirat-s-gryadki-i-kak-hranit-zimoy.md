@@ -12,6 +12,12 @@ products:
   - name: Пищевая плёнка для обёртывания кочанов
     marketplaceSearch: пищевая пленка для хранения овощей
     blurb: Плотное обёртывание каждого кочана замедляет усыхание верхних листьев и защищает от плесени.
+cover: /images/photos/kapusta-kogda-ubirat-s-gryadki-i-kak-hranit-zimoy.jpg
+coverAlt: 'Капуста: когда убирать с грядки и как хранить зимой'
+coverCredit:
+  author: 'Friedel1969'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Filoma-Kohl_vor_der_Ernte.jpg'
 ---
 
 Белокочанную капусту для длительного хранения убирают позже всех овощей на грядке — она спокойно переносит первые лёгкие заморозки и от этого становится только слаще. Но затянуть с уборкой тоже нельзя: перезревшие кочаны трескаются и хуже лежат.

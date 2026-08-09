@@ -12,6 +12,12 @@ products:
   - name: Формы для заморозки кубиками
     marketplaceSearch: формы для заморозки зелени кубиками
     blurb: Удобно замораживать зелень с водой или маслом порциями — кубик сразу отправляется в суп или соус.
+cover: /images/photos/kak-zagotovit-zelen-na-zimu-zamorozka-i-sushka.jpg
+coverAlt: 'Как заготовить зелень на зиму: заморозка и сушка'
+coverCredit:
+  author: 'HaJunkiyada'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Fresh_Dill.jpg'
 ---
 
 Конец лета — самое время заготовить впрок зелень с грядки: во второй половине августа укроп, петрушка и базилик набирают максимум аромата, а после первых холодов рост сильно замедляется. Правильная заморозка и сушка сохраняют вкус куда лучше, чем покупная зелень зимой.

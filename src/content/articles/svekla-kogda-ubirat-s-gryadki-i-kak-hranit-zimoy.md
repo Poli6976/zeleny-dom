@@ -12,6 +12,12 @@ products:
   - name: Песок для пересыпки корнеплодов
     marketplaceSearch: песок для хранения овощей
     blurb: Влажный песок держит нужную влажность вокруг свёклы и не даёт корнеплодам соприкасаться друг с другом.
+cover: /images/photos/svekla-kogda-ubirat-s-gryadki-i-kak-hranit-zimoy.jpg
+coverAlt: 'Свёкла: когда убирать с грядки и как хранить зимой'
+coverCredit:
+  author: 'W.carter'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Beetroots_in_a_basket.jpg'
 ---
 
 Свёклу убирают позже моркови, но раньше первых заморозков — угадать момент важно: недозревшая свёкла хуже хранится, а переросшая на грядке становится жёсткой и трескается.

@@ -12,6 +12,12 @@ products:
   - name: Контейнеры с плотной крышкой для овощей
     marketplaceSearch: контейнер для хранения овощей с крышкой
     blurb: Закрытая тара не даёт мушкам добраться до созревающих плодов и отложить в них яйца.
+cover: /images/photos/plodovye-mushki-v-kvartire-prichiny-i-kak-izbavitsya.jpg
+coverAlt: 'Плодовые мушки в квартире: причины и как избавиться'
+coverCredit:
+  author: 'Alexis'
+  license: 'CC BY 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Drosophila_melanogaster_53362116.jpg'
 ---
 
 В конце лета над вазой с фруктами и ящиком с урожаем с огорода вдруг появляется облачко мелких мушек. Это не грибные комарики из цветочных горшков, а плодовые мушки-дрозофилы — они летят на запах перезревших и подгнивающих плодов.

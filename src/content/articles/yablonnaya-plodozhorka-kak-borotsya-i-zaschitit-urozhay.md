@@ -12,6 +12,12 @@ products:
   - name: Ловчие пояса для стволов
     marketplaceSearch: ловчий пояс для деревьев от плодожорки
     blurb: Перехватывают гусениц, ползущих по стволу окукливаться, и заметно снижают численность вредителя на будущий год.
+cover: /images/photos/yablonnaya-plodozhorka-kak-borotsya-i-zaschitit-urozhay.jpg
+coverAlt: 'Яблонная плодожорка: как бороться и защитить урожай'
+coverCredit:
+  author: 'Doug Wilson'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Madige-Apfel-Frucht.jpg'
 ---
 
 Если в августе половина яблок с виду целая, но внутри — ход с бурой трухой и гусеница, это яблонная плодожорка. Она портит не только вкус: повреждённые плоды хуже хранятся и быстрее гниют.
