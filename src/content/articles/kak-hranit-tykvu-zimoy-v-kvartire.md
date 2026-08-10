@@ -9,8 +9,12 @@ products:
   - name: Подставка-решётка для овощей
     marketplaceSearch: подставка для хранения овощей вентилируемая
     blurb: Тыква, стоящая прямо на полу или полке без вентиляции снизу, чаще подгнивает с той стороны, что касается поверхности.
-cover: ''
+cover: /images/photos/kak-hranit-tykvu-zimoy-v-kvartire.jpg
 coverAlt: 'Как хранить тыкву зимой в квартире'
+coverCredit:
+  author: 'Aaron Burden aaronburden'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pumpkins_in_baskets_(Unsplash).jpg'
 ---
 
 В отличие от кабачков, тыква при правильном хранении спокойно лежит несколько месяцев — но только если её вовремя убрать с грядки и не наделать ошибок с самого начала. В условиях обычной квартиры без погреба это тоже реально.

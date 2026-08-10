@@ -12,8 +12,12 @@ products:
   - name: Горшок с дренажными отверстиями
     marketplaceSearch: горшок для растений с дренажом
     blurb: Перед периодом покоя особенно важно, чтобы лишняя вода уходила из горшка, а не застаивалась у корней.
-cover: ''
+cover: /images/photos/nuzhno-li-peresazhivat-komnatnye-rasteniya-osenyu.jpg
 coverAlt: 'Нужно ли пересаживать комнатные растения осенью'
+coverCredit:
+  author: 'User:SB_Johnny'
+  license: 'CC BY-SA 3.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:3_freshly_repotted_plants.JPG'
 ---
 
 Конец лета — время, когда многие вспоминают о пересадке: растения за сезон активно разрослись, а на носу генеральная уборка перед зимой. Но именно осенью пересадка — не самая простая затея, и подходит она не для всех ситуаций.

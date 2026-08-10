@@ -142,6 +142,11 @@ const PHOTO_QUERIES = {
   'yablonnaya-plodozhorka-kak-borotsya-i-zaschitit-urozhay': 'Cydia pomonella codling moth apple damage',
   'plodovye-mushki-v-kvartire-prichiny-i-kak-izbavitsya': 'Drosophila melanogaster 53362116.jpg',
   'kak-zagotovit-zelen-na-zimu-zamorozka-i-sushka': 'Liat Portal for Foodie Disorder - Fresh Dill.jpg',
+  'zemlya-v-gorshke-peresohla-i-ne-vpityvaet-vodu-chto-delat': 'Neglected office plants Unsplash',
+  'zelenye-pomidory-ne-pospevayut-na-kuste-chto-delat-v-konce-leta': 'Organic home-grown tomatoes - unripe to ripe.jpg',
+  'kak-hranit-tykvu-zimoy-v-kvartire': 'Pumpkins in baskets Unsplash',
+  'kak-hranit-grushi-zimoy': 'Pears in basket 2022 G1.jpg',
+  'nuzhno-li-peresazhivat-komnatnye-rasteniya-osenyu': '3 freshly repotted plants.JPG',
 };
 
 /**

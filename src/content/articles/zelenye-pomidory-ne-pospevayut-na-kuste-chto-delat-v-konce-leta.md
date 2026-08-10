@@ -12,8 +12,12 @@ products:
   - name: Бумага для перекладки овощей
     marketplaceSearch: бумага для хранения овощей
     blurb: Обёрнутые бумагой плоды дозревают медленнее и не заражают друг друга гнилью, если один начал портиться.
-cover: ''
+cover: /images/photos/zelenye-pomidory-ne-pospevayut-na-kuste-chto-delat-v-konce-leta.jpg
 coverAlt: 'Зелёные помидоры не поспевают на кусте: что делать'
+coverCredit:
+  author: 'Michal Klajban'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg'
 ---
 
 К концу лета на кустах томатов часто остаётся много зелёных плодов, которые явно не успевают покраснеть до заморозков. Ждать до последнего не стоит — куда надёжнее снять их вовремя и дозарить в помещении.

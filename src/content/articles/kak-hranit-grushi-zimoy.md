@@ -12,8 +12,12 @@ products:
   - name: Бумага для перекладки фруктов
     marketplaceSearch: бумага для хранения фруктов
     blurb: Каждая груша, завёрнутая отдельно, не заражает соседние плоды, если начинает подгнивать.
-cover: ''
+cover: /images/photos/kak-hranit-grushi-zimoy.jpg
 coverAlt: 'Как хранить груши зимой'
+coverCredit:
+  author: 'George Chernilevsky'
+  license: 'CC BY-SA 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pears_in_basket_2022_G1.jpg'
 ---
 
 Груша — плод капризнее яблока: её нельзя дожидаться полной спелости на дереве, если хочется сохранить урожай надолго. Правильный момент съёма решает для груш даже больше, чем условия последующего хранения.
