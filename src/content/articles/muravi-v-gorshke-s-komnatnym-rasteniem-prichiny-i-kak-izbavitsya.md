@@ -12,7 +12,12 @@ products:
   - name: Грунт для комнатных растений универсальный
     marketplaceSearch: грунт для комнатных растений универсальный
     blurb: При полной замене земли муравьиное гнездо и яйца удаляются вместе со старым грунтом целиком.
-cover: ''
+cover: /images/photos/muravi-v-gorshke-s-komnatnym-rasteniem-prichiny-i-kak-izbavitsya.jpg
+coverAlt: 'Муравьи в горшке с комнатным растением: причины и как избавиться'
+coverCredit:
+  author: 'DimiTalen'
+  license: 'CC0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Ants_cultivating_aphids_on_the_underside_of_tree_leaves,_Kluizenbos,_Aalst,_2026.jpg'
 ---
 
 Муравьи в горшке с комнатным растением — не редкость, особенно если летом цветок стоял на балконе или улице, а осенью его занесли в дом. Само по себе растение муравьёв не привлекает, но горшок с рыхлой землёй — удобное место для гнезда, и с этим стоит разобраться быстро, пока колония не разрослась.

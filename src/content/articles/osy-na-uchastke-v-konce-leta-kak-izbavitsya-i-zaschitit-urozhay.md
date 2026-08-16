@@ -12,7 +12,12 @@ products:
   - name: Аэрозоль от ос и шершней
     marketplaceSearch: аэрозоль от ос и шершней
     blurb: Для уничтожения гнезда с безопасного расстояния — работает быстро, но подходит только когда гнездо найдено.
-cover: ''
+cover: /images/photos/osy-na-uchastke-v-konce-leta-kak-izbavitsya-i-zaschitit-urozhay.jpg
+coverAlt: 'Осы на участке в конце лета: как избавиться и защитить урожай'
+coverCredit:
+  author: 'Thomas Quine'
+  license: 'CC BY 2.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Wasps_attracted_to_ripening_grapes.jpg'
 ---
 
 В конце лета осы вдруг оказываются повсюду: облепляют падалицу под яблоней, лезут в стакан с компотом, портят виноград и сливы прямо на ветке. Это не случайность — у ос в этот период меняется поведение, и справиться с ними проще, если понимать почему.

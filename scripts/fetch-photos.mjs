@@ -147,6 +147,11 @@ const PHOTO_QUERIES = {
   'kak-hranit-tykvu-zimoy-v-kvartire': 'Pumpkins in baskets Unsplash',
   'kak-hranit-grushi-zimoy': 'Pears in basket 2022 G1.jpg',
   'nuzhno-li-peresazhivat-komnatnye-rasteniya-osenyu': '3 freshly repotted plants.JPG',
+  'vinograd-posadka-i-uhod-v-sadu': 'Vitis vinifera grapes on vine vineyard',
+  'osy-na-uchastke-v-konce-leta-kak-izbavitsya-i-zaschitit-urozhay': 'Wasps attracted to ripening grapes',
+  'kak-podgotovit-teplicu-k-zime-posle-sbora-urozhaya': 'DSC07727 Greenhouse Interior Blumengärten Hirschstetten',
+  'suhoy-vozduh-ot-batarey-kak-uberech-komnatnye-rasteniya-zimoy': 'Calathea ornata plant',
+  'muravi-v-gorshke-s-komnatnym-rasteniem-prichiny-i-kak-izbavitsya': 'Ants cultivating aphids on the underside of tree leaves Kluizenbos',
 };
 
 /**

@@ -12,7 +12,12 @@ products:
   - name: Серная шашка для теплицы
     marketplaceSearch: серная шашка для теплицы
     blurb: Осенняя обработка серной шашкой уничтожает грибки и вредителей, которые иначе перезимуют в конструкции.
-cover: ''
+cover: /images/photos/kak-podgotovit-teplicu-k-zime-posle-sbora-urozhaya.jpg
+coverAlt: 'Как подготовить теплицу к зиме после сбора урожая'
+coverCredit:
+  author: 'Aciarium'
+  license: 'CC BY 4.0'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:DSC07727_Greenhouse_Interior,_Blumeng%C3%A4rten_Hirschstetten,_2025-07.jpg'
 ---
 
 Многие убирают из теплицы последние помидоры и просто закрывают дверь до весны — а зря. Именно осень, а не весна, лучшее время для обеззараживания: за зиму под спокойно перезимовавшими спорами грибков и яйцами вредителей вырастает следующий урожай проблем. Разберём, что нужно успеть сделать, пока сезон ещё не закрыт окончательно.

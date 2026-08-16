@@ -12,7 +12,12 @@ products:
   - name: Поддон с керамзитом для горшка
     marketplaceSearch: поддон с керамзитом для цветочного горшка
     blurb: Влажный керамзит под горшком создаёт локальную зону повышенной влажности вокруг листьев без риска гнили у корней.
-cover: ''
+cover: /images/photos/suhoy-vozduh-ot-batarey-kak-uberech-komnatnye-rasteniya-zimoy.jpg
+coverAlt: 'Сухой воздух от батарей: как уберечь комнатные растения зимой'
+coverCredit:
+  author: 'Chhe'
+  license: 'Public domain'
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:CalatheaOrnataRoseo-Lineata.jpg'
 ---
 
 С началом отопительного сезона многие комнатные растения выглядят хуже, чем в морозные, но сухие безотопительные дни: сохнут кончики листьев, опадают бутоны, вянут нежные виды вроде калатеи и фиттонии. Дело чаще не в температуре, а в том, что батареи резко понижают влажность воздуха в квартире.
