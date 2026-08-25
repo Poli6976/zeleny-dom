@@ -152,6 +152,10 @@ const PHOTO_QUERIES = {
   'kak-podgotovit-teplicu-k-zime-posle-sbora-urozhaya': 'DSC07727 Greenhouse Interior Blumengärten Hirschstetten',
   'suhoy-vozduh-ot-batarey-kak-uberech-komnatnye-rasteniya-zimoy': 'Calathea ornata plant',
   'muravi-v-gorshke-s-komnatnym-rasteniem-prichiny-i-kak-izbavitsya': 'Ants cultivating aphids on the underside of tree leaves Kluizenbos',
+  'podgotovka-roz-k-zime-osenyu': 'Rosa hybrid tea garden bush',
+  'kryzhovnik-posadka-i-uhod-v-sadu': 'Gooseberry Ribes uva-crispa',
+  'kapustnaya-belyanka-i-tlya-na-kapuste-kak-borotsya':
+    'Large white caterpillars Pieris brassicae Portuguese kale',
 };
 
 /**
