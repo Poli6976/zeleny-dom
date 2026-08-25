@@ -98,7 +98,7 @@ import { ANALYTICS } from '../site.config.mjs';
        остаётся контрастной на фоне --brand в обеих. */
     color: var(--surface);
     cursor: pointer;
-    transition: background 0.15s ease;
+    transition: background 0.15s ease, transform 0.1s ease;
   }
   .search-submit svg {
     width: 20px;
@@ -110,6 +110,10 @@ import { ANALYTICS } from '../site.config.mjs';
   .search-submit:focus-visible {
     outline: 2px solid var(--brand-dark);
     outline-offset: 2px;
+  }
+  /* Заметная реакция на нажатие — особенно важно на телефоне, где нет :hover. */
+  .search-submit:active {
+    transform: translateY(-50%) scale(0.9);
   }
   .search-field input::placeholder {
     color: var(--text-soft);
@@ -206,6 +210,18 @@ import { ANALYTICS } from '../site.config.mjs';
     let reportTimer = null;
     const REPORT_DELAY = 3000;
     const REPORT_MIN_LENGTH = 3;
+    // После явной отправки нечего было найти — очищаем поле и на пару секунд
+    // подменяем плейсхолдер, чтобы посетитель увидел: вопрос ушёл, а не завис.
+    const defaultPlaceholder = input.placeholder;
+    let placeholderTimer = null;
+    function confirmSent() {
+      input.value = '';
+      input.placeholder = 'Вопрос отправлен — мы его учли';
+      clearTimeout(placeholderTimer);
+      placeholderTimer = setTimeout(() => {
+        input.placeholder = defaultPlaceholder;
+      }, 2500);
+    }
 
     /** Приводит текст к виду, по которому сравниваем: без ё и лишних символов. */
     function normalize(s) {
@@ -299,8 +315,12 @@ import { ANALYTICS } from '../site.config.mjs';
       box.append(p);
       box.hidden = false;
 
-      if (immediate) report(query);
-      else reportTimer = setTimeout(() => report(query), REPORT_DELAY);
+      if (immediate) {
+        report(query);
+        confirmSent();
+      } else {
+        reportTimer = setTimeout(() => report(query), REPORT_DELAY);
+      }
     }
 
     async function run(immediate = false) {
