@@ -3,6 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 import AdSlot from '../components/AdSlot.astro';
 import AffiliateCard from '../components/AffiliateCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import SubscribeBlock from '../components/SubscribeBlock.astro';
+import CommentsWidget from '../components/CommentsWidget.astro';
 import { SITE } from '../site.config.mjs';
 import { CATEGORIES } from '../site.config.mjs';
 import { absoluteUrl, categoryUrl } from '../lib/urls.mjs';
@@ -153,6 +155,10 @@ const jsonLd = [articleJsonLd, breadcrumbJsonLd];
         </section>
       )
     }
+
+    <SubscribeBlock />
+
+    <CommentsWidget pageId={entry.id} />
 
     <AdSlot place="bottom" label="Реклама" />
   </article>

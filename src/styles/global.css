@@ -311,6 +311,72 @@ img {
   color: var(--text-soft);
 }
 
+/* ─── Подписка ─── */
+.subscribe {
+  margin: 48px 0 0;
+  padding: 24px;
+  background: var(--brand-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.subscribe h2 {
+  margin: 0 0 8px;
+}
+.subscribe p {
+  margin: 0 0 16px;
+  color: var(--text-soft);
+}
+.vk-subscribe-widget {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 24px;
+}
+.subscribe-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.subscribe-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 84px;
+  color: var(--text);
+  text-align: center;
+}
+.subscribe-link:hover {
+  text-decoration: none;
+  color: var(--text);
+}
+.subscribe-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+.subscribe-link:hover .subscribe-icon {
+  transform: translateY(-2px) scale(1.05);
+}
+.subscribe-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ─── Комментарии ─── */
+.comments {
+  margin: 48px 0 0;
+}
+.comments h2 {
+  margin: 0 0 16px;
+}
+
 /* Article body */
 .article-body {
   font-size: 1.08rem;

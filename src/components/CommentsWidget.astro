@@ -1,0 +1,36 @@
+---
+/**
+ * Комментарии читателей под статьёй — виджет VK Комментарии.
+ * Показывается, только если задан COMMENTS.vkAppId — сейчас пусто
+ * (VK убрал прямую регистрацию standalone-приложений, путь ведёт
+ * через VK Бизнес ID с обязательным ИНН — отложено 30.08.2026,
+ * тот же вывод, что и для «Лапки Дома»).
+ *
+ * @typedef {Object} Props
+ * @property {string} pageId уникальный идентификатор страницы для VK Widgets
+ */
+import { COMMENTS } from '../site.config.mjs';
+const { pageId } = Astro.props;
+---
+
+{
+  COMMENTS.vkAppId && (
+    <section class="comments" aria-label="Комментарии читателей">
+      <h2>Комментарии</h2>
+      <div id="vk_comments" data-page-id={pageId} />
+    </section>
+  )
+}
+
+{
+  COMMENTS.vkAppId && (
+    <Fragment>
+      <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169" is:inline />
+      <script type="text/javascript" define:vars={{ apiId: COMMENTS.vkAppId }} is:inline>
+        VK.init({ apiId });
+        const container = document.getElementById('vk_comments');
+        VK.Widgets.Comments('vk_comments', { limit: 15, attach: '*' }, container.dataset.pageId);
+      </script>
+    </Fragment>
+  )
+}

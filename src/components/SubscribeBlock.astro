@@ -1,0 +1,58 @@
+---
+/**
+ * Заметный блок «Подпишитесь на новые статьи» — узнаваемые круглые
+ * иконки платформ (Telegram, Дзен, RSS), как на большинстве сайтов
+ * с разделом «Мы в соцсетях», а не текстовые кнопки.
+ *
+ * VK сюда намеренно не входит: SITE.social.vk сейчас указывает на
+ * личную страницу, а не паблик — у личных страниц нет кнопки
+ * «Подписаться», только «Добавить в друзья», это было бы нечестно
+ * показывать как канал для подписки (решение 30.08.2026).
+ *
+ * RSS-ссылка на сам сайт (`/rss.xml`) показывается всегда — единственный
+ * способ подписаться на сайт напрямую, без стороннего аккаунта.
+ * Остальные — только если ссылка реально задана в SITE.social, тот же
+ * принцип, что у РСЯ и аналитики: не рисовать то, что не подключено.
+ */
+import { SITE } from '../site.config.mjs';
+
+const channels = [
+  {
+    url: SITE.social.telegram,
+    label: 'Telegram',
+    color: '#26A5E4',
+    icon: '<svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 4.5 3 11.4c-.9.35-.9 1.65.02 1.98l4.4 1.55 1.7 5.46c.2.63 1 .82 1.47.35l2.53-2.5 4.65 3.42c.72.53 1.75.14 1.93-.74l3.16-15.02c.2-.94-.75-1.68-1.66-1.32Z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.6 14.2 18 8l-7.8 7.3-.3 3.2z" fill="#fff"/></svg>',
+  },
+  {
+    url: SITE.social.dzen,
+    label: 'Дзен',
+    color: '#292929',
+    icon: '<svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg"><g fill="#fff"><circle cx="12" cy="5.6" r="2.1"/><circle cx="18.4" cy="12" r="2.1"/><circle cx="12" cy="18.4" r="2.1"/><circle cx="5.6" cy="12" r="2.1"/><circle cx="12" cy="12" r="2.6"/></g></svg>',
+  },
+  {
+    url: '/rss.xml',
+    label: 'Подписаться',
+    // Логотип сайта (тот же рисунок, что в public/favicon.svg) вместо
+    // значка RSS — узнаваемее для читателя, чем абстрактный «сигнал».
+    color: '#a47764',
+    icon: '<svg viewBox="0 0 64 64" width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M32 50c0-12 8-20 18-22-2 12-8 20-18 22z" fill="#e3cbb8"/><path d="M32 50C32 36 24 28 14 26c2 12 8 20 18 24z" fill="#f3ece2"/><path d="M32 50V30" stroke="#f3ece2" stroke-width="2.5" stroke-linecap="round"/></svg>',
+  },
+].filter((c) => c.url);
+---
+
+{
+  channels.length > 0 && (
+    <section class="subscribe" aria-label="Подписка на новые статьи">
+      <h2>Подписывайтесь, чтобы не пропустить новые статьи</h2>
+      <p>Мы в соцсетях — новые материалы о растениях, саде и огороде там, где вам удобно.</p>
+      <div class="subscribe-links">
+        {channels.map((c) => (
+          <a class="subscribe-link" href={c.url} target="_blank" rel="noopener" aria-label={`Подписаться: ${c.label}`}>
+            <span class="subscribe-icon" style={`background:${c.color}`} set:html={c.icon} />
+            <span class="subscribe-label">{c.label}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
