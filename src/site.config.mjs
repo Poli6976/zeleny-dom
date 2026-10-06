@@ -22,6 +22,11 @@ export const SITE = {
   // ПОЛНЫЙ адрес сайта БЕЗ слэша в конце.
   url: 'https://rasti-doma.ru',
 
+  // Код подтверждения Google Search Console (способ «Тег HTML»):
+  // из <meta name="google-site-verification" content="КОД"> вписать только КОД.
+  // Пусто — тег не выводится.
+  googleSiteVerification: 'ouudqIPNHLEGG8fcH-elL-sckmCGiBYbK-8VTuqyz3U',
+
   // Язык контента.
   lang: 'ru',
   locale: 'ru_RU',

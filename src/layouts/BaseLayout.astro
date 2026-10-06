@@ -64,6 +64,11 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <!-- Подтверждение владения сайтом в Такпродам (партнёрка Ozon/WB) -->
     <meta name="takprodam-verification" content="cecf88e7-ac00-4ce8-a0f5-cde2c72e59af" />
 
+    <!-- Подтверждение владения сайтом в Google Search Console -->
+    {SITE.googleSiteVerification && (
+      <meta name="google-site-verification" content={SITE.googleSiteVerification} />
+    )}
+
     <!-- Шрифты стиля Mocha Earth -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
