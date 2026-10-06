@@ -40,6 +40,10 @@
 > подтверждение слетит). Ресурс «Префикс URL» `https://rasti-doma.ru/` в
 > аккаунте владельца, отправлен `sitemap-index.xml`. Страницы в поиске
 > Google ждать через 1–4 недели; проверять в GSC → «Страницы».
+> В тот же день сайт добавлен в **Bing Webmaster Tools** (вход через тот же
+> Google-аккаунт, импорт из GSC вместе с картой сайта; заодно импортированы
+> lapki-doma.ru и leafwise.pages.dev). Индекс Bing питает DuckDuckGo, Yahoo,
+> Copilot и поиск ChatGPT.
 
 ## Статус коротко
 
