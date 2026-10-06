@@ -79,7 +79,8 @@ const PHOTO_QUERIES = {
   'pochemu-skruchivayutsya-listya-u-rasteniy': 'Leaf curl of raspberry kędzierzawka maliny',
   'pochemu-sohnut-konchiki-listev': 'Nephrolepis exaltata',
   'pochemu-u-tolstyanki-denezhnogo-dereva-opadayut-listya': 'Crassula ovata jade plant leaves',
-  'pochemu-u-zamiokulkasa-zhelteyut-listya': 'Zamioculcas zamiifolia leaves',
+  'pochemu-tolstyanka-ne-rastet': 'Jade Plant, Crassula ovata IMG 3632.jpg',
+  'pochemu-u-zamiokulkasa-zhelteyut-listya':'Zamioculcas zamiifolia leaves',
   'pochemu-zhelteyut-listya': 'Bed Snake Plant Unsplash',
   'vyanut-i-smorschivayutsya-listya-u-orhidei-prichiny': 'Potteplante-orkideer stuevindu',
 
