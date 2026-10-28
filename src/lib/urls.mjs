@@ -1,16 +1,17 @@
 import { MONETIZATION } from '../site.config.mjs';
 
 /**
- * URL статьи вида /care-guides/snake-plant-care.
+ * URL статьи вида /care-guides/snake-plant-care/ (со слэшем: GitHub Pages
+ * редиректит адрес без слэша, а canonical и sitemap уже со слэшем).
  * @param {{ id: string, data: { category: string } }} entry запись коллекции articles
  */
 export function articleUrl(entry) {
-  return `/${entry.data.category}/${entry.id}`;
+  return `/${entry.data.category}/${entry.id}/`;
 }
 
-/** URL страницы категории вида /care-guides. */
+/** URL страницы категории вида /care-guides/. */
 export function categoryUrl(slug) {
-  return `/${slug}`;
+  return `/${slug}/`;
 }
 
 /**
