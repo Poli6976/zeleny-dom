@@ -37,3 +37,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # После деплоя сообщаем поисковикам (IndexNow: Bing, Яндекс) о новых статьях.
+  # При ручном запуске отправляются все страницы из sitemap.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Ping IndexNow
+        run: node scripts/indexnow.mjs
+        env:
+          INDEXNOW_ALL: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
