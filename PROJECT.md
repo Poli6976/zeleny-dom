@@ -59,7 +59,9 @@
 > `scripts/indexnow.mjs`, job `indexnow` в `.github/workflows/deploy.yml` —
 > после деплоя шлёт в Bing/Яндекс новые статьи из последнего коммита; ручной
 > запуск workflow («Run workflow») шлёт все страницы из sitemap. Проба без
-> отправки: `INDEXNOW_DRY=1 node scripts/indexnow.mjs`. Рамблер и Mail.ru/VK
+> отправки: `INDEXNOW_DRY=1 node scripts/indexnow.mjs`. **28.10.2026 запущен
+> вручную: отправлено 139 URL, ответ 202 (принято).** Следующая проверка
+> Bing Webmaster (Site Explorer) и GSC «Страницы» — через 1–2 недели. Рамблер и Mail.ru/VK
 > своих вебмастер-панелей не имеют — берут из Яндекса/по ссылкам. Не запушено.
 
 ## Статус коротко
