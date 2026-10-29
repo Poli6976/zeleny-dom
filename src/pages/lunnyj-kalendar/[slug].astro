@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { lunarMonth, RATING_LABELS } from '../../lib/lunar.mjs';
+import { MONTHS } from '../../lib/lunar-months.mjs';
+
+/**
+ * Страницы «Лунный календарь садовода на <месяц> <год>». Список месяцев — src/lib/lunar-months.mjs.
+ * Расчёт — src/lib/lunar.mjs (та же логика, что в public/lunagarden.html, но без региона).
+ */
+export function getStaticPaths() {
+  return MONTHS.map((m) => ({ params: { slug: m.slug }, props: { cfg: m } }));
+}
+
+const { cfg } = Astro.props;
+const days = lunarMonth(cfg.year, cfg.month);
+const gen = cfg.gen;
+
+/** «9–11, 23–25 ноября» из списка дней. */
+function ranges(list) {
+  const out = [];
+  let start = null;
+  let prev = null;
+  for (const d of list) {
+    if (start === null) {
+      start = prev = d;
+    } else if (d === prev + 1) {
+      prev = d;
+    } else {
+      out.push(start === prev ? `${start}` : `${start}–${prev}`);
+      start = prev = d;
+    }
+  }
+  if (start !== null) out.push(start === prev ? `${start}` : `${start}–${prev}`);
+  return out.join(', ');
+}
+
+const byRating = (r) => days.filter((d) => d.rating === r);
+const rest = byRating('forbidden').map((d) => d.day);
+const bad = byRating('bad').map((d) => d.day);
+const ideal = byRating('ideal');
+const good = byRating('good').map((d) => d.day);
+
+/** Идеальные дни, склеенные в серии с одинаковой «частью растения». */
+const idealGroups = [];
+for (const d of ideal) {
+  const last = idealGroups[idealGroups.length - 1];
+  if (last && last.part === d.part && last.sign === d.sign && d.day === last.days[last.days.length - 1] + 1) {
+    last.days.push(d.day);
+  } else {
+    idealGroups.push({ part: d.part, sign: d.sign, days: [d.day] });
+  }
+}
+
+const idealSummary = idealGroups.map((g) => `${ranges(g.days)} ${gen} (${g.sign})`).join('; ');
+
+const PART_TEXT = {
+  корень: 'работы с корнями: корнеплоды, луковичные, пересадка',
+  лист: 'листовые культуры и зелень на подоконнике, полив и подкормка листовых комнатных растений',
+  плод: 'плодовые культуры, в том числе комнатные цитрусовые',
+  цветок: 'цветы: цветущие комнатные растения, выгонка луковичных',
+};
+
+const title = `Лунный календарь садовода на ${cfg.nom} ${cfg.year}: благоприятные дни`;
+const description = `Лунный календарь садовода на ${cfg.nom} ${cfg.year}: таблица по дням, лучшие дни для посадки и пересадки, дни покоя, фазы Луны и знаки зодиака.`;
+const monthTitle = `${cfg.nom} ${cfg.year}`;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <h1>Лунный календарь садовода на {monthTitle}</h1>
+      <p class="lead">
+        Благоприятные и неблагоприятные дни для посадки, пересадки и ухода: таблица по дням, лучшие
+        дни и дни покоя.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-block: 32px 40px;">
+    <div class="article-body prose-narrow">
+      <h2>Главное на {monthTitle}</h2>
+      <ul>
+        <li><strong>Лучшие дни:</strong> {idealSummary}.</li>
+        <li><strong>Дни покоя:</strong> {`${ranges(rest)} ${gen}`}.</li>
+        <li><strong>Неблагоприятные дни:</strong> {`${ranges(bad)} ${gen}`}. Посадки лучше отложить, а прополка и борьба с вредителями подходят.</li>
+        <li><strong>Новолуние и полнолуние:</strong> {`астрономически новолуние ${cfg.astro.newMoon}, полнолуние ${cfg.astro.fullMoon} (по Москве).`}</li>
+      </ul>
+
+      <h2>Календарь по дням на {monthTitle}</h2>
+      <div class="lunar-table-wrap">
+        <table class="lunar-table">
+          <thead>
+            <tr>
+              <th>Число</th>
+              <th>Фаза Луны</th>
+              <th>Лунный день</th>
+              <th>Знак зодиака</th>
+              <th>Статус дня</th>
+            </tr>
+          </thead>
+          <tbody>
+            {days.map((d) => (
+              <tr class={`r-${d.rating}`}>
+                <td>{d.day} {gen}, {d.weekday}</td>
+                <td>{d.phase}</td>
+                <td>{d.lunarDay}</td>
+                <td>{d.sign}</td>
+                <td><strong>{RATING_LABELS[d.rating]}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="lunar-note">
+        Статусы дней рассчитаны по правилам нашего <a href="/lunnyj-kalendar/">лунного календаря</a>
+        без учёта региона. В инструменте можно выбрать свой регион, свои культуры и включить режим
+        теплицы: тогда период заморозков отмечается отдельно.
+      </p>
+
+      <h2>Что делать в лучшие дни {gen}</h2>
+      <p>
+        По традиции лунного календаря в идеальные дни хорошо идут работы, которые соответствуют
+        «части растения» в этот день:
+      </p>
+      <ul>
+        {idealGroups.map((g) => (
+          <li><strong>{`${ranges(g.days)} ${gen}`}</strong>{` — ${g.sign}, день «${g.part}»: ${PART_TEXT[g.part]}.`}</li>
+        ))}
+      </ul>
+      <p>
+        Ноябрь — время ухода и подготовки, а не массовых посадок: на открытом грунте работ мало, зато
+        на подоконнике можно выращивать зелень, выгонять луковичные и ухаживать за комнатными
+        растениями.
+      </p>
+
+      <h2>Дела на {cfg.nom}, не зависящие от Луны</h2>
+      <ul>
+        <li><a href="/sad-ogorod/podgotovka-roz-k-zime-osenyu/">Подготовка роз к зиме</a> и укрытие других теплолюбивых растений.</li>
+        <li><a href="/sovety/kak-uhazhivat-za-rasteniyami-zimoy/">Как ухаживать за комнатными растениями зимой</a>: свет, полив и температура.</li>
+        <li><a href="/sovety/suhoy-vozduh-ot-batarey-kak-uberech-komnatnye-rasteniya-zimoy/">Сухой воздух от батарей</a> и как защитить от него растения.</li>
+        <li><a href="/sovety/nuzhno-li-peresazhivat-komnatnye-rasteniya-osenyu/">Нужно ли пересаживать комнатные растения осенью</a>: пересадка только по необходимости.</li>
+        <li><a href="/sovety/kak-chasto-polivat-rasteniya/">Как часто поливать растения</a> в холодное время.</li>
+      </ul>
+
+      <h2>Как составлен календарь</h2>
+      <p>
+        Мы определяем фазу Луны и знак зодиака, в котором она находится, и по правилам традиционного
+        лунного календаря оцениваем день: растущая Луна в знаках Воды, Огня и Воздуха подходит для
+        листовых, плодовых и цветочных культур, убывающая Луна в знаках Земли — для корнеплодов;
+        «бесплодные» знаки (Овен, Близнецы, Лев, Водолей) считаются неблагоприятными для посадок,
+        а новолуние, полнолуние и лунные дни 1, 14, 15, 16, 29 и 30 — днями покоя.
+      </p>
+      <p>
+        <strong>Расчёт приблизительный:</strong> фаза определяется по упрощённой модели, поэтому метки
+        «Новолуние» и «Полнолуние» в таблице могут отличаться от астрономических на сутки. Дни покоя
+        при этом отмечены с запасом и охватывают настоящие дни новолуния и полнолуния. Лунный
+        календарь — это народная и биодинамическая традиция: убедительных научных подтверждений
+        влияния фаз Луны на рост растений нет, поэтому воспринимайте его как ориентир, а не как
+        строгое правило.
+      </p>
+
+      <h2>Частые вопросы</h2>
+      <h3>Когда новолуние и полнолуние в {cfg.loc} {cfg.year}?</h3>
+      <p>
+        {`По астрономическим данным новолуние приходится на ${cfg.astro.newMoon}, полнолуние — на ${cfg.astro.fullMoon} (по московскому времени). В нашем календаре дни покоя: ${ranges(rest)} ${gen}.`}
+      </p>
+      <h3>Можно ли сажать в дни покоя?</h3>
+      <p>
+        Технически — можно, это только традиция. Если подошёл срок посева или растению срочно нужна
+        пересадка (тесный горшок, гниль), не откладывайте на недели из-за календаря.
+      </p>
+      <h3>Как учесть свой регион?</h3>
+      <p>
+        В <a href="/lunnyj-kalendar/">лунном календаре садовода</a> начните вводить название региона
+        на вкладке «Настройки»: календарь учтёт даты последних весенних и первых осенних заморозков.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lunar-table-wrap {
+    overflow-x: auto;
+  }
+  .lunar-table td,
+  .lunar-table th {
+    white-space: nowrap;
+  }
+  .lunar-table tr.r-ideal td {
+    background: rgba(46, 125, 50, 0.14);
+  }
+  .lunar-table tr.r-good td {
+    background: rgba(46, 125, 50, 0.05);
+  }
+  .lunar-table tr.r-bad td {
+    background: rgba(230, 126, 34, 0.12);
+  }
+  .lunar-table tr.r-forbidden td {
+    background: rgba(183, 28, 28, 0.12);
+  }
+  .lunar-note {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+  }
+</style>

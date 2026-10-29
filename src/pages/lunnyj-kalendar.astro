@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { MONTHS } from '../lib/lunar-months.mjs';
 ---
 
 <BaseLayout
@@ -29,6 +30,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <div class="container" style="padding-bottom: 40px;">
     <div class="article-body prose-narrow">
+      <h2>Лунный календарь по месяцам</h2>
+      <p>Готовые таблицы на каждый день месяца, с лучшими днями и днями покоя:</p>
+      <ul>
+        {MONTHS.map((m) => (
+          <li><a href={`/lunnyj-kalendar/${m.slug}/`}>{`Лунный календарь садовода на ${m.nom} ${m.year}`}</a></li>
+        ))}
+      </ul>
+
       <h2>Как пользоваться календарём</h2>
       <ol>
         <li>
