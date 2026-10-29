@@ -27,6 +27,11 @@ export const SITE = {
   // Пусто — тег не выводится.
   googleSiteVerification: 'ouudqIPNHLEGG8fcH-elL-sckmCGiBYbK-8VTuqyz3U',
 
+  // Код подтверждения сайта в Pinterest (способ «Тег HTML»):
+  // из <meta name="p:domain_verify" content="КОД"> вписать только КОД. Не удалять.
+  // Пусто — тег не выводится.
+  pinterestVerification: '7febee06d726292f6a6b174b1e7e6a4b',
+
   // Язык контента.
   lang: 'ru',
   locale: 'ru_RU',

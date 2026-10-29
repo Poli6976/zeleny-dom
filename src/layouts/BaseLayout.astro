@@ -68,6 +68,10 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     {SITE.googleSiteVerification && (
       <meta name="google-site-verification" content={SITE.googleSiteVerification} />
     )}
+    <!-- Подтверждение сайта в Pinterest (статистика переходов и атрибуция пинов) -->
+    {SITE.pinterestVerification && (
+      <meta name="p:domain_verify" content={SITE.pinterestVerification} />
+    )}
 
     <!-- Шрифты стиля Mocha Earth -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
