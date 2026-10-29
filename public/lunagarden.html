@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌿 LunaGarden AI</title>
+<title>🌿 Лунный садовый календарь</title>
 <style>
 :root{
   --bg:#f3f7ef;--surface:#e6f0e0;--card:#fff;--cb:rgba(46,125,50,.14);
@@ -210,7 +210,7 @@ nav::-webkit-scrollbar{display:none}
   <header class="no-print">
     <div class="logo">
       <div class="logo-icon">🌿</div>
-      <div><h1>LunaGarden AI</h1><span>Биодинамический агроном</span></div>
+      <div><h1>Лунный садовый календарь</h1><span>Биодинамический агроном</span></div>
     </div>
     <div class="hdr-date" id="hdrDate"></div>
   </header>
@@ -975,7 +975,7 @@ function exportPDF(){
   }
 
   const html=`<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8">
-  <title>LunaGarden AI — ${MONTHS_RU[m]} ${y}</title>
+  <title>Лунный садовый календарь — ${MONTHS_RU[m]} ${y}</title>
   <style>
     @page{margin:1.5cm}body{font-family:Arial,sans-serif;font-size:10pt;color:#1a2e1a}
     h1{font-size:16pt;color:#2e7d32}h2{font-size:12pt;color:#2e7d32;margin:12pt 0 5pt;border-bottom:1pt solid #c8e6c9;padding-bottom:2pt}
@@ -989,7 +989,7 @@ function exportPDF(){
     .pb{page-break-before:always}
     .cr{display:flex;justify-content:space-between;padding:3pt 0;border-bottom:0.5pt solid #e0e0e0;font-size:9pt}
   </style></head><body>
-  <h1>🌿 LunaGarden AI — Лунный Садовый Календарь</h1>
+  <h1>🌿 Лунный садовый календарь</h1>
   <p style="color:#5a7d5e;font-size:9pt">${r?`Регион: ${r.name} · `:''}Сформировано: ${fmtDate(today)}</p>
 
   <h2>📅 Календарь ${MONTHS_RU[m]} ${y}</h2>
