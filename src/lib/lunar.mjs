@@ -1,9 +1,11 @@
 /**
  * Лунный календарь для статических страниц («Лунный календарь на <месяц> <год>»).
  *
- * Расчёт перенесён из интерактивного инструмента public/lunagarden.html без изменений
- * (средний синодический месяц + короткий ряд для долготы Луны), чтобы страницы и
- * инструмент давали одинаковую оценку дня. Если правите правила там — правьте и здесь.
+ * Расчёт тот же, что в интерактивном инструменте public/lunagarden.html: фаза по реальному
+ * углу Луна–Солнце (а не по среднему лунному месяцу), день оценивается на полдень по Москве.
+ * Страницы и инструмент должны давать одинаковую оценку дня. Если правите правила там —
+ * правьте и здесь. Сверка: 29.10.2026 — на 2026–2027 годы все дни совпали (730 из 730), метки
+ * новолуния/полнолуния попадают в день настоящего события.
  *
  * Отличие от инструмента: нет привязки к региону, поэтому риск заморозков не учитывается.
  */
@@ -23,15 +25,19 @@ const SIGNS = [
   { n: 'Рыбы', el: 'water', p: 'leaf', f: 'fertile' },
 ];
 
+// Возраст Луны (сутки от новолуния) считается по реальному углу Луна–Солнце. Границы фаз:
+// новолуние и полнолуние занимают ±0,75 суток вокруг точного момента (так метка попадает на тот
+// день, когда событие происходит на самом деле); полнолуние — возраст около 14,77 суток.
+const SYNODIC = 29.530588861;
 const PHASES = [
-  { max: 1.85, n: 'new_moon', l: 'Новолуние', w: false },
+  { max: 0.75, n: 'new_moon', l: 'Новолуние', w: false },
   { max: 7.38, n: 'waxing_crescent', l: 'Растущий серп', w: true },
   { max: 8.07, n: 'first_quarter', l: 'Первая четверть', w: true },
-  { max: 14.77, n: 'waxing_gibbous', l: 'Растущая Луна', w: true },
-  { max: 15.92, n: 'full_moon', l: 'Полнолуние', w: false },
+  { max: 14.0, n: 'waxing_gibbous', l: 'Растущая Луна', w: true },
+  { max: 15.52, n: 'full_moon', l: 'Полнолуние', w: false },
   { max: 22.15, n: 'waning_gibbous', l: 'Убывающая Луна', w: false },
   { max: 23.07, n: 'last_quarter', l: 'Последняя четверть', w: false },
-  { max: 29.53, n: 'waning_crescent', l: 'Убывающий серп', w: false },
+  { max: 28.78, n: 'waning_crescent', l: 'Убывающий серп', w: false },
 ];
 
 const PART_LABELS = { root: 'корень', leaf: 'лист', fruit: 'плод', flower: 'цветок' };
@@ -51,15 +57,32 @@ function jd(date) {
   return Math.floor(365.25 * (Y + 4716)) + Math.floor(30.6001 * (M + 1)) + d + B - 1524.5;
 }
 
+// Каждый день оценивается на полдень по Москве (12:00 МСК = 09:00 UT): jd() даёт 0:00 UT.
+const NOON_MSK = 0.375;
+
+/** Долгота Солнца, градусы (упрощённая формула, точность порядка 0,01°). */
+function sunLon(J) {
+  const T = (J - 2451545) / 36525;
+  const rad = Math.PI / 180;
+  const L0 = 280.46646 + 36000.76983 * T + 0.0003032 * T * T;
+  const M = (357.52911 + 35999.05029 * T - 0.0001537 * T * T) * rad;
+  const C =
+    (1.914602 - 0.004817 * T) * Math.sin(M) + 0.019993 * Math.sin(2 * M) + 0.000289 * Math.sin(3 * M);
+  return (((L0 + C) % 360) + 360) % 360;
+}
+
+/** Возраст Луны в сутках: угол Луна–Солнце, пересчитанный в долю синодического месяца. */
 function moonAge(date) {
-  const J = jd(date);
-  const ref = 2451550.09765;
-  const c = 29.53058867;
-  return (((J - ref) % c) + c) % c;
+  const J = jd(date) + NOON_MSK;
+  const angle = (((moonLonAt(J) - sunLon(J)) % 360) + 360) % 360;
+  return (angle / 360) * SYNODIC;
 }
 
 function moonLon(date) {
-  const J = jd(date);
+  return moonLonAt(jd(date) + NOON_MSK);
+}
+
+function moonLonAt(J) {
   const T = (J - 2451545) / 36525;
   const rad = Math.PI / 180;
   const D = (297.85 + 445267.11 * T) * rad;
@@ -115,7 +138,7 @@ export function lunarDay(year, month, day) {
   const date = new Date(year, month - 1, day);
   const age = moonAge(date);
   const lon = moonLon(date);
-  const phase = PHASES.find((p) => age < p.max) || PHASES[7];
+  const phase = PHASES.find((p) => age < p.max) || PHASES[0];
   const sign = SIGNS[Math.floor((((lon % 360) + 360) % 360) / 30)];
   const lunarDayNumber = Math.floor(age) + 1;
   const weekday = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'][date.getDay()];

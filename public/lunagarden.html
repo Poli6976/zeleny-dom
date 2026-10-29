@@ -421,12 +421,24 @@ function jd(date){
   const A=Math.floor(Y/100),B=2-A+Math.floor(A/4);
   return Math.floor(365.25*(Y+4716))+Math.floor(30.6001*(M+1))+d+B-1524.5;
 }
-function moonAge(date){
-  const J=jd(date),ref=2451550.09765,c=29.53058867;
-  return((J-ref)%c+c)%c;
+/* Каждый день оценивается на полдень по Москве (12:00 МСК = 09:00 UT): jd() даёт 0:00 UT.
+   Возраст Луны считается по реальному углу Луна–Солнце, а не по среднему лунному месяцу. */
+const NOON_MSK=0.375,SYNODIC=29.530588861;
+function sunLon(J){
+  const T=(J-2451545)/36525,rad=Math.PI/180;
+  const L0=280.46646+36000.76983*T+0.0003032*T*T;
+  const M=(357.52911+35999.05029*T-0.0001537*T*T)*rad;
+  const C=(1.914602-0.004817*T)*Math.sin(M)+0.019993*Math.sin(2*M)+0.000289*Math.sin(3*M);
+  return((L0+C)%360+360)%360;
 }
-function moonLon(date){
-  const J=jd(date),T=(J-2451545)/36525;
+function moonAge(date){
+  const J=jd(date)+NOON_MSK;
+  const a=((moonLonAt(J)-sunLon(J))%360+360)%360;
+  return a/360*SYNODIC;
+}
+function moonLon(date){return moonLonAt(jd(date)+NOON_MSK);}
+function moonLonAt(J){
+  const T=(J-2451545)/36525;
   const D=(297.85+445267.11*T)*Math.PI/180;
   const M=(357.53+35999.05*T)*Math.PI/180;
   const Mp=(134.96+477198.87*T)*Math.PI/180;
@@ -454,16 +466,18 @@ const SIGNS=[
   {n:'Рыбы',     e:'♓',el:'water',p:'leaf',  f:'fertile'},
 ];
 const PHASES=[
-  {max:1.85, n:'new_moon',       e:'🌑',l:'Новолуние',        w:false},
+  {max:0.75, n:'new_moon',       e:'🌑',l:'Новолуние',        w:false},
   {max:7.38, n:'waxing_crescent',e:'🌒',l:'Растущий серп',    w:true},
   {max:8.07, n:'first_quarter',  e:'🌓',l:'Первая четверть',  w:true},
-  {max:14.77,n:'waxing_gibbous', e:'🌔',l:'Растущая луна',    w:true},
-  {max:15.92,n:'full_moon',      e:'🌕',l:'Полнолуние',       w:false},
+  {max:14.0, n:'waxing_gibbous', e:'🌔',l:'Растущая луна',    w:true},
+  {max:15.52,n:'full_moon',      e:'🌕',l:'Полнолуние',       w:false},
   {max:22.15,n:'waning_gibbous', e:'🌖',l:'Убывающая луна',   w:false},
   {max:23.07,n:'last_quarter',   e:'🌗',l:'Последняя четверть',w:false},
-  {max:29.53,n:'waning_crescent',e:'🌘',l:'Убывающий серп',   w:false},
+  {max:28.78,n:'waning_crescent',e:'🌘',l:'Убывающий серп',   w:false},
 ];
-function getPhase(age){return PHASES.find(p=>age<p.max)||PHASES[7];}
+/* Новолуние и полнолуние занимают ±0,75 суток вокруг точного момента, поэтому метка
+   попадает на тот день, когда событие происходит на самом деле. Возраст ≥ 28,78 — снова новолуние. */
+function getPhase(age){return PHASES.find(p=>age<p.max)||PHASES[0];}
 function getSign(lon){return SIGNS[Math.floor(((lon%360)+360)%360/30)];}
 function plantPart(sign,phase){
   if(sign.el==='earth'&&!phase.w) return 'root';
