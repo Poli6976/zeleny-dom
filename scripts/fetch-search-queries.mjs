@@ -15,6 +15,8 @@
  *   node scripts/fetch-search-queries.mjs            # за последние 30 дней
  *   node scripts/fetch-search-queries.mjs 90         # за последние 90 дней
  *   node scripts/fetch-search-queries.mjs 30 --json  # машиночитаемый вывод
+ *   node scripts/fetch-search-queries.mjs 30 --found # запросы, по которым статья нашлась
+ *                                                    # (цель search_found, параметр found_query)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -35,7 +37,9 @@ loadEnv();
 
 const TOKEN = process.env.METRIKA_TOKEN;
 const COUNTER = process.env.METRIKA_COUNTER_ID || '110844315';
-const GOAL_PARAM = 'query'; // имя параметра, который шлёт SearchBox
+const showFound = process.argv.includes('--found');
+// имя параметра, который шлёт SearchBox: query — не нашли, found_query — нашли
+const GOAL_PARAM = showFound ? 'found_query' : 'query';
 const days = Number(process.argv.find((a) => /^\d+$/.test(a))) || 30;
 const asJson = process.argv.includes('--json');
 
@@ -96,14 +100,18 @@ if (asJson) {
   console.log(JSON.stringify(rows, null, 2));
 } else if (rows.length === 0) {
   console.log(
-    `За последние ${days} дн. ненайденных запросов нет.\n` +
-      'Если поиск точно не находил статьи — проверь, что в Метрике заведена цель\n' +
-      'типа «JavaScript-событие» с идентификатором search_no_results.',
+    `За последние ${days} дн. ${showFound ? 'найденных' : 'ненайденных'} запросов нет.\n` +
+      'Если поиск точно использовали — проверь, что в Метрике заведена цель\n' +
+      `типа «JavaScript-событие» с идентификатором ${showFound ? 'search_found' : 'search_no_results'}.`,
   );
 } else {
-  console.log(`Ненайденные запросы за последние ${days} дн. (всего ${rows.length}):\n`);
+  console.log(`${showFound ? 'Найденные' : 'Ненайденные'} запросы за последние ${days} дн. (всего ${rows.length}):\n`);
   for (const r of rows) {
     console.log(`${String(r.visits).padStart(4)}  ${r.query}`);
   }
-  console.log('\nЭто и есть очередь тем: сверху — то, что спрашивают чаще всего.');
+  console.log(
+    showFound
+      ? '\nЭто то, чем посетители интересуются: сверху — самые частые запросы.'
+      : '\nЭто и есть очередь тем: сверху — то, что спрашивают чаще всего.',
+  );
 }

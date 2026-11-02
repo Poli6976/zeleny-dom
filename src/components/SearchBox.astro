@@ -10,6 +10,11 @@ import { ANALYTICS } from '../site.config.mjs';
  * Если по запросу ничего не нашлось, запрос уходит целью `search_no_results`
  * в Яндекс.Метрику. Это и есть список тем, которых на сайте не хватает:
  * смотреть в отчёте «Целевая аудитория → Достижение целей».
+ *
+ * Если статья нашлась, запрос уходит целью `search_found` с параметром
+ * `found_query` — так видно, чем вообще интересуются посетители. Имя параметра
+ * другое, чтобы `scripts/fetch-search-queries.mjs` не смешивал найденное
+ * с ненайденным.
  */
 ---
 
@@ -203,6 +208,7 @@ import { ANALYTICS } from '../site.config.mjs';
     let index = null;
     let loading = null;
     let reported = '';
+    let reportedFound = '';
     // Отчёт о ненайденном запросе шлём с задержкой: иначе на «бегония» уходят
     // четыре цели — «бего», «бегон», «бегони», «бегония», и статистика мусорная.
     // Три секунды — чтобы обрубки не появлялись даже при медленном наборе;
@@ -302,6 +308,15 @@ import { ANALYTICS } from '../site.config.mjs';
       }
     }
 
+    /** Отправляет найденный запрос в Метрику — один раз на запрос. */
+    function reportFoundQuery(query) {
+      if (!metrikaId || query.length < REPORT_MIN_LENGTH || query === reportedFound) return;
+      reportedFound = query;
+      if (typeof window.ym === 'function') {
+        window.ym(metrikaId, 'reachGoal', 'search_found', { found_query: query });
+      }
+    }
+
     /**
      * Ничего не нашли — говорим об этом читателю и записываем запрос.
      * При наборе отправку откладываем, чтобы не слать обрывки слова;
@@ -345,8 +360,12 @@ import { ANALYTICS } from '../site.config.mjs';
         .slice(0, 6)
         .map((x) => x.item);
 
-      if (found.length) renderResults(found);
-      else renderEmpty(normalize(query), immediate);
+      if (found.length) {
+        renderResults(found);
+        const normalized = normalize(query);
+        if (immediate) reportFoundQuery(normalized);
+        else reportTimer = setTimeout(() => reportFoundQuery(normalized), REPORT_DELAY);
+      } else renderEmpty(normalize(query), immediate);
     }
 
     input.addEventListener('focus', loadIndex, { once: true });
@@ -369,8 +388,11 @@ import { ANALYTICS } from '../site.config.mjs';
         const first = box.querySelector('a');
         // Есть выдача — переходим к первой статье, нет — это тоже явная
         // отправка, и запрос уходит сразу, как по кнопке.
-        if (first && !box.hidden) window.location.href = first.href;
-        else run(true);
+        if (first && !box.hidden) {
+          clearTimeout(reportTimer);
+          reportFoundQuery(normalize(input.value.trim()));
+          window.location.href = first.href;
+        } else run(true);
       }
       if (e.key === 'ArrowDown' && !box.hidden) {
         const first = box.querySelector('a');
@@ -378,6 +400,15 @@ import { ANALYTICS } from '../site.config.mjs';
           e.preventDefault();
           first.focus();
         }
+      }
+    });
+
+    // Клик по статье в выдаче — запрос точно нашёл то, что искали:
+    // записываем сразу, не дожидаясь паузы, иначе переход оборвёт отправку.
+    box.addEventListener('click', (e) => {
+      if (e.target instanceof Element && e.target.closest('a')) {
+        clearTimeout(reportTimer);
+        reportFoundQuery(normalize(input.value.trim()));
       }
     });
 
