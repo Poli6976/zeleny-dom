@@ -5,13 +5,35 @@ import ArticleCard from '../components/ArticleCard.astro';
 import SearchBox from '../components/SearchBox.astro';
 import SubscribeBlock from '../components/SubscribeBlock.astro';
 import { SITE, CATEGORIES } from '../site.config.mjs';
-import { categoryUrl } from '../lib/urls.mjs';
+import { categoryUrl, articleUrl } from '../lib/urls.mjs';
 
 const all = await getCollection('articles', ({ data }) => import.meta.env.PROD ? !data.draft : true);
 const articles = all.sort(
   (a, b) => +new Date(b.data.publishDate) - +new Date(a.data.publishDate),
 );
 const latest = articles.slice(0, 9);
+
+// Частые вопросы: статьи, по которым поиск уже показывает сайт, и сезонные темы.
+// Список правится вручную; несуществующий slug просто пропускается.
+const FAQ_SLUGS = [
+  'svet-dlya-rasteniy-pryamoy-i-rasseyannyy',
+  'karantin-dlya-novyh-rasteniy',
+  'muravi-v-gorshke-s-komnatnym-rasteniem-prichiny-i-kak-izbavitsya',
+  'orhideya-posle-pereliva-kak-prosushit-i-spasti',
+  'orhideya-sbrosila-butony-posle-pokupki-prichiny-i-chto-delat',
+  'fikus-benjamina-uhod',
+  'u-monstery-listya-bez-propilov-chto-delat',
+  'granat-v-gorshke-doma-uhod-i-plodonoshenie',
+  'kak-ponyat-chto-rasteniyu-tesen-gorshok',
+  'nuzhno-li-peresazhivat-komnatnye-rasteniya-osenyu',
+  'pochemu-zhelteyut-listya',
+  'kak-chasto-polivat-rasteniya',
+  'suhoy-vozduh-ot-batarey-kak-uberech-komnatnye-rasteniya-zimoy',
+  'kak-hranit-yabloki-zimoy',
+  'kogda-ubirat-tykvu-s-gryadki-priznaki-zrelosti',
+];
+const byId = new Map(all.map((e) => [e.id, e]));
+const faq = FAQ_SLUGS.map((id) => byId.get(id)).filter(Boolean);
 ---
 
 <BaseLayout title={SITE.name} description={SITE.description}>
@@ -27,6 +49,22 @@ const latest = articles.slice(0, 9);
   </section>
 
   <div class="container container-wide">
+    {
+      faq.length > 0 && (
+        <section class="faq-block" aria-labelledby="faq-title">
+          <div class="section-title">
+            <h2 id="faq-title">Частые вопросы про растения</h2>
+          </div>
+          <ul class="faq-list">
+            {faq.map((e) => (
+              <li><a href={articleUrl(e)}>{e.data.title}</a></li>
+            ))}
+            <li><a href="/lunnyj-kalendar/">Лунный календарь садовода на ноябрь и декабрь 2026</a></li>
+          </ul>
+        </section>
+      )
+    }
+
     <div class="section-title">
       <h2>Свежие статьи</h2>
     </div>
@@ -47,3 +85,30 @@ const latest = articles.slice(0, 9);
     <SubscribeBlock />
   </div>
 </BaseLayout>
+
+<style>
+  .faq-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+  }
+  .faq-list a {
+    display: block;
+    height: 100%;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .faq-list a:hover,
+  .faq-list a:focus-visible {
+    border-color: var(--brand);
+    background: var(--brand-soft);
+  }
+</style>
