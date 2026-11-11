@@ -28,7 +28,7 @@ const FORCE = process.argv.includes('--force');
 const ONLY = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 
 // Wikimedia требует осмысленный User-Agent с контактом, иначе блокирует запросы.
-const UA = 'RastiDomaBot/1.0 (https://rasti-doma.ru; rastidoma@yandex.com)';
+const UA = 'RastiDomaBot/1.0 (https://rasti-doma.ru; rasti-doma@yandex.com)';
 
 /**
  * Какое фото искать для какой статьи. Латинские названия дают точный результат:
