@@ -49,6 +49,7 @@ const PHOTO_QUERIES = {
   'uhod-za-orhideey-posle-pokupki': 'Phalaenopsis orchid plant pot',
   'orhideya-posle-pereliva-kak-prosushit-i-spasti': 'Phalaenopsis orchid roots in transparent pot',
   'dekabrist-sbrasyvaet-butony-i-ne-cvetet-chto-delat': 'Schlumbergera truncata flowers',
+  'puansettiya-sbrasyvaet-listya-posle-pokupki-chto-delat': 'Poinsettia Euphorbia pulcherrima potted plant',
   'sansevieriya-schuchiy-hvost-uhod-v-domashnih-usloviyah': 'Sansevieria trifasciata plant',
   'spatifillum-uhod-i-pochemu-ne-cvetet': 'Spathiphyllum flower plant',
   'tolstyanka-uhod-za-denezhnym-derevom': 'Crassula ovata plant',
