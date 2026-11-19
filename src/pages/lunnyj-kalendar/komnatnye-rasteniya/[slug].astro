@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { lunarMonth, RATING_LABELS } from '../../../lib/lunar.mjs';
+import { MONTHS } from '../../../lib/lunar-months.mjs';
+import { ranges, groupIdeal } from '../../../lib/lunar-format.mjs';
+
+/**
+ * Страницы «Лунный календарь цветовода на <месяц> <год> года: комнатные растения».
+ * Те же месяцы и тот же расчёт, что у страниц садовода (src/lib/lunar-months.mjs, src/lib/lunar.mjs),
+ * но тексты и таблица написаны для комнатных растений: пересадка, полив, подкормка, осмотр.
+ */
+export function getStaticPaths() {
+  return MONTHS.map((m) => ({ params: { slug: m.slug }, props: { cfg: m } }));
+}
+
+const { cfg } = Astro.props;
+const days = lunarMonth(cfg.year, cfg.month);
+const gen = cfg.gen;
+const monthTitle = `${cfg.nom} ${cfg.year}`;
+const gardenUrl = `/lunnyj-kalendar/${cfg.slug}/`;
+const otherMonths = MONTHS.filter((m) => m.slug !== cfg.slug);
+const winter = [11, 12, 1, 2].includes(cfg.month);
+
+const byRating = (r) => days.filter((d) => d.rating === r);
+const rest = byRating('forbidden').map((d) => d.day);
+const bad = byRating('bad').map((d) => d.day);
+const ideal = byRating('ideal');
+const good = byRating('good').map((d) => d.day);
+const idealGroups = groupIdeal(ideal);
+
+const rootIdeal = idealGroups.filter((g) => g.part === 'корень');
+const otherIdeal = idealGroups.filter((g) => g.part !== 'корень');
+const fmt = (groups) => groups.map((g) => `${ranges(g.days)} ${gen} (${g.sign})`).join('; ');
+
+/** Что по традиции календаря подходит комнатным растениям в день с данной оценкой и «частью растения». */
+function plantAdvice(d) {
+  if (d.rating === 'forbidden') {
+    return 'День покоя: пересадку, обрезку и подкормку не планируют. Полив — по состоянию земли.';
+  }
+  if (d.rating === 'bad') {
+    return 'Неблагоприятный день: пересадку отложить; подходят осмотр на вредителей, протирание листьев.';
+  }
+  if (d.rating === 'ideal') {
+    if (d.part === 'корень') return 'Пересадка и работы с корнями, рыхление земли.';
+    if (d.part === 'лист') return 'Полив и подкормка листовых растений.';
+    if (d.part === 'цветок') return 'Цветущие растения: подкормка, уход, выгонка луковичных.';
+    return 'Комнатные цитрусовые и плодовые: уход и подкормка.';
+  }
+  return 'Обычный уход; пересадка, если она действительно нужна.';
+}
+
+const title = `Лунный календарь цветовода на ${cfg.nom} ${cfg.year} года: комнатные растения`;
+const description = `Лунный календарь цветовода на ${cfg.nom} ${cfg.year} года для комнатных растений: когда пересаживать, поливать и подкармливать, дни покоя, таблица по дням.`;
+
+const transplantText = rootIdeal.length
+  ? `Идеальные дни для пересадки по календарю: ${fmt(rootIdeal)}.`
+  : `Идеальных «корневых» дней для пересадки в этом месяце нет. Если пересадка нужна, ориентируйтесь на хорошие дни: ${ranges(good)} ${gen}.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <h1>Лунный календарь цветовода на {monthTitle} года: комнатные растения</h1>
+      <p class="lead">
+        Когда пересаживать, поливать и подкармливать комнатные растения по лунному календарю, какие
+        дни считаются днями покоя и когда лучше только осмотреть растения. Для садовода и огородника
+        есть <a href={gardenUrl}>посевной календарь на {monthTitle}</a>.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-block: 32px 40px;">
+    <div class="article-body prose-narrow">
+      <h2>Главное на {monthTitle}</h2>
+      <ul>
+        <li><strong>Пересадка:</strong> {transplantText}</li>
+        <li><strong>Полив и подкормка:</strong> {otherIdeal.length ? `лучшие дни по календарю: ${fmt(otherIdeal)}.` : 'выделенных дней нет, поливайте по подсыханию земли.'}</li>
+        <li><strong>Дни покоя:</strong> {`${ranges(rest)} ${gen}`}. Пересадку и обрезку лучше не планировать.</li>
+        <li><strong>Неблагоприятные дни:</strong> {`${ranges(bad)} ${gen}`}. Подходят осмотр на вредителей и протирание листьев.</li>
+        <li><strong>Новолуние и полнолуние:</strong> {`астрономически новолуние ${cfg.astro.newMoon}, полнолуние ${cfg.astro.fullMoon} (по Москве).`}</li>
+      </ul>
+      <p class="lunar-note">
+        Лунный календарь — это народная традиция, научных подтверждений влияния Луны на рост
+        комнатных растений нет. Если растению нужна срочная помощь (гниль корней, вредители, тесный
+        горшок), не ждите «хорошего» дня.
+      </p>
+
+      <h2>Календарь по дням на {monthTitle} для комнатных растений</h2>
+      <div class="lunar-table-wrap">
+        <table class="lunar-table">
+          <thead>
+            <tr>
+              <th>Число</th>
+              <th class="col-lunar">Знак</th>
+              <th>Статус</th>
+              <th>Что подходит комнатным растениям</th>
+            </tr>
+          </thead>
+          <tbody>
+            {days.map((d) => (
+              <tr class={`r-${d.rating}`}>
+                <td>{d.day} {gen}, {d.weekday}</td>
+                <td class="col-lunar">{d.sign}</td>
+                <td><strong>{RATING_LABELS[d.rating]}</strong></td>
+                <td>{plantAdvice(d)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="lunar-note">
+        Статусы дней те же, что в <a href={gardenUrl}>календаре садовода на {monthTitle}</a> и в
+        <a href="/lunnyj-kalendar/">лунном календаре с выбором региона</a>: фаза Луны и знак зодиака
+        определяются на полдень по Москве.
+      </p>
+
+      <h2>Что учесть в {cfg.loc} при уходе за комнатными растениями</h2>
+      <p>{cfg.intro}</p>
+      {winter && (
+        <p>
+          В холодное время у большинства комнатных растений замедляется рост: пересадку без
+          необходимости и обильную подкормку лучше отложить до весны. Подробнее об этом в статьях
+          <a href="/sovety/nuzhno-li-peresazhivat-komnatnye-rasteniya-osenyu/">«Нужно ли пересаживать комнатные растения осенью»</a>
+          и <a href="/sovety/kogda-prekraschat-podkormku-komnatnyh-rasteniy-na-zimu/">«Когда прекращать подкормку комнатных растений на зиму»</a>.
+        </p>
+      )}
+      <ul>
+        {cfg.tasks.filter((t) => !t.href.startsWith('/sad-ogorod/')).map((t) => (
+          <li><a href={t.href}>{t.text}</a>{t.after}</li>
+        ))}
+      </ul>
+
+      <h2>Частые вопросы</h2>
+      <h3>Когда пересаживать комнатные растения в {cfg.loc} {cfg.year} года по лунному календарю?</h3>
+      <p>
+        {`${transplantText} Если растению тесно в горшке или нужна срочная помощь, пересаживайте не дожидаясь этих дней. Без необходимости зимой пересадку лучше отложить до весны.`}
+      </p>
+      <h3>Можно ли поливать комнатные растения в дни покоя?</h3>
+      <p>
+        Да. Полив зависит от подсыхания земли, а не от Луны (общие ориентиры — в статье
+        <a href="/sovety/kak-chasto-polivat-rasteniya/">«Как часто поливать растения»</a>). Календарь
+        лишь подсказывает дни, когда по традиции не планируют пересадку и обрезку.
+      </p>
+      <h3>Какие дни считаются днями покоя в {cfg.loc} {cfg.year} года?</h3>
+      <p>
+        {`В нашем календаре это ${ranges(rest)} ${gen}: новолуние, полнолуние и лунные дни 1, 14, 15, 16, 29 и 30.`}
+      </p>
+      <h3>Работает ли лунный календарь для комнатных растений?</h3>
+      <p>
+        Убедительных научных подтверждений нет. Для комнатных растений гораздо важнее свет, полив,
+        температура и состояние корней. Календарь можно использовать как ориентир для планирования
+        бытовых дел, а не как строгое правило.
+      </p>
+
+      <h2>Лунный календарь цветовода на другие месяцы</h2>
+      <ul>
+        <li><a href={gardenUrl}>{`Лунный посевной календарь на ${cfg.nom} ${cfg.year} года: садовод и цветовод`}</a></li>
+        {otherMonths.map((m) => (
+          <li><a href={`/lunnyj-kalendar/komnatnye-rasteniya/${m.slug}/`}>{`Лунный календарь цветовода на ${m.nom} ${m.year} года: комнатные растения`}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lunar-table-wrap {
+    overflow-x: auto;
+  }
+  .lunar-table td,
+  .lunar-table th {
+    padding: 8px 8px;
+    vertical-align: top;
+  }
+  @media (max-width: 640px) {
+    .lunar-table {
+      font-size: 0.78rem;
+    }
+    .lunar-table td,
+    .lunar-table th {
+      padding: 5px 3px;
+    }
+    .lunar-table .col-lunar {
+      display: none;
+    }
+  }
+  .lunar-table tr.r-ideal td {
+    background: rgba(46, 125, 50, 0.14);
+  }
+  .lunar-table tr.r-good td {
+    background: rgba(46, 125, 50, 0.05);
+  }
+  .lunar-table tr.r-bad td {
+    background: rgba(230, 126, 34, 0.12);
+  }
+  .lunar-table tr.r-forbidden td {
+    background: rgba(183, 28, 28, 0.12);
+  }
+  .lunar-note {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+  }
+</style>

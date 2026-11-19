@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { lunarMonth, RATING_LABELS } from '../../lib/lunar.mjs';
 import { MONTHS } from '../../lib/lunar-months.mjs';
+import { ranges, groupIdeal } from '../../lib/lunar-format.mjs';
 
 /**
  * Страницы «Лунный календарь садовода на <месяц> <год>». Список месяцев — src/lib/lunar-months.mjs.
@@ -16,25 +17,6 @@ const days = lunarMonth(cfg.year, cfg.month);
 const gen = cfg.gen;
 const otherMonths = MONTHS.filter((m) => m.slug !== cfg.slug);
 
-/** «9–11, 23–25 ноября» из списка дней. */
-function ranges(list) {
-  const out = [];
-  let start = null;
-  let prev = null;
-  for (const d of list) {
-    if (start === null) {
-      start = prev = d;
-    } else if (d === prev + 1) {
-      prev = d;
-    } else {
-      out.push(start === prev ? `${start}` : `${start}–${prev}`);
-      start = prev = d;
-    }
-  }
-  if (start !== null) out.push(start === prev ? `${start}` : `${start}–${prev}`);
-  return out.join(', ');
-}
-
 const byRating = (r) => days.filter((d) => d.rating === r);
 const rest = byRating('forbidden').map((d) => d.day);
 const bad = byRating('bad').map((d) => d.day);
@@ -42,15 +24,7 @@ const ideal = byRating('ideal');
 const good = byRating('good').map((d) => d.day);
 
 /** Идеальные дни, склеенные в серии с одинаковой «частью растения». */
-const idealGroups = [];
-for (const d of ideal) {
-  const last = idealGroups[idealGroups.length - 1];
-  if (last && last.part === d.part && last.sign === d.sign && d.day === last.days[last.days.length - 1] + 1) {
-    last.days.push(d.day);
-  } else {
-    idealGroups.push({ part: d.part, sign: d.sign, days: [d.day] });
-  }
-}
+const idealGroups = groupIdeal(ideal);
 
 const idealSummary = idealGroups.map((g) => `${ranges(g.days)} ${gen} (${g.sign})`).join('; ');
 
@@ -61,18 +35,20 @@ const PART_TEXT = {
   цветок: 'цветы: цветущие комнатные растения, выгонка луковичных',
 };
 
-const title = `Лунный календарь садовода на ${cfg.nom} ${cfg.year}: благоприятные дни`;
-const description = `Лунный календарь садовода на ${cfg.nom} ${cfg.year}: таблица по дням, лучшие дни для посадки и пересадки, дни покоя, фазы Луны и знаки зодиака.`;
+const title = `Лунный посевной календарь на ${cfg.nom} ${cfg.year} года: садовод и цветовод`;
+const description = `Лунный посевной календарь на ${cfg.nom} ${cfg.year} года: таблица по дням, лучшие дни для посева, посадки и пересадки, дни покоя, фазы Луны и знаки зодиака.`;
 const monthTitle = `${cfg.nom} ${cfg.year}`;
+const plantsUrl = `/lunnyj-kalendar/komnatnye-rasteniya/${cfg.slug}/`;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="hero">
     <div class="container">
-      <h1>Лунный календарь садовода на {monthTitle}</h1>
+      <h1>Лунный посевной календарь садовода и цветовода на {monthTitle} года</h1>
       <p class="lead">
-        Благоприятные и неблагоприятные дни для посадки, пересадки и ухода: таблица по дням, лучшие
-        дни и дни покоя.
+        Благоприятные и неблагоприятные дни для посева, посадки, пересадки и ухода: таблица по
+        дням, лучшие дни и дни покоя. Только комнатные растения — в календаре
+        <a href={plantsUrl}>цветовода на {monthTitle}</a>.
       </p>
     </div>
   </section>
@@ -174,8 +150,9 @@ const monthTitle = `${cfg.nom} ${cfg.year}`;
         <>
           <h2>Лунный календарь на другие месяцы</h2>
           <ul>
+            <li><a href={plantsUrl}>{`Лунный календарь цветовода на ${cfg.nom} ${cfg.year} года: комнатные растения`}</a></li>
             {otherMonths.map((m) => (
-              <li><a href={`/lunnyj-kalendar/${m.slug}/`}>{`Лунный календарь садовода на ${m.nom} ${m.year}`}</a></li>
+              <li><a href={`/lunnyj-kalendar/${m.slug}/`}>{`Лунный посевной календарь на ${m.nom} ${m.year} года`}</a></li>
             ))}
           </ul>
         </>
