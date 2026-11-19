@@ -45,7 +45,7 @@ const PHOTO_QUERIES = {
   'hlorofitum-uhod-i-razmnozhenie': 'Chlorophytum comosum plant',
   'kaktus-uhod-v-domashnih-usloviyah': 'Cactus potted houseplant',
   'limon-doma-iz-kostochki-do-plodov': 'Citrus limon potted tree',
-  'orhideya-falenopsis-uhod': 'Phalaenopsis orchid flower',
+  'orhideya-falenopsis-uhod': 'File:Phalaenopsis cultivar FR 2012.jpg',
   'uhod-za-orhideey-posle-pokupki': 'Phalaenopsis orchid plant pot',
   'orhideya-posle-pereliva-kak-prosushit-i-spasti': 'Phalaenopsis orchid roots in transparent pot',
   'dekabrist-sbrasyvaet-butony-i-ne-cvetet-chto-delat': 'Schlumbergera truncata flowers',
