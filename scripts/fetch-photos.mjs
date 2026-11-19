@@ -64,7 +64,7 @@ const PHOTO_QUERIES = {
   // Вредители и болезни
   'tlya-na-rasteniyah-kak-vyvesti': 'Aphid on plant leaf',
   'pautinnyy-klesch-priznaki-i-lechenie': 'Tetranychus urticae spider mite',
-  'muchnistyy-chervec-kak-izbavitsya': 'Mealybug Pseudococcidae plant',
+  'muchnistyy-chervec-kak-izbavitsya': 'File:Citrus mealybug Planococcus citrus on Clivia miniata 03.jpg',
   'schitovka-na-komnatnyh-rasteniyah-kak-raspoznat-i-vyvesti': 'Scale insect Coccoidea plant',
   'tripsy-na-komnatnyh-rasteniyah-priznaki-i-lechenie': 'Thrips insect plant leaf',
   'fitoftora-na-tomatah-priznaki-i-lechenie': 'Phytophthora infestans tomato blight',
