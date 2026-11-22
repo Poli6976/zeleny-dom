@@ -317,6 +317,28 @@ import { ANALYTICS } from '../site.config.mjs';
       }
     }
 
+    // Отложенная отправка. Если человек ушёл со страницы (закрыл вкладку,
+    // перешёл по ссылке) раньше, чем прошли REPORT_DELAY, досылаем запрос сразу,
+    // иначе он терялся.
+    let pendingSend = null;
+    function schedule(fn) {
+      pendingSend = fn;
+      reportTimer = setTimeout(() => {
+        pendingSend = null;
+        fn();
+      }, REPORT_DELAY);
+    }
+    function flushPending() {
+      clearTimeout(reportTimer);
+      if (!pendingSend) return;
+      const fn = pendingSend;
+      pendingSend = null;
+      fn();
+    }
+    window.addEventListener('pagehide', flushPending);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') flushPending();
+    });
     /**
      * Ничего не нашли — говорим об этом читателю и записываем запрос.
      * При наборе отправку откладываем, чтобы не слать обрывки слова;
@@ -334,7 +356,7 @@ import { ANALYTICS } from '../site.config.mjs';
         report(query);
         confirmSent();
       } else {
-        reportTimer = setTimeout(() => report(query), REPORT_DELAY);
+        schedule(() => report(query));
       }
     }
 
@@ -342,6 +364,7 @@ import { ANALYTICS } from '../site.config.mjs';
       // Любой новый символ отменяет отложенную отправку — уходит только то,
       // на чём человек остановился.
       clearTimeout(reportTimer);
+      pendingSend = null;
       const query = input.value.trim();
       if (query.length < 2) {
         box.hidden = true;
@@ -364,7 +387,7 @@ import { ANALYTICS } from '../site.config.mjs';
         renderResults(found);
         const normalized = normalize(query);
         if (immediate) reportFoundQuery(normalized);
-        else reportTimer = setTimeout(() => reportFoundQuery(normalized), REPORT_DELAY);
+        else schedule(() => reportFoundQuery(normalized));
       } else renderEmpty(normalize(query), immediate);
     }
 
